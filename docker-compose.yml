@@ -1,0 +1,17 @@
+version: "3"
+services:
+  db:
+    image: postgres:latest
+    ports:
+      - 5430:5430
+    environment:
+      POSTGRES_PASSWORD: bhavuk
+      POSTGRES_DB: main_dental_development
+  web:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
