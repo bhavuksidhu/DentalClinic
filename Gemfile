@@ -57,6 +57,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-
 gem 'dotenv-rails'
 gem 'activeadmin'
+gem 'pry-rails'
+gem "tailwindcss-rails", "~> 2.0"
