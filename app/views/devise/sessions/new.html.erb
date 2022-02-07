@@ -3,12 +3,11 @@
     <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
       <div class="mx-auto w-full max-w-sm lg:w-96">
         <div>
-          <h2 class="mt-6 text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
+          <h2 class="mt-6 text-3xl font-extrabold text-gray-900 text-center">Sign in to your account</h2>
         </div>
 
-        <div class="mt-8">
-    
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class:"space-y-6"}) do |f| %>
+        <div>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class:"space-y-6 rounded-md shadow px-5 py-5"}) do |f| %>
           <div class="mb-4">
             <%= f.label :email, class:"text-sm font-medium text-gray-700" %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
@@ -31,16 +30,12 @@
           </div>
         <% end %>
 
-        <div class="text-sm">               
+        <div class="mt-1 text-sm">               
           <%= render "devise/shared/links" %>
         </div>
 
         </div>
       </div>
     </div>
-    <div class="hidden lg:block relative w-0 flex-1">
-      <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80" alt="">
-    </div>
   </div>
-
 </div>
