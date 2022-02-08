@@ -61,3 +61,4 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'activeadmin'
 gem "tailwindcss-rails", "~> 2.0"
+gem 'ransack'
