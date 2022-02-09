@@ -115,6 +115,11 @@
                 </table>
               </div>
           </div>
+          <% if @pagy.count > 10 %>
+            <div class="mt-5">
+              <%== pagy_nav(@pagy) %>
+            </div>          
+          <% end %>
         </div>
         </div>
       </div>
