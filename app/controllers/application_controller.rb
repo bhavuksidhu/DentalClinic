@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :authenticate_user!
+    before_action :set_locale
     include Pagy::Backend
     protect_from_forgery with: :exception
 
@@ -12,4 +13,14 @@ class ApplicationController < ActionController::Base
 
                devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:role, :email, :password, :current_password)}
           end
+  
+
+  private
+  def set_locale
+      if %w(ja en).include?(params[:locale])
+      I18n.locale = params[:locale]
+      else
+        I18n.locale = "ja"
+      end
+  end
 end
