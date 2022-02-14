@@ -10,8 +10,14 @@ module DentalClinic
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+<<<<<<< HEAD
     config.i18n.available_locales = [:en, :ja]
     config.i18n.default_locale = :ja
+=======
+    # config.i18n.available_locales = [:en, :ja]
+    # config.i18n.default_locale = :ja
+    
+>>>>>>> varun
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

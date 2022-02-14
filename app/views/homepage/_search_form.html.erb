@@ -1,4 +1,4 @@
-<%= search_form_for @q,url: homepage_home_path,class:"flex justify-center mb-4" do |f| %>
+<%= search_form_for @q,url: user_index_path,class:"flex justify-center mb-4" do |f| %>
     <div class="mb-3 xl:w-96">
     <%= f.search_field :email, class:"form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500", placeholder: "Search..." %>
     </div>

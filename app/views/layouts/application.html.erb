@@ -12,10 +12,19 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
+    
+    <main class="container mx-auto mt-28 px-5 flex">
+     
+    <%
+=begin%>
+ <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <li class = 'text-right'><%= link_to "English", root_path(locale: :en)%> </li>
-    <li class = 'text-right'><%= link_to "Japanese", root_path(locale: :ja) %> </li>
+    <li class = 'text-right'><%#= link_to "English", root_path(locale: :en)%> </li>
+    <li class = 'text-right'><%#= link_to "Japanese", root_path(locale: :ja) %> </li> 
+<%
+=end%>
     <%= yield %>
+
+    </main>
   </body>
 </html>
