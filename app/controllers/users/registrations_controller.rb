@@ -15,14 +15,27 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    @user = User.find(params[:id])
+  
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    @user = User.find(params[:id]) 
+    
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to user_index_path, notice: "User was successfully updated." }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+    
+
+  end
 
   # DELETE /resource
   # def destroy
@@ -59,4 +72,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  private 
+
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :role,:current_password)
+  end
 end
