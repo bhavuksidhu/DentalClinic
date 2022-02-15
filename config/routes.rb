@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :managers 
+  resources :agents 
   resources :clinics
   get 'user/index'
   devise_for :admin_users, ActiveAdmin::Devise.config
