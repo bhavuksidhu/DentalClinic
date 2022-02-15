@@ -7,7 +7,7 @@
         </div>
 
         <div>
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class:"space-y-6 rounded shadow px-5 py-5" }) do |f| %>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name,id:params[:id]), html: { method: :put, class:"space-y-6 rounded shadow px-5 py-5" }) do |f| %>
               <%= render "devise/shared/error_messages", resource: resource %>
 
               <div class="field">
