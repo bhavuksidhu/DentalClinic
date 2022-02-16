@@ -4,7 +4,7 @@ class User < ApplicationRecord
   attribute :current_password
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :trackable
+         :recoverable, :rememberable, :validatable, :trackable, :masqueradable
 
   enum role: { Administrator: 'Administrator', ClinicUser: 'ClinicUser'}, _default: " "
   after_initialize :set_default_role, :if => :new_record? 
