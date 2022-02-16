@@ -1,5 +1,5 @@
 class DropManager < ActiveRecord::Migration[6.1]
   def change
-    drop_table :managers
+    drop_table :managers 
   end
 end

@@ -1,10 +1,10 @@
 class ClinicsController < ApplicationController
+  layout "dashboard"
   before_action :set_clinic, only: %i[ show edit update destroy ]
 
   # GET /clinics or /clinics.json
   def index
     @clinics = Clinic.all
-    render layout: "dashboard"
   end
 
   # GET /clinics/1 or /clinics/1.json
