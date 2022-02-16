@@ -35,6 +35,9 @@
                       <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <%= link_to "Edit", edit_user_registration_path(id: user.id),class:"text-cyan-900 hover:text-cyan-900" %>
                       </td>
+                      <td>
+                        <%= link_to "Login As", masquerade_path(user),class:"text-cyan-900 hover:text-cyan-900" %>
+                      </td>
                     </tr>
                     <% end %>
                     <!-- More people... -->
