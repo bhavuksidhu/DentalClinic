@@ -1,10 +1,10 @@
-<%= form_with(model: manager, class: "contents") do |form| %>
-    <% if manager.errors.any? %>
+<%= form_with(model: dentist,class: "contents") do |form| %>
+    <% if dentist.errors.any? %>
       <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-        <h2><%= pluralize(manager.errors.count, "error") %> prohibited this clinic from being saved:</h2>
+        <h2><%= pluralize(dentist.errors.count, "error") %> prohibited this clinic from being saved:</h2>
 
         <ul>
-          <% manager.errors.each do |error| %>
+          <% dentist.errors.each do |error| %>
             <li><%= error.full_message %></li>
           <% end %>
         </ul>
@@ -19,6 +19,11 @@
     <div class="my-5">
     <%= form.label :last_name %>
     <%= form.text_field :last_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
 
     <div class="inline">

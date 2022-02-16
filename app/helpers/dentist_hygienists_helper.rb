@@ -1,0 +1,2 @@
+module DentistHygienistsHelper
+end

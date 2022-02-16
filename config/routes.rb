@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :dentist_hygienists
+  resources :dentists
+  resources :patients 
   resources :agents 
   resources :managers 
   resources :clinics
