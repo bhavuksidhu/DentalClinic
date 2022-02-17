@@ -17,7 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/edit
   def edit
     @user = User.find(params[:id])
-  
+    # layout: dashboard
   end
 
   # PUT /resource
@@ -75,6 +75,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private 
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :role,:current_password)
+    params.require(:user).permit(:password, :password_confirmation, :current_password)
   end
 end
