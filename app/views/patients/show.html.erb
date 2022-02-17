@@ -1,0 +1,70 @@
+<div class="w-full flex">
+  <div class="w-full m-4 mx-auto grid grid-cols-12 gap-4 ">
+    <div class="col-span-12 md:col-span-7 shadow mt-5 px-5 py-5">
+      <% if notice.present? %>
+        <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+      <% end %>
+
+      <p class="my-5">
+      <h3 class="inline-flex px-6 py-4 text-sm text-gray-500">
+      <strong class="block font-medium mb-1 mr-4">First Name:</strong>
+          <%= @patient.first_name %>
+      </h3>
+      </p>
+
+      <p class="my-5">
+      <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
+      <strong class="block font-medium mb-1 mr-4">Last Name:</strong>
+          <%= @patient.last_name %>
+      </h4>
+      </p>
+
+      <p class="my-5">
+      <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
+      <strong class="block font-medium mb-1 mr-4">Phone:</strong>
+          <%= @patient.phone %>
+      </h4>
+      </p>
+
+      <%= link_to 'Edit this patient', edit_patient_path(@patient), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <div class="inline-block ml-2">
+        <%= button_to 'Destroy this patient', patient_path(@patient), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      </div>
+      <%= link_to 'Back to patients', patients_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    </div>
+
+    <div class="col-span-12 md:col-span-3 h-96 overflow-y-scroll">
+      <div class="ml-5 mt-6 text-center">
+        <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="underline bg-gray-50">
+                    <tr>
+                      <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Treatment Dates</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <% @patient.appointment.each do |date| %>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= date %></td>
+                    </tr>
+                    <% end %>
+                  </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-span-12 md:col-span-2 ml-5 mt-6">  
+      <h1 id="appointment_button" class="inline-flex items-center px-4 py-2 border border-cyan-300 shadow-sm text-sm font-medium rounded-md text-white bg-cyan-500 hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">Next Appointment</h1>
+      <div id="appointment" class="hidden">
+        <%= render "appointment" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#appointment_button").click(function(){
+    $("#appointment").toggle();
+  });
+});
+</script>

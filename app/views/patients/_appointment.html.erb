@@ -1,0 +1,26 @@
+<div class="mx-auto w-full mt-5">  
+    <%= form_with(model: @patient,url: add_appointment_path(id: @patient.id),class: "contents") do |form| %>
+        <% if @patient.errors.any? %>
+        <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+            <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this clinic from being saved:</h2>
+
+            <ul>
+            <% @patient.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+            <% end %>
+            </ul>
+            </div>
+        <% end %>
+
+
+        <div class="mr-8">
+        <div class="inline-flex float-right">
+        <%= form.submit "Add", class:"inline-flex items-center px-4 py-2 border border-cyan-300 shadow-sm text-sm font-medium rounded-md text-white bg-cyan-500 hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mb-3" %>
+        </div>
+
+        <%= form.date_field :appointment_date, class: "block shadow rounded-md border border-cyan-500 outline-none px-3 py-2 mt-2 w-full" %>
+        </div>
+        
+    <% end %>
+</div>
+

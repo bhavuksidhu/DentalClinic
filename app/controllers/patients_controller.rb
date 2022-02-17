@@ -6,6 +6,10 @@ class PatientsController < ApplicationController
     pagy_ransack(Patient)
   end
 
+  def show 
+    @patient = Patient.find(params[:id])
+  end 
+
   def new 
     @patient = Patient.new 
   end 
@@ -17,6 +21,21 @@ class PatientsController < ApplicationController
       redirect_to patients_path, notice: "Patient #{@patient.first_name} Successfully Created!"
     else  
       render :new, status: :unprocessable_entity
+    end 
+  end 
+
+  def appointment 
+    @patient = Patient.find(params[:id])
+  end 
+  
+  def add_appointment 
+    @patient = Patient.find(params[:id])
+    # binding.pry
+    
+    if @patient.appointment.push params[:patient][:appointment_date]
+      @patient.save  
+      # binding.pry
+      redirect_to patient_path(@patient), notice: "New Appointment Added!"
     end 
   end 
 
@@ -44,5 +63,9 @@ class PatientsController < ApplicationController
 
   def patient_params 
     params.require(:patient).permit(:first_name, :last_name, :phone)
+  end 
+
+  def appointment_params 
+    params.require(:patient).permit(:appointment_date)
   end 
 end
