@@ -1,5 +1,6 @@
 class Patient < ApplicationRecord
-
+    
+    validates :first_name, :last_name, :phone, presence: true
 
     # def next_treatment 
     #     arr = self.appointment 
@@ -12,4 +13,5 @@ class Patient < ApplicationRecord
     #     last_date = arr.sort.select{|a| a <= DateTime.now }
     #     last_date.last  
     # end 
+
 end

@@ -67,3 +67,4 @@ gem 'pundit'
 gem "tailwindcss-rails", "~> 2.0"
 gem 'devise_masquerade'
 
+gem 'jquery-ui-rails'

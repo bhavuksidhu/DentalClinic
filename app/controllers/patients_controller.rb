@@ -30,11 +30,12 @@ class PatientsController < ApplicationController
   
   def add_appointment 
     @patient = Patient.find(params[:id])
-    # binding.pry
-    
-    if @patient.appointment.push params[:patient][:appointment_date]
+       
+    if params[:patient][:appointment_date] <= DateTime.now 
+      redirect_to patient_path(@patient), notice: "Can't select older dates!" 
+    else 
+      @patient.appointment.push params[:patient][:appointment_date] 
       @patient.save  
-      # binding.pry
       redirect_to patient_path(@patient), notice: "New Appointment Added!"
     end 
   end 
