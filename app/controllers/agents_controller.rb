@@ -1,8 +1,9 @@
 class AgentsController < ApplicationController
     layout "dashboard"
-    include AgentsHelper
+
     def index 
-        pagy_ransack(Agent)
+        @q = Agent.ransack(params[:q])
+        @pagy, @users = pagy(@q.result) 
     end 
 
     def new 

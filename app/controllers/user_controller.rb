@@ -1,8 +1,9 @@
 class UserController < ApplicationController
   layout "dashboard"
-  include UserHelper
+
   def index
-    pagy_ransack(User)  
+    @q = User.ransack(params[:q])
+    @pagy, @users = pagy(@q.result.includes(logo_attachment: :blob)) 
   end
 
   # def change_pass 

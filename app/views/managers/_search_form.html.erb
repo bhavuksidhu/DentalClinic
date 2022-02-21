@@ -1,0 +1,9 @@
+<%= search_form_for @q,url: managers_path,class:"flex justify-center mb-4" do |f| %>
+    <div class="mb-3 xl:w-96">
+        <%= f.search_field :first_name_cont, class:"form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500", placeholder: "Search..." %>
+    </div>
+    <div class="mb-3 xl:w-96">
+        <%= f.submit class:"inline-flex items-center px-2 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" %>
+    </div>
+<% end %>
+

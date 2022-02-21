@@ -1,9 +1,9 @@
 class PatientsController < ApplicationController
   layout "dashboard"
-  include PatientsHelper 
 
   def index
-    pagy_ransack(Patient)
+    @q = Patient.ransack(params[:q])
+    @pagy, @users = pagy(@q.result) 
   end
 
   def show 

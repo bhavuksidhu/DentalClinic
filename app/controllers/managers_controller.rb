@@ -1,8 +1,9 @@
 class ManagersController < ApplicationController
   layout "dashboard"
-  include ManagersHelper
+
   def index
-    pagy_ransack(Manager) 
+    @q = Manager.ransack(params[:q])
+    @pagy, @users = pagy(@q.result) 
   end
 
   def new 

@@ -1,9 +1,9 @@
 class DentistsController < ApplicationController
-    include DentistsHelper
     layout "dashboard"
 
     def index 
-        pagy_ransack(Dentist)
+        @q = Dentist.ransack(params[:q])
+        @pagy, @users = pagy(@q.result) 
     end 
 
     def new 
