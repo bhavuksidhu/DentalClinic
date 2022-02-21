@@ -1,6 +1,6 @@
 class ManagersController < ApplicationController
   layout "dashboard"
-  include UserHelper
+  include ManagersHelper
   def index
     pagy_ransack(Manager) 
   end

@@ -1,6 +1,6 @@
 class AgentsController < ApplicationController
     layout "dashboard"
-    include UserHelper
+    include AgentsHelper
     def index 
         pagy_ransack(Agent)
     end 

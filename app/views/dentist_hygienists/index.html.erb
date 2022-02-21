@@ -30,7 +30,7 @@
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.created_at.to_date %></td>
                       <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <%= link_to 'Edit', edit_dentist_hygienist_path(user.id),class:"text-cyan-900 hover:text-cyan-900" %>
-                        <%= link_to 'Delete', dentist_hygienist_path(user), method: :delete,class:"text-cyan-900 hover:text-cyan-900" %>
+                        <%= link_to 'Delete', dentist_hygienist_path(user), method: :delete, data: { confirm: "Are you sure?" },class:"text-cyan-900 hover:text-cyan-900" %>
                       </td>
                     </tr>
                     <% end %>

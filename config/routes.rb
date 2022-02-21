@@ -18,11 +18,16 @@ Rails.application.routes.draw do
   patch 'add_appointment', to: "patients#add_appointment"
 
   get 'user/index'
-  get 'user/:id/user_change', to: "user#change_pass"
-  patch 'user_update', to: "user#update_pass"
+  # get 'user/:id/user_change', to: "user#change_pass"
+  # patch 'user_update', to: "user#update_pass"
 
 
   get 'homepage/home'
   root 'homepage#home'
+
+  get "sign_up", to: "registrations#new"
+  post "sign_up", to: "registrations#create"
+  get 'user/:id/edit', to: "registrations#edit"
+  patch 'user_update', to: "registrations#update"
 
 end

@@ -5,6 +5,6 @@ module UserHelper
         else
             @q = model.ransack(email_cont: params[:q][:email])
         end 
-        @pagy, @users = pagy(@q.result(distinct: true))     
+        @pagy, @users = pagy(@q.result(distinct: true).includes(logo_attachment: :blob))     
     end 
 end

@@ -1,6 +1,6 @@
 class DentistHygienistsController < ApplicationController
     layout "dashboard"
-    include UserHelper 
+    include DentistHygienistsHelper 
 
     def index 
         pagy_ransack(DentistHygienist)

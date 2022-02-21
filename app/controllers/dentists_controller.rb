@@ -1,5 +1,5 @@
 class DentistsController < ApplicationController
-    include UserHelper
+    include DentistsHelper
     layout "dashboard"
 
     def index 

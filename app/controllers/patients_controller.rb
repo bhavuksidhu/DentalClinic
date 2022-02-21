@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
   layout "dashboard"
-  include UserHelper 
+  include PatientsHelper 
 
   def index
     pagy_ransack(Patient)
