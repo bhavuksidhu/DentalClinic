@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   resources :managers
   resources :clinics
   
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  
   devise_for :users, path: 'users', controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
