@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
     before_action :masquerade!
     before_action :authenticate_user!
     include Pundit::Authorization
-    # before_action :set_locale
+    before_action :set_locale
     include Pagy::Backend
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
     protect_from_forgery with: :exception
@@ -24,11 +24,11 @@ class ApplicationController < ActionController::Base
     flash[:alert] =" You are not authorized to perform this action."
     end
 
-  # def set_locale
-  #     if %w(ja en).include?(params[:locale])
-  #     I18n.locale = params[:locale]
-  #     else
-  #       I18n.locale = "ja"
-  #     end
-  # end
+  def set_locale
+      if %w(ja en).include?(params[:locale])
+      I18n.locale = params[:locale]
+      else
+        I18n.locale = "ja"
+      end
+  end
 end

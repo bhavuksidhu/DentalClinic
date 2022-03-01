@@ -12,7 +12,8 @@
   </head>
 
   <body>  
-  
+  <li class = 'text-right'><%= link_to "English", root_path(locale: :en)%> </li>
+  <li class = 'text-right'><%= link_to "Japanese", root_path(locale: :ja) %> </li> 
   <div class="min-h-full">
     <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
     <div id="sidebar_bg" class="fixed inset-0 flex z-40 lg:hidden" role="dialog" aria-modal="true">
@@ -250,7 +251,7 @@
               <%= link_to t("users.sign_in"), new_user_session_path, class:"inline-flex max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 lg:p-2 lg:rounded-md lg:hover:bg-gray-50" unless user_signed_in? %>
 
               
-              <%= link_to "Sign Out", destroy_user_session_path, class:"inline-flex max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 lg:p-2 lg:rounded-md lg:hover:bg-gray-50" if user_signed_in? %>
+              <%= link_to t("users.logout"), destroy_user_session_path, class:"inline-flex max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 lg:p-2 lg:rounded-md lg:hover:bg-gray-50" if user_signed_in? %>
             </div>
           </div>
         </div>

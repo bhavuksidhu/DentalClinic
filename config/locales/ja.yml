@@ -2,3 +2,10 @@ ja:
   users:
     sign_in: "ログイン"
     logout: "ログアウト"
+  admin:
+    Dashboard: "ダッシュボード"
+    Users Management: "ユーザー管理"
+    Account Management: "アカウント管理"
+    Master Files: "管理者"
+    System Management: "ユーザー"
+    Document Management: "文書管理"
