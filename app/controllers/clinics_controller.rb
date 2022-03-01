@@ -5,7 +5,7 @@ class ClinicsController < ApplicationController
   # GET /clinics or /clinics.json
   def index
     @q = Clinic.ransack(params[:q])
-    @pagy, @users = pagy(@q.result)  
+    @pagy, @clinics = pagy(@q.result)  
   end
 
   # GET /clinics/1 or /clinics/1.json

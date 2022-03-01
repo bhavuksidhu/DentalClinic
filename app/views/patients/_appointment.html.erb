@@ -1,5 +1,5 @@
 <div class="mx-auto w-full mt-5">  
-    <%= form_with(model: @patient,url: add_appointment_path(id: @patient.id),class: "contents") do |form| %>
+    <%= form_with(model: @patient,url: add_appointment_patients_path(id: @patient.id),class: "contents") do |form| %>
         <% if @patient.errors.any? %>
         <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
             <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this clinic from being saved:</h2>
