@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   
   get 'homepage/home'
   root 'homepage#home'
+  get 'translate',to: 'homepage#translate'
 
   get "sign_up", to: "registrations#new"
   post "sign_up", to: "registrations#create"

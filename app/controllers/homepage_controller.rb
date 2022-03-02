@@ -8,4 +8,13 @@ class HomepageController < ApplicationController
     @patient_count = Patient.count 
     @dentist_hygienist_count = DentistHygienist.count 
   end
+
+  def translate
+    if params[:locale] == 'en'
+      session[:translate]= 'en'
+    else 
+      session[:translate]= "ja"
+    end
+    redirect_to request.referer
+  end
 end
