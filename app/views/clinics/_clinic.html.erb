@@ -1,52 +1,52 @@
 <div id="<%= dom_id clinic %>">
   <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
+    <strong class="block font-medium mb-1"><%= t("clinics.Name") %></strong>
     <%= clinic.name %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Postal code:</strong>
+    <strong class="block font-medium mb-1"><%= t("clinics.Postal Code") %>:</strong>
     <%= clinic.postal_code %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Region:</strong>
+    <strong class="block font-medium mb-1"><%= t("clinics.Region") %></strong>
     <%= clinic.region %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Address:</strong>
+    <strong class="block font-medium mb-1"><%= t("clinics.Address") %></strong>
     <%= clinic.address %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Municipalities:</strong>
+    <strong class="block font-medium mb-1"><%= t("clinics.Municipalities") %></strong>
     <%= clinic.municipalities %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Building name:</strong>
+    <strong class="block font-medium mb-1"><%= t("clinics.Building Name") %></strong>
     <%= clinic.building_name %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Floors:</strong>
+    <strong class="block font-medium mb-1"><%= t("clinics.Floors") %></strong>
     <%= clinic.floors %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Fax number:</strong>
+    <strong class="block font-medium mb-1"><%= t("clinics.Fax Number") %></strong>
     <%= clinic.fax_number %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Phone number:</strong>
+    <strong class="block font-medium mb-1"><%= t("clinics.Phone Number") %></strong>
     <%= clinic.phone_number %>
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this clinic", clinic, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this clinic', edit_clinic_path(clinic), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to t("clinics.Show"), clinic, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to t("clinics.Edit"), edit_clinic_path(clinic), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
 </div>
