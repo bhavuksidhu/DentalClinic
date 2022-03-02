@@ -12,8 +12,12 @@
   </head>
 
   <body>  
-  <li class = 'text-right'><%= link_to "English", root_path(locale: :en)%> </li>
-  <li class = 'text-right'><%= link_to "Japanese", root_path(locale: :ja) %> </li> 
+  <li class = 'text-right'>
+    <%= link_to "English",translate_path(locale: 'en')%>
+  </li>
+  <li class = 'text-right'>
+    <%= link_to "Japanese",translate_path(locale: 'ja') %>
+  </li> 
   <div class="min-h-full">
     <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
     <div id="sidebar_bg" class="fixed inset-0 flex z-40 lg:hidden" role="dialog" aria-modal="true">
