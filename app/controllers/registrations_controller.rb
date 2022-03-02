@@ -1,8 +1,20 @@
 class RegistrationsController < ApplicationController
     layout "dashboard"
 
+    def index  
+        if params[:q]
+            @q = User.where(role: params[:q][:role]).ransack(params[:q])
+            @role = params[:q][:role]
+        else 
+            @q = User.where(role: params[:role]).ransack(params[:q])
+            @role = params[:role]
+        end      
+        @pagy, @users = pagy(@q.result.includes(logo_attachment: :blob))    
+    end 
+
     def new 
         @user = User.new 
+        @user.clinics.build
     end 
 
     def create 
@@ -36,6 +48,6 @@ class RegistrationsController < ApplicationController
         end 
 
         def params_user 
-            params.require(:user).permit(:email, :password, :password_confirmation, :role, :logo)
+            params.require(:user).permit(:email, :password, :password_confirmation, :role, :logo, clinics_attributes: [:id, :name, :postal_code, :region, :address, :municipalities, :building_name, :floors, :fax_number, :phone_number])
         end 
 end

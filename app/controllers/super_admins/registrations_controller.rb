@@ -1,16 +1,13 @@
 # frozen_string_literal: true
 
-class Users::RegistrationsController < Devise::RegistrationsController
+class SuperAdmins::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  def new
-    # super
-    unless current_user.present? 
-      redirect_to new_user_session_path
-    end 
-  end
+  # def new
+  #   super
+  # end
 
   # POST /resource
   # def create
@@ -18,27 +15,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  def edit
-    @user = User.find(params[:id])
-    # layout: dashboard
-  end
+  # def edit
+  #   super
+  # end
 
   # PUT /resource
-  def update
-    @user = User.find(params[:id]) 
-    
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to user_index_path, notice: "User was successfully updated." }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-    
-
-  end
+  # def update
+  #   super
+  # end
 
   # DELETE /resource
   # def destroy
@@ -75,9 +59,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  private 
-
-  def user_params
-    params.require(:user).permit(:password, :password_confirmation, :current_password)
-  end
 end

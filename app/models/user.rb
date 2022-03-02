@@ -5,6 +5,9 @@ class User < ApplicationRecord
   attribute :current_password
   has_one_attached :logo, dependent: :destroy
 
+  has_many :clinics 
+  accepts_nested_attributes_for :clinics 
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, :masqueradable
 
@@ -14,6 +17,10 @@ class User < ApplicationRecord
   def set_default_role
     self.role ||= :ClinicUser
   end
+
+  def is_admin? 
+    self.role == "Administrator"
+  end 
 
   private 
 

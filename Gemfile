@@ -60,7 +60,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "pry-rails"
 gem 'devise'
 gem 'dotenv-rails'
-# gem 'activeadmin'
 gem 'ransack'
 gem 'pagy'
 gem 'pundit'
@@ -68,3 +67,5 @@ gem "tailwindcss-rails", "~> 2.0"
 gem 'devise_masquerade'
 
 gem 'jquery-ui-rails'
+
+gem 'rails_admin'

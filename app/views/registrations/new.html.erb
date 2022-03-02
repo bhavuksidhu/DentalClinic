@@ -40,6 +40,54 @@
             <%= form.select :role, User.roles.keys %>
         </div>
 
+        <%= form.fields_for :clinics do |f| %>
+                <div class="my-5">
+                    <%= f.label :name %>
+                    <%= f.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                </div>
+
+                <div class="my-5">
+                    <%= f.label :postal_code %>
+                    <%= f.text_field :postal_code, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                </div>
+
+                <div class="my-5">
+                    <%= f.label :region %>
+                    <%= f.text_field :region, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                </div>
+
+                <div class="my-5">
+                    <%= f.label :address %>
+                    <%= f.text_area :address, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                </div>
+
+                <div class="my-5">
+                    <%= f.label :municipalities %>
+                    <%= f.text_field :municipalities, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                </div>
+
+                <div class="my-5">
+                    <%= f.label :building_name %>
+                    <%= f.text_field :building_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                </div>
+
+                <div class="my-5">
+                    <%= f.label :floors %>
+                    <%= f.text_field :floors, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                </div>
+
+                <div class="my-5">
+                    <%= f.label :fax_number %>
+                    <%= f.text_field :fax_number, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                </div>
+
+                <div class="my-5">
+                    <%= f.label :phone_number %>
+                    <%= f.number_field :phone_number, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                </div>
+
+            <% end %>
+
         <div class="inline">
             <%= form.submit t("newuser.Create User"), class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer"%>
         </div>
