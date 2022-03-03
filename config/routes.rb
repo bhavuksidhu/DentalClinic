@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :staff_infos
   resources :dentist_hygienists
   resources :dentists
   resources :agents 
