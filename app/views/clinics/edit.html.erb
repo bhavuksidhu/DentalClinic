@@ -3,6 +3,6 @@
 
   <%= render "form", clinic: @clinic %>
 
-  <%= link_to "Show this clinic", @clinic, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to clinics", clinics_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to t("clinics.Show"), @clinic, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to t("clinics.Back to Clinics"), clinics_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>

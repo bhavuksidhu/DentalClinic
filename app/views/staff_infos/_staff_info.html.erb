@@ -1,0 +1,52 @@
+<div id="<%= dom_id staff_info %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1"><%= t("newstaffinfo.Staff Code") %></strong>
+    <%= staff_info.staff_code %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1"><%= t("newstaffinfo.first name") %></strong>
+    <%= staff_info.first_name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1"><%= t("newstaffinfo.Last Name") %></strong>
+    <%= staff_info.last_name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1"><%= t("newstaffinfo.Gender") %></strong>
+    <%= staff_info.sex %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1"><%= t("newstaffinfo.Job Type") %></strong>
+    <%= staff_info.job_type %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1"><%= t("newstaffinfo.Occupation") %></strong>
+    <%= staff_info.occupation %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1"><%= t("newstaffinfo.Usage Classification") %></strong>
+    <%= staff_info.usage_classification %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1"><%= t("newstaffinfo.Hire Date") %></strong>
+    <%= staff_info.hire_date %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1"><%= t("newstaffinfo.Date of Leaving Company") %></strong>
+    <%= staff_info.date_of_leaving_company %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to t("newstaffinfo.Show"), staff_info, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to t("newstaffinfo.Edit"), edit_staff_info_path(staff_info), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
