@@ -1,7 +1,7 @@
   <main class="flex-1 pb-8">
       <div class="mt-8">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 class="text-lg leading-6 font-medium text-gray-900">Overview</h2>
+          <h2 class="text-lg leading-6 font-medium text-gray-900"><%= t("home.Overview") %></h2>
           <div class="mt-2 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             <!-- Card -->
             <% if current_user.role == 'Administrator' %>
@@ -16,7 +16,7 @@
                     </div>
                     <div class="ml-5 w-0 flex-1">
                       <dl>
-                        <dt class="text-sm font-medium text-gray-500 truncate">All Users</dt>
+                        <dt class="text-sm font-medium text-gray-500 truncate"><%= t("home.All Users") %></dt>
                         <dd>
                           <div class="text-lg font-medium text-gray-900"><%= @users_count %></div>
                         </dd>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="bg-gray-50 px-5 py-3">
                   <div class="text-sm">
-                    <%= link_to "View all", user_index_path, class:"font-medium text-cyan-700 hover:text-cyan-900" %>
+                    <%= link_to t("home.View All"), user_index_path, class:"font-medium text-cyan-700 hover:text-cyan-900" %>
                   </div>
                 </div>
               </div>
@@ -43,7 +43,7 @@
                   </div>
                   <div class="ml-5 w-0 flex-1">
                     <dl>
-                      <dt class="text-sm font-medium text-gray-500 truncate">All Managers</dt>
+                      <dt class="text-sm font-medium text-gray-500 truncate"><%= t("home.All Managers") %></dt>
                       <dd>
                         <div class="text-lg font-medium text-gray-900"><%= @manager_count %></div>
                       </dd>
@@ -53,7 +53,7 @@
               </div>
               <div class="bg-gray-50 px-5 py-3">
                 <div class="text-sm">
-                  <%= link_to 'View all', managers_path,class:"font-medium text-cyan-700 hover:text-cyan-900" %>
+                  <%= link_to t("home.View All"), managers_path,class:"font-medium text-cyan-700 hover:text-cyan-900" %>
                 </div>
               </div>
             </div>
@@ -69,7 +69,7 @@
                   </div>
                   <div class="ml-5 w-0 flex-1">
                     <dl>
-                      <dt class="text-sm font-medium text-gray-500 truncate">All Agents </dt>
+                      <dt class="text-sm font-medium text-gray-500 truncate"><%= t("home.All Agents") %></dt>
                       <dd>
                         <div class="text-lg font-medium text-gray-900"><%= @agent_count %></div>
                       </dd>
@@ -79,7 +79,7 @@
               </div>
               <div class="bg-gray-50 px-5 py-3">
                 <div class="text-sm">
-                  <%= link_to 'View all', agents_path, class:"font-medium text-cyan-700 hover:text-cyan-900" %>
+                  <%= link_to t("home.View All"), agents_path, class:"font-medium text-cyan-700 hover:text-cyan-900" %>
                 </div>
               </div>
             </div>
@@ -95,7 +95,7 @@
                   </div>
                   <div class="ml-5 w-0 flex-1">
                     <dl>
-                      <dt class="text-sm font-medium text-gray-500 truncate">All Dentists </dt>
+                      <dt class="text-sm font-medium text-gray-500 truncate"><%= t("home.All Dentists") %> </dt>
                       <dd>
                         <div class="text-lg font-medium text-gray-900"><%= @dentist_count %></div>
                       </dd>
@@ -105,7 +105,7 @@
               </div>
               <div class="bg-gray-50 px-5 py-3">
                 <div class="text-sm">
-                  <%= link_to 'View all', dentists_path, class:"font-medium text-cyan-700 hover:text-cyan-900" %>
+                  <%= link_to t("home.View All"), dentists_path, class:"font-medium text-cyan-700 hover:text-cyan-900" %>
                 </div>
               </div>
             </div>
@@ -121,7 +121,7 @@
                   </div>
                   <div class="ml-5 w-0 flex-1">
                     <dl>
-                      <dt class="text-sm font-medium text-gray-500 truncate">All Dentist Hygienists </dt>
+                      <dt class="text-sm font-medium text-gray-500 truncate"><%= t("home.All Dentists Hygienists") %></dt>
                       <dd>
                         <div class="text-lg font-medium text-gray-900"><%= @dentist_hygienist_count %></div>
                       </dd>
@@ -131,7 +131,7 @@
               </div>
               <div class="bg-gray-50 px-5 py-3">
                 <div class="text-sm">
-                  <%= link_to 'View all', dentist_hygienists_path, class:"font-medium text-cyan-700 hover:text-cyan-900" %>
+                  <%= link_to t("home.View All"), dentist_hygienists_path, class:"font-medium text-cyan-700 hover:text-cyan-900" %>
                 </div>
               </div>
             </div>

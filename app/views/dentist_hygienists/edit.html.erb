@@ -1,5 +1,5 @@
 <div class="mx-auto md:w-2/3 w-full mt-5">
-  <h1 class="font-bold text-4xl">Edit Dentist Hygienist</h1>
+  <h1 class="font-bold text-4xl"><%= t("dentisthygienist.Edit Dentist Hygienist") %></h1>
     <%= render 'form', dentist_hygienist: @dentist_hygienist %>
-  <%= link_to 'Back to dentist_hygienists', dentist_hygienists_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to t("dentisthygienist.Back to Dentist Hygienist"), dentist_hygienists_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>

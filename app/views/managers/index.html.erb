@@ -3,7 +3,7 @@
         <div class="max-w-6xl mx-auto mt-8 px-4 text-lg leading-6 font-medium text-gray-900 sm:px-6 lg:px-8">
         <!-- Search -->
         <div class="float-right">
-          <%= link_to 'Create Manager', new_manager_path, class:"text-center mb-5 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" %>
+          <%= link_to t("manager.Create Manager"), new_manager_path, class:"text-center mb-5 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" %>
         </div>
         
         <%= render 'search_form' %>
@@ -15,9 +15,9 @@
                 <table class="min-w-full divide-y divide-gray-200">
                   <thead class="underline bg-gray-50">
                     <tr>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :first_name, 'First Name', default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :last_name, 'Last Name', default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :created_at, 'Created At', default_order: :desc) %></th>                     
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :first_name, t("manager.First Name"), default_order: :desc) %></th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :last_name, t("manager.Last Name"), default_order: :desc) %></th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :created_at, t("manager.Created At"), default_order: :desc) %></th>                     
                       <th scope="col" class="relative px-6 py-3">
                         <span class="sr-only">Edit</span>
                       </th>
@@ -30,8 +30,8 @@
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.last_name %></td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.created_at.to_date %></td>
                       <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <%= link_to 'Edit', edit_manager_path(user.id),class:"text-cyan-900 hover:text-cyan-900" %>
-                        <%= link_to 'Delete', manager_path(user), method: :delete, data: { confirm: "Are you sure?" },class:"text-cyan-900 hover:text-cyan-900" %>
+                        <%= link_to t("manager.Edit"), edit_manager_path(user.id),class:"text-cyan-900 hover:text-cyan-900" %>
+                        <%= link_to t("manager.Delete"), manager_path(user), method: :delete, data: { confirm: "Are you sure?" },class:"text-cyan-900 hover:text-cyan-900" %>
                       </td>
                     </tr>
                     <% end %>
