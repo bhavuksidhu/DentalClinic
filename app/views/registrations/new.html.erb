@@ -37,7 +37,7 @@
 
         <div class="my-5">
             <%= t("newuser.Role") %>
-            <%= form.select :role, User.roles.keys %>
+            <%= form.select :role, User.roles.keys, {:include_blank => "Select"} %>
         </div>
 
         <%= form.fields_for :clinics do |f| %>

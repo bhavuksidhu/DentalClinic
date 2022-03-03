@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_02_112620) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_03_044344) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,6 +95,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_02_112620) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "appointment", default: [], array: true
+    t.integer "patient_number"
+    t.string "visit_route"
+    t.string "keyword"
+    t.boolean "panorama"
+    t.boolean "caries_check"
+    t.string "course"
+    t.string "p_course"
+    t.text "note"
+    t.bigint "dentist_id", null: false
+    t.bigint "dentist_hygienist_id", null: false
+    t.bigint "treatment_coordinator_id", null: false
+    t.index ["dentist_hygienist_id"], name: "index_patients_on_dentist_hygienist_id"
+    t.index ["dentist_id"], name: "index_patients_on_dentist_id"
+    t.index ["treatment_coordinator_id"], name: "index_patients_on_treatment_coordinator_id"
   end
 
   create_table "super_admins", force: :cascade do |t|
@@ -107,6 +121,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_02_112620) do
     t.datetime "remember_created_at"
     t.index ["email"], name: "index_super_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_super_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "treatment_coordinators", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -130,4 +152,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_02_112620) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "clinics", "users"
+  add_foreign_key "patients", "dentist_hygienists"
+  add_foreign_key "patients", "dentists"
+  add_foreign_key "patients", "treatment_coordinators"
 end

@@ -3,7 +3,7 @@ class PatientsController < ApplicationController
 
   def index
     @q = Patient.ransack(params[:q])
-    @pagy, @users = pagy(@q.result) 
+    @pagy, @users = pagy(@q.result.includes(:dentist, :dentist_hygienist, :treatment_coordinator)) 
   end
 
   def show 
@@ -63,7 +63,7 @@ class PatientsController < ApplicationController
   private 
 
   def patient_params 
-    params.require(:patient).permit(:first_name, :last_name, :phone)
+    params.require(:patient).permit(:first_name, :last_name, :phone, :patient_number, :visit_route, :keyword, :panorama, :caries_check, :course, :p_course, :note, :dentist_id, :dentist_hygienist_id, :treatment_coordinator_id)
   end 
 
   def appointment_params 

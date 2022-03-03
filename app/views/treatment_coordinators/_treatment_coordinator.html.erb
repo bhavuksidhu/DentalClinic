@@ -1,0 +1,22 @@
+<div id="<%= dom_id treatment_coordinator %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">First name:</strong>
+    <%= treatment_coordinator.first_name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Last name:</strong>
+    <%= treatment_coordinator.last_name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Phone:</strong>
+    <%= treatment_coordinator.phone %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this treatment coordinator", treatment_coordinator, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this treatment coordinator', edit_treatment_coordinator_path(treatment_coordinator), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

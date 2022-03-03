@@ -21,7 +21,7 @@
       <div class="my-5">
         <%= t("edituser.Role") %><br />
         <div class="mt-1">
-          <%= form.select :role, User.roles.keys,class:"bg-teal p-3 rounded text-white shadow-inner w-full" %>
+          <%= form.select :role, User.roles.keys, {:include_blank => "Select"},class:"bg-teal p-3 rounded text-white shadow-inner w-full" %>
         </div>
       </div>
 
