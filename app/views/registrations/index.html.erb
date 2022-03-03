@@ -1,0 +1,58 @@
+  <main class="flex-1 pb-8">
+  
+        <div class="max-w-6xl mx-auto mt-8 px-4 text-lg leading-6 font-medium text-gray-900 sm:px-6 lg:px-8">
+        <!-- Search -->
+        <div class='float-right'>
+          <%= link_to 'Create Account', sign_up_path, class:"inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" %>
+        </div>
+        <%= render 'search_form' %>
+        
+        <!-- Table -->
+        <div class="flex flex-col">
+          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            
+              <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th scope="col" class="underline px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :email, 'Email', default_order: :desc) %></th>
+                      <th scope="col" class="underline px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :last_sign_in_at, 'Last Sign_in', default_order: :desc) %></th>
+                      <th scope="col" class="underline px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :created_at, 'Created At', default_order: :desc) %></th>
+                      <th scope="col" class="underline px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :role, 'Role', default_order: :desc) %></th> 
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Logo</th>                     
+                      <th scope="col" class="relative px-6 py-3">
+                        <span class="sr-only">Edit</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <% @users.each do |user| %>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= user.email %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.last_sign_in_at.try(:strftime, ("%F")) %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.created_at.to_date %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.role %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= image_tag user.logo.variant(resize_to_limit: [100, 100]),class: "rounded-lg" if user.logo.attached? %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <%= link_to "Edit Account", "/user/#{user.id}/edit", class:"inline-flex items-center px-4 py-2 border border-cyan-300 shadow-sm text-sm font-medium rounded-md text-white bg-cyan-500 hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" %>
+                        
+                      </td>
+                      <td>
+                        <%= link_to "Login As", masquerade_path(user),class:"text-cyan-900 hover:text-cyan-900" %>
+                      </td>
+                    </tr>
+                    <% end %>
+                    <!-- More people... -->
+                  </tbody>
+                </table>
+              </div>
+          </div>
+          <% if @pagy.count > 10 %>
+            <div class="mt-5">
+              <%== pagy_nav(@pagy) %>
+            </div>          
+          <% end %>
+        </div>
+        </div>
+      </div>
+    </main>
