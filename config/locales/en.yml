@@ -44,6 +44,13 @@ en:
     Create Dentist: "Create Dentist"  
   dentisthygienist:
     Create Dentist Hygienist: "Create Dentist Hygienist"  
+  clinics:
+    Destroy this Clinic: "Destroy this Clinic" 
+    Create Clinic: "Create Clinic" 
+    Update Clinic: "Update Clinic"
+  newstaffinfo:
+    Create Staff Info: "Create Staff Info"  
   users:
     sign_in: "Sign In"
     logout: "Log Out"
+  

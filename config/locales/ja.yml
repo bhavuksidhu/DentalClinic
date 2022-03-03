@@ -17,6 +17,14 @@ ja:
     Welcome: "ようこそ"
     Dental Clinic: "歯科医院"
     Clinics: "診療所"
+  clinicuser:
+    Patients: "忍耐"  
+    Counseling: "カウンセリング"
+    DR Aggregation: "DRアグリゲーション"
+    DR Tabulation: "DR集計"
+    Staff Information: "スタッフ情報"
+    Master Correction Application: "マスター修正アプリケーション"
+    Account Modification: "アカウントの変更"
   home:  
     Overview: "概要"
     All Users: "すべてのユーザー"
@@ -81,6 +89,7 @@ ja:
     Back to Clinics: "クリニックに戻る"
     New Clinic: "新しいクリニック"
     Create Clinic: "クリニックを作成する"
+    Update Clinic: "更新クリニック"
     Show: "見せる"
     Edit: "編集"
     Destroy this Clinic: "このクリニックを破壊する" 
@@ -117,3 +126,86 @@ ja:
     Edit Dentist Hygienist: "歯科衛生士を編集する"
     Back to Dentist Hygienist: "歯科衛生士に戻る"
     New Dentist Hygienist: "新しい歯科衛生士"
+  devise:
+    confirmations:
+      confirmed: "メールアドレスが正常に確認されました"
+      send_instructions: "数分以内にメールアドレスを確認する方法が記載されたメールが届きます"
+      send_paranoid_instructions: "あなたのメールアドレスが私たちのデータベースに存在する場合、あなたは数分であなたのメールアドレスを確認する方法の説明が書かれたメールを受け取ります"
+    failure:
+      already_authenticated: "すでにサインインしています"
+      inactive: "アカウントはまだ有効化されていません"
+      invalid: "無効な％{認証キー}またはパスワード"
+      locked: "アカウントがロックされています"
+      last_attempt: "アカウントがロックされる前にもう一度試行します"
+      not_found_in_database: "無効な％{認証キー}またはパスワード"
+      timeout: "セッションが期限切れになりました。続行するには、もう一度サインインしてください"
+      unauthenticated: "続行する前に、サインインまたはサインアップする必要があります"
+      unconfirmed: "続行する前にメールアドレスを確認する必要があります"
+    mailer:
+      confirmation_instructions:
+        subject: "確認手順"
+      reset_password_instructions:
+        subject: "パスワードの説明をリセットする"
+      unlock_instructions:
+        subject: "指示のロックを解除する"
+      email_changed:
+        subject: "メールが変更されました"
+      password_change:
+        subject: "パスワード変更済み"
+    omniauth_callbacks:
+      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
+      success: "％{kind}アカウントからの認証に成功しました"
+    passwords:
+      no_token: "パスワードリセットの電子メールから来ずにこのページにアクセスすることはできません。パスワードリセットメールから来た場合は、提供された完全なURLを使用したことを確認してください"
+      send_instructions: "数分でパスワードをリセットする方法の説明が記載されたメールが届きます"
+      send_paranoid_instructions: "あなたのメールアドレスが私たちのデータベースに存在する場合、あなたは数分以内にあなたのメールアドレスでパスワード回復リンクを受け取ります"
+      updated: "パスワードが正常に変更されました。これでサインインしました"
+      updated_not_active: "パスワードが正常に変更されました"
+    registrations:
+      destroyed: "さよなら！アカウントは正常にキャンセルされました。またお会いできることを楽しみにしております"
+      signed_up: "いらっしゃいませ！サインアップに成功しました"
+      signed_up_but_inactive: "サインアップに成功しました。ただし、アカウントがまだ有効化されていないため、ログインできませんでした"
+      signed_up_but_locked: "サインアップに成功しました。ただし、アカウントがロックされているため、ログインできませんでした"
+      signed_up_but_unconfirmed: "確認リンク付きのメッセージがあなたのメールアドレスに送信されました。リンクをたどってアカウントを有効にしてください"
+      update_needs_confirmation: "アカウントは正常に更新されましたが、新しいメールアドレスを確認する必要があります。メールを確認し、確認リンクをたどって新しいメールアドレスを確認してください"
+      updated: "アカウントが正常に更新されました"
+      updated_but_not_signed_in: "アカウントは正常に更新されましたが、パスワードが変更されたため、再度サインインする必要があります"
+    sessions:
+      signed_in: "正常にサインインしました"
+      signed_out: "正常にサインアウトしました"
+      already_signed_out: "正常にサインアウトしました"
+    unlocks:
+      send_instructions: "数分でアカウントのロックを解除する方法の説明が記載されたメールが届きます"
+      send_paranoid_instructions: "アカウントが存在する場合は、数分でロックを解除する方法が記載されたメールが届きます"
+      unlocked: "アカウントは正常にロック解除されました。サインインして続行してください"
+    errors:
+      messages:
+        already_confirmed: "すでに確認済みですので、ログインしてみてください"
+        confirmation_period_expired: "％{period}以内に確認する必要があります。新しいものをリクエストしてください"
+        expired: "有効期限が切れています。新しいものをリクエストしてください"
+        not_found: "見つかりません"
+        not_locked: "ロックされていませんでした"
+        not_saved:
+          one: "1つのエラーにより、この％{resource}の保存が禁止されました："
+          other: "％{count}エラーにより、この％{resource}の保存が禁止されました"
+  newstaffinfo: 
+    New Staff Info: "新しいスタッフ情報"
+    Basic Information: "基本情報"
+    Staff Code: "スタッフコード"
+    First Name: "下の名前 · 名 · 名前."
+    Last Name: "姓名"
+    Gender: "性別"
+    Job Type Information: "職種情報"
+    Job Type: "職種"
+    Occupation: "職業"
+    Others: "その他"
+    Usage Classification: "使用分類"
+    Hire Date: "採用日"
+    Date of Leaving Company: "会社を辞める日"
+    Back to Staff Info: "スタッフ情報に戻る"
+    Create Staff Info: "スタッフ情報を作成する"
+    Created At: "作成場所"
+    Edit: "編集"
+    Delete: "消去"
+    Show: "見せる"
+      

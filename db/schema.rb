@@ -111,6 +111,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_03_044344) do
     t.index ["treatment_coordinator_id"], name: "index_patients_on_treatment_coordinator_id"
   end
 
+  create_table "staff_infos", force: :cascade do |t|
+    t.string "staff_code"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "sex"
+    t.string "job_type"
+    t.string "occupation"
+    t.string "usage_classification"
+    t.datetime "hire_date"
+    t.datetime "date_of_leaving_company"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "super_admins", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
