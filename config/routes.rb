@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :staff_infos
+  resources :treatment_coordinators
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :super_admins, path: 'super_admins', controllers: {
     sessions: 'super_admins/sessions',

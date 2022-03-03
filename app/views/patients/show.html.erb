@@ -23,6 +23,13 @@
       </h4>
       </p>
 
+      <p class="my-5">
+      <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
+      <strong class="block font-medium mb-1 mr-4">Phone:</strong>
+          <%= @patient.phone %>
+      </h4>
+      </p>
+
       <%= link_to 'Edit this patient', edit_patient_path(@patient), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       <div class="inline-block ml-2">
         <%= button_to 'Destroy this patient', patient_path(@patient), method: :delete, data: { confirm: "Are you sure?" }, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
