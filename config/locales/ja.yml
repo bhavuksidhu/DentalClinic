@@ -17,6 +17,7 @@ ja:
     Welcome: "ようこそ"
     Dental Clinic: "歯科医院"
     Clinics: "診療所"
+    Patient Information: "患者情報"
   clinicuser:
     Patients: "忍耐"  
     Counseling: "カウンセリング"
@@ -208,4 +209,11 @@ ja:
     Edit: "編集"
     Delete: "消去"
     Show: "見せる"
+    Editing Staff Info: "スタッフ情報の編集"
+    Select Gender: "性別を選択して下さい"
+    Male: "男"
+    Female: "女性"
+    Select Job Type: "ジョブタイプを選択"
+    Select Occupation: "職業を選択"
+    Select Usage Classification: "使用分類を選択"
       

@@ -1,0 +1,235 @@
+<%= form_with(model: @counseling, class: "contents") do |form| %>
+    <% if @counseling.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+        <h2><%= pluralize(@counseling.errors.count, "error") %> prohibited this clinic from being saved:</h2>
+
+        <ul>
+          <% @counseling.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+            <div>
+              <button type="button" id="button-basic" onclick=show_basic() class="inline-flex items-center px-2 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
+               Basic Information
+              </button>
+            
+            
+              <button type="button" id="button-counseling" class="inline-flex items-center px-2 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
+               Counseling Information
+              </button>
+         
+              <button type="button" id="button-contract" class="inline-flex items-center px-2 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
+               Contract Information
+              </button>
+                                </div>
+                 <div style="display:block" id="basic-div">
+
+                    <h1 class="text-2xl italic">Responsible Person</h1>
+                        <div class="my-5">
+                        <%= form.label :resp_dr %>
+                        <%= form.text_field :resp_dr, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                        </div>
+
+                        <div class="my-5">
+                        <%= form.label :resp_couns_staff %>
+                        <%= form.text_field :resp_couns_staff, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                        </div>
+
+                        <div class="my-5">
+                        <%= form.label :imp_type %>
+                        <%= form.text_field :imp_type, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                        </div>
+                        
+                        <div class="my-5">
+                        <%= form.label :exp_date %>
+                        <%= form.number_field :exp_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                        </div>
+
+                        <div class="my-5">
+                        <%= form.label :imp_date %>
+                        <%= form.text_field :imp_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                        </div>
+
+                        <div class="my-5">
+                        <%= form.label :course_name %>
+                        <%= form.text_field :course_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                        </div>
+
+                        <div class="my-5">
+                        <%= form.label :course_imp_date %>
+                        <%= form.text_field :course_imp_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                        </div>
+
+                        <div class="my-5">
+                        <%= form.label :course_type %>
+                        <%= form.text_field :course_type, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                        </div>
+                </div>
+
+
+                <div style="display:none" id="counseling-div">
+
+                    <div class="my-5">
+                    <%= form.label :first_visit %>
+                    <%= form.text_field :first_visit, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :re_first_visit %>
+                    <%= form.text_field :re_first_visit, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :second_visit %>
+                    <%= form.text_area :second_visit , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :p_consult %>
+                    <%= form.text_field :p_consult, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :inspection %>
+                    <%= form.text_area :inspection , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :treat_plan %>
+                    <%= form.text_area :treat_plan , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :prostho %>
+                    <%= form.text_area :prostho , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :denture %>
+                    <%= form.text_area :denture , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :whitening %>
+                    <%= form.text_area :whitening , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :implant %>
+                    <%= form.text_area :implant , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :invisalign %>
+                    <%= form.text_area :invisalign , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :other_correc %>
+                    <%= form.text_area :other_correc , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :micro %>
+                    <%= form.text_area :micro , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :maintainance %>
+                    <%= form.text_area :maintainance , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :main_resv_date %>
+                    <%= form.text_area :main_resv_date , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :main_trans %>
+                    <%= form.text_area :main_trans , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+             </div>   
+
+            <div style="display:none" id="contract-div">
+                           <h1 class="text-2xl italic">Agreement</h1>
+                    <div class="my-5">
+                    <%= form.label :type_agree %>
+                    <%= form.text_area :type_agree , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :prostho_type %>
+                    <%= form.text_area :prostho_type , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :no_of_implant %>
+                    <%= form.text_area :no_of_implant , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :site %>
+                    <%= form.text_area :site , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :offer_amt %>
+                    <%= form.text_area :offer_amt , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :agreement %>
+                    <%= form.text_area :agreement , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :cons_sign_date %>
+                    <%= form.text_area :cons_sign_date , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="my-5">
+                    <%= form.label :contract_amt %>
+                    <%= form.text_area :contract_amt , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    </div>
+
+                    <div class="inline">
+                    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+                    </div>
+
+                 </div>   
+
+
+<% end %>
+
+
+<script>
+//for counseling-information
+$(document).ready(function(){
+  $("#button-counseling").click(function(){
+    $("#counseling-div").show();
+    $("#basic-div").hide();
+    $("#contract-div").hide();
+  });
+});
+
+//for basic-information
+$(document).ready(function(){
+  $("#button-basic").click(function(){
+    $("#counseling-div").hide();
+    $("#contract-div").hide();
+    $("#basic-div").show();
+  });
+});
+
+//for contract-information
+$(document).ready(function(){
+  $("#button-contract").click(function(){
+    $("#counseling-div").hide();
+    $("#basic-div").hide();
+    $("#contract-div").show();
+  });
+});
+</script>

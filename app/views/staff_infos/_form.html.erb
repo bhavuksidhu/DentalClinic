@@ -14,7 +14,7 @@
 <h1 class="text-xl cyan-400"><%= t("newstaffinfo.Basic Information") %></h1><br>
   <div class="my-5">
     <%= t("newstaffinfo.Staff Code") %>
-    <%= form.text_field :staff_code, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.number_field :staff_code, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
@@ -29,24 +29,28 @@
 
   <div class="my-5">
     <%= t("newstaffinfo.Gender") %>
-    <%= form.text_field :sex, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select(:sex,{t("newstaffinfo.Male") => "male", t("newstaffinfo.Female") => "female"}, {:prompt => t("newstaffinfo.Select Gender")},  class:"bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500") %>
+    
   </div>
 
   <h1 class="text-xl cyan-400"><%= t("newstaffinfo.Job Type Information") %></h1><br>
 
   <div class="my-5">
     <%= t("newstaffinfo.Job Type") %>
-    <%= form.text_field :job_type, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select(:job_type,{Developer: "Developer"}, {:prompt => t("newstaffinfo.Select Job Type")}, class:"bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500") %>
+   
   </div>
 
   <div class="my-5">
     <%= t("newstaffinfo.Occupation") %>
-    <%= form.text_field :occupation, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select(:occupation,{Developer: "Developer", Hello: "Hello" }, {:prompt => t("newstaffinfo.Select Occupation")}, class:"bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500") %>
+    
   </div>
 <h1 class="text-xl cyan-400"><%= t("newstaffinfo.Others") %></h1><br>
   <div class="my-5">
     <%= t("newstaffinfo.Usage Classification") %>
-    <%= form.text_field :usage_classification, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select(:usage_classification,{Developer: "Developer"}, {:prompt => t("newstaffinfo.Select Usage Classification")}, class:"bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500") %>
+   
   </div>
 
   <div class="my-5">

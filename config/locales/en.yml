@@ -38,6 +38,7 @@ en:
     Update User: "Update User"
   manager:
     Update Manager: "Update Manager"  
+    Create Manager: "Create Manager"
   agent: 
     Update Agent: "Update Agent"  
   dentist:
@@ -50,6 +51,7 @@ en:
     Update Clinic: "Update Clinic"
   newstaffinfo:
     Create Staff Info: "Create Staff Info"  
+    Delete: "Delete"
   users:
     sign_in: "Sign In"
     logout: "Log Out"

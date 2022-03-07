@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do 
   resources :staff_infos
   resources :treatment_coordinators
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :agents 
   resources :managers
   resources :clinics
+  resources :counselings
   
   devise_for :users, path: 'users', controllers: {
     sessions: 'users/sessions',

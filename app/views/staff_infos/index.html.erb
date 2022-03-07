@@ -7,10 +7,10 @@
         
         <%= render 'search_form' %>
         <!-- Table -->
-        <div class="flex flex-col">
-          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="flex flex-col col-span-3 w-full">
+          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 w-full">
             
-              <div class="shadow border-b border-gray-200 sm:rounded-lg">
+              <div class="shadow border-b border-gray-200 sm:rounded-lg w-full">
                 <table class="min-w-full divide-y divide-gray-200">
                   <thead class="underline bg-gray-50">
                     <tr>
@@ -54,11 +54,11 @@
               </div>
           </div>
           <% if @pagy.count > 10 %>
-            <div class="mt-5">
+            <div class="mt-5 text-right">
               <%== pagy_nav(@pagy) %>
             </div>          
           <% end %>
         </div>
         </div>
       </div>
-    </main> 
+</main> 

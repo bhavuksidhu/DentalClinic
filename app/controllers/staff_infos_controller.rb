@@ -4,8 +4,15 @@ class StaffInfosController < ApplicationController
 
   # GET /staff_infos or /staff_infos.json
   def index
-    @q = StaffInfo.ransack(params[:q])
-    @pagy, @users = pagy(@q.result)
+
+    if params[:staff_code].present?  # Filter by staff_code 
+      @users = Patient.all.includes(:staff_code, :first_name,:job_type, :occupation, :usage_classification, :sex)
+    else
+      @q = StaffInfo.ransack(params[:q])
+      @pagy, @users = pagy(@q.result)
+      
+    end
+    
   end
 
   # GET /staff_infos/1 or /staff_infos/1.json

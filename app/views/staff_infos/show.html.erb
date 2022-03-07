@@ -6,10 +6,10 @@
 
     <%= render @staff_info %>
 
-    <%= link_to 'Edit this staff_info', edit_staff_info_path(@staff_info), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to t("newstaffinfo.Edit"), edit_staff_info_path(@staff_info), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
-      <%= button_to 'Destroy this staff_info', staff_info_path(@staff_info), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <%= button_to t("newstaffinfo.Delete"), staff_info_path(@staff_info), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
-    <%= link_to 'Back to staff_infos', staff_infos_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to t("newstaffinfo.Back to Staff Info"), staff_infos_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>
