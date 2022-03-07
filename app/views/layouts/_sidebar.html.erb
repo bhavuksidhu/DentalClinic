@@ -55,9 +55,6 @@
                 </div>
               </div>
             </div>
-
-
-
             <% else %>
                <%= link_to user_index_path, class:"text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" do %>
                 <svg class="mr-4 flex-shrink-0 h-6 w-6 text-cyan-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -141,13 +138,13 @@
               <div id="account_management" class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-cyan-500 ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                 <div class="py-1" role="none">
                   <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                  <%= link_to registrations_path(role: "Administrator"),method: :post, class:"text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" do %>
+                  <%= link_to registrations_path(role: "Administrator"), class:"text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" do %>
                     Administrator
                   <% end %>
                 </div>
                 <div class="py-1" role="none">
                   <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                  <%= link_to registrations_path(role: "ClinicUser"),method: :post, class:"text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" do %>
+                  <%= link_to registrations_path(role: "ClinicUser"), class:"text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" do %>
                     User
                   <% end %>
                 </div>

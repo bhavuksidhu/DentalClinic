@@ -3,7 +3,7 @@
         <div class="max-w-6xl mx-auto mt-8 px-4 text-lg leading-6 font-medium text-gray-900 sm:px-6 lg:px-8">
         <!-- Search -->
         <div class='float-right'>
-          <%= link_to t("user.Create Account"), sign_up_path, class:"inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" %>
+          <%= link_to t("user.Create Account"), new_registration_path, class:"inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" %>
         </div>
         <%= render 'search_form' %>
         
@@ -34,9 +34,9 @@
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.role %></td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= image_tag user.logo.variant(resize_to_limit: [100, 100]),class: "rounded-lg" if user.logo.attached? %></td>
                       <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <%= link_to t("user.Edit Account"), "/user/#{user.id}/edit", class:"inline-flex items-center px-4 py-2 border border-cyan-300 shadow-sm text-sm font-medium rounded-md text-white bg-cyan-500 hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" %>
-                        
-                      
+                        <%= link_to t("user.Edit Account"), edit_registration_path(user.id), class:"inline-flex items-center px-4 py-2 border border-cyan-300 shadow-sm text-sm font-medium rounded-md text-white bg-cyan-500 hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" %>
+                        <%= link_to t("user.Delete Account"), registration_path(user.id),method: :delete,data: { confirm: "Are you sure?" }, class:"inline-flex items-center px-4 py-2 border border-red-300 shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" %>
+                                           
                         <%= link_to t("user.Login As"), masquerade_path(user),class:"text-cyan-900 hover:text-cyan-900" %>
                       </td>
                     </tr>

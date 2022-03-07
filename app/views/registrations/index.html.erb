@@ -3,7 +3,7 @@
         <div class="max-w-6xl mx-auto mt-8 px-4 text-lg leading-6 font-medium text-gray-900 sm:px-6 lg:px-8">
         <!-- Search -->
         <div class='float-right'>
-          <%= link_to 'Create Account', sign_up_path, class:"inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" %>
+          <%= link_to 'Create Account', new_registration_path, class:"inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" %>
         </div>
         <%= render 'search_form' %>
         
@@ -15,10 +15,10 @@
                 <table class="min-w-full divide-y divide-gray-200">
                   <thead class="bg-gray-50">
                     <tr>
-                      <th scope="col" class="underline px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :email, 'Email', default_order: :desc) %></th>
-                      <th scope="col" class="underline px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :last_sign_in_at, 'Last Sign_in', default_order: :desc) %></th>
-                      <th scope="col" class="underline px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :created_at, 'Created At', default_order: :desc) %></th>
-                      <th scope="col" class="underline px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :role, 'Role', default_order: :desc) %></th> 
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Sign In</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Created At</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th> 
                       <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Logo</th>                     
                       <th scope="col" class="relative px-6 py-3">
                         <span class="sr-only">Edit</span>
