@@ -5,7 +5,7 @@ class User < ApplicationRecord
   attribute :current_password
   has_one_attached :logo, dependent: :destroy
 
-  has_many :clinics 
+  has_many :clinics
   accepts_nested_attributes_for :clinics 
   
   devise :database_authenticatable, :registerable,
