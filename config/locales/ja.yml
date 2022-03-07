@@ -1,8 +1,7 @@
 ja:
   users:
     sign_in: "ログイン"
-    logout: "ログアウト"
-    
+    log_out: "ログアウト"
   admin:
     Dashboard: "ダッシュボード"
     Users Management: "ユーザー管理"
