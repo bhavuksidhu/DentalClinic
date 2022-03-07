@@ -39,6 +39,18 @@ class RegistrationsController < ApplicationController
             render :edit 
         end 
     end 
+
+    def destroy
+        begin
+            @user = User.find(params[:id])
+            @user.destroy 
+    
+            redirect_to user_index_path, notice: "User #{@user.email} was successfully Deleted!"
+        rescue =>e
+            @error= e.message
+            redirect_to user_index_path, notice: "Unsuccessfull!, Account Is Still Available!"
+        end 
+    end 
     
     
     private 

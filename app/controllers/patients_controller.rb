@@ -1,9 +1,29 @@
 class PatientsController < ApplicationController
   layout "dashboard"
 
-  def index
-    @q = Patient.ransack(params[:q])
-    @pagy, @users = pagy(@q.result.includes(:dentist, :dentist_hygienist, :treatment_coordinator)) 
+  def index  
+    if params[:patient_number1].present? && params[:patient_number2].present? # Filter by Patient Number
+
+      first_number, second_number = SwapValue.new(params[:patient_number1],params[:patient_number2]).swap_values   
+      @users = Patient.where(patient_number: (first_number)..(second_number)).includes(:dentist,:dentist_hygienist,:treatment_coordinator)
+    
+    elsif params[:first_visit1].present? && params[:first_visit2].present? # Filter by visits date
+
+      first_date, second_date = SwapValue.new(params[:first_visit1],params[:first_visit2]).swap_values   
+      @users = Patient.where("(DATE(created_at) BETWEEN ? and ?) OR (DATE(created_at) = ?)", first_date, second_date, second_date).includes(:dentist,:dentist_hygienist,:treatment_coordinator)
+
+    elsif params[:patient_name].present? # Search by Name 
+
+      @users = Patient.where("first_name like?", "%#{params[:patient_name]}%").includes(:dentist,:dentist_hygienist,:treatment_coordinator)
+      
+    else  
+
+      @users = Patient.all.includes(:dentist,:dentist_hygienist,:treatment_coordinator) 
+
+    end 
+    
+    # Pagination
+    @pagy = pagy(@users)
   end
 
   def show 
