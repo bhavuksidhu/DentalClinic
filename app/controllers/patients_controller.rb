@@ -1,7 +1,8 @@
 class PatientsController < ApplicationController
   layout "dashboard"
 
-  def index  
+  def index
+    # OPTIMIZE includes  
     if params[:patient_number1].present? && params[:patient_number2].present? # Filter by Patient Number
 
       first_number, second_number = SwapValue.new(params[:patient_number1],params[:patient_number2]).swap_values   
@@ -83,7 +84,7 @@ class PatientsController < ApplicationController
   private 
 
   def patient_params 
-    params.require(:patient).permit(:first_name, :last_name, :phone, :patient_number, :visit_route, :keyword, :panorama, :caries_check, :course, :p_course, :note, :dentist_id, :dentist_hygienist_id, :treatment_coordinator_id)
+    params.require(:patient).permit(:first_name, :last_name, :phone, :patient_number, :patient_visit_route, :keyword, :panorama, :caries_check, :course, :p_course, :note, :dentist_id, :dentist_hygienist_id, :treatment_coordinator_id)
   end 
 
   def appointment_params 

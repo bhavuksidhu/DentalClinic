@@ -1,0 +1,314 @@
+<div>
+    <button type="button" id="button-basic" onclick=show_basic() class="inline-flex items-center px-2 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
+               Basic Information
+    </button>
+            
+            
+    <button type="button" id="button-counseling" class="inline-flex items-center px-2 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
+               Counseling Information
+    </button>
+         
+    <button type="button" id="button-contract" class="inline-flex items-center px-2 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
+               Contract Information
+    </button>
+
+    <button type="button" id="button-next-reservation" class="inline-flex items-center px-2 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
+               Next Reservation 
+    </button>
+</div>
+
+<div id="basic-div" class="form-div" style="display:block">
+    <%= form_with(model: @patient,class: "contents") do |form| %>
+    <% if @patient.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+        <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this clinic from being saved:</h2>
+
+        <ul>
+          <% @patient.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+    <div class="my-5">
+    <%= form.label :first_name %>
+        <div class= "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full">
+            <%= @patient.first_name%>
+        </div>
+    </div>
+
+    <div class="my-5">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name,:disabled => true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+    <%= form.label :phone %>
+    <%= form.text_field :phone,:disabled => true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+    
+    <div class="my-5">
+    <%= form.label :patient_number %>
+    <%= form.number_field :patient_number,:disabled => true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+    <%= form.label :visit_route %>
+    <%= form.text_field :patient_visit_route,:disabled => true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+    <%= form.label :keyword %>
+    <%= form.text_field :keyword,:disabled => true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+    <%= form.label :panorama %>
+    <%= form.check_box :panorama,:disabled => true %>
+    </div>
+
+    <div class="my-5">
+    <%= form.label :caries_check %>
+    <%= form.check_box :caries_check,:disabled => true %>
+    </div>
+
+    <div class="my-5">
+    <%= form.label :course %>
+    <%= form.text_field :course,:disabled => true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+    <%= form.label :p_course %>
+    <%= form.text_field :p_course,:disabled => true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+    <%= form.label :note %>
+    <%= form.text_area :note,:disabled => true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+    <%= form.label :Dentist %>
+    <%= form.select :dentist_id, Dentist.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"},:disabled => true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+    <%= form.label :Dentist_Hygienist %>
+    <%= form.select :dentist_hygienist_id, DentistHygienist.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"},:disabled => true,class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+    <%= form.label :treatement_coordinator %>
+    <%= form.select :treatment_coordinator_id, TreatmentCoordinator.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"},:disabled => true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+<% end %>
+</div>
+
+
+<%= form_with(model: @visit_route, class: "contents") do |form| %>
+    <% if @visit_route.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+        <h2><%= pluralize(@visit_route.errors.count, "error") %> prohibited this clinic from being saved:</h2>
+
+        <ul>
+          <% @visit_route.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+
+    <div id="counseling-div" class="form-div" style="display:none">
+      <div class="my-5">
+      <%= form.label :first_visit , class:"mr-5"%>
+      <%= form.date_field :first_visit, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :second , class:"mr-5"%>
+      <%= form.date_field :second, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+      
+      <div class="my-5">
+      <%= form.label :implant_correction , class:"mr-5"%>
+      <%= form.date_field :implant_correction, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :self_pay_contract , class:"mr-5"%>
+      <%= form.check_box :self_pay_contract, class: " rounded-md border outline-none ml-5" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :maintenance , class:"mr-5"%>
+      <%= form.date_field :maintenance, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :treatment_plan, class:"mr-5"%>
+      <%= form.check_box :treatment_plan %>
+      <%= form.date_field :treatment_plan_date, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+      </div>
+      <div class="my-5">
+      <%= form.label :suspension, class:"mr-5"%>
+      <%= form.check_box :suspension%>
+      <%= form.date_field :suspended_date, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :End, class:"mr-5"%>
+      <%= form.check_box :confirmation_end , class:"mr-5" %>
+      <%= form.date_field :end_date, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :maintenance, class:"mr-5"%>
+      <%= form.check_box :maintenance_visit, class: "rounded-md border outline-none" %>
+      <%= form.date_field :maintenance_visit_date, class: "rounded-md border border-gray-200 outline-none px-3 py-2 ml-5" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :Contact_after_interruption_Tel, class:"mr-5"%>
+      <%= form.check_box :contact_TEL, class: "rounded-md border outline-none" %>
+      <%= form.text_field :suspension_contact_TEL, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 ml-5" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :Contact_after_interruption_Postcard, class:"mr-5"%>
+      <%= form.check_box :contact_postcard, class: "rounded-md border outline-none" %>
+      <%= form.text_field :suspended_contact_postcard, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 ml-5" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :Visit_after_interruption %>
+      <%= form.text_field :suspended_contact_postcard, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+    </div>
+
+    <div id="contract-div" class="form-div" style="display:none">
+      <div class="my-5">
+      <%= form.label :PHeavy_defense_target, class:"mr-5"%>
+      <%= form.check_box :p_heavy_defense_target, class: "rounded-md border outline-none" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :P_heavy_defense_calculator, class:"mr-5"%>
+      <%= form.date_field :p_heavy_defense_calculation_date, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 ml-5" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :Inspection_4MM, class:"mr-5"%>
+      <%= form.check_box :inspection_4mm, class: "rounded-md border outline-none" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :P_second, class:"mr-5"%>
+      <%= form.check_box :p_second, class: "rounded-md border outline-none" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :Inspection_3, class:"mr-5"%>
+      <%= form.check_box :inspection_3, class: "rounded-md border outline-none" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :FOP, class:"mr-5"%>
+      <%= form.check_box :fop, class: "rounded-md border outline-none" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :White, class:"mr-5"%>
+      <%= form.check_box :whitening, class: "rounded-md border outline-none" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :Medical_tube, class:"mr-5"%>
+      <%= form.check_box :medical_tube, class: "rounded-md border outline-none" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :Prosthodontics, class:"mr-5"%>
+      <%= form.text_field :prosthodontics, class: "rounded-md border outline-none" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :MT_number_of_teeth, class:"mr-5"%>
+      <%= form.text_field :mt_tooth_number, class: "rounded-md border outline-none" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :Malocclusion, class:"mr-5"%>
+      <%= form.check_box :malocclusion, class: "rounded-md border outline-none" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :others, class:"mr-5"%>
+      <%= form.text_area :note, cols: 40, rows: 5, class: "rounded-md border outline-none" %>
+      </div>
+    </div>
+
+    <div id="next_reservation" class="form-div" style="display:none">
+      <div class="my-5">
+      <%= form.label :Next_reservation, class:"mr-5"%>
+      <%= form.date_field :next_reservation, class: "rounded-md border outline-none" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :Thank_you_letter, class:"mr-5"%>
+      <%= form.check_box :thank_you_note, class: "rounded-md border outline-none" %>
+      </div>
+
+      <div class="my-5">
+      <%= form.label :Patient_number, class:"mr-5"%>
+      <%= form.text_field :thank_you_note_patient_no, class: "rounded-md border outline-none" %>
+      </div>
+    
+
+      <%= form.hidden_field :patient_id %>
+
+      <div class="inline">
+      <%= form.submit class: "submit-button rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+      </div>
+    </div>
+<% end %>
+
+<script>
+//for counseling-information
+$(document).ready(function(){
+  $("#button-counseling").click(function(){
+    $(".form-div").hide();
+    $(".submit-button").hide();
+    $("#counseling-div").show();    
+  });
+});
+
+//for basic-information
+$(document).ready(function(){
+  $("#button-basic").click(function(){
+    $(".form-div").hide();
+    $(".submit-button").hide();
+    $("#basic-div").show();
+  });
+});
+
+//for contract-information
+$(document).ready(function(){
+  $("#button-contract").click(function(){
+    $(".form-div").hide();
+    $(".submit-button").hide();
+    $("#contract-div").show();
+  });
+});
+
+//for next-reservation
+$(document).ready(function(){
+  $("#button-next-reservation").click(function(){
+    $(".submit-button").show();
+    $(".form-div").hide();
+    $("#next_reservation").show();
+  });
+});
+
+</script>

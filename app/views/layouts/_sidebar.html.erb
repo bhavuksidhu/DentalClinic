@@ -55,6 +55,46 @@
                 </div>
               </div>
             </div>
+            
+
+            <!-- Visit Routes -->
+            <div class="relative inline-block text-left">
+              <div>
+                <F id="visit_route_button" type="button" class=" text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" id="menu-button" aria-expanded="false" aria-haspopup="true">
+                  <svg class="mr-4 flex-shrink-0 h-6 w-6 text-cyan-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+              </svg>
+              <%=t("admin.Visit Routes")%> 
+                  <!-- Heroicon name: solid/chevron-down -->
+                  <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </F>
+              </div>
+
+              <div id="visit_route" class="hidden z-10 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-cyan-500 ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                <div class="py-1" role="none">
+                  <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                  <%= link_to visit_routes_path, class:"text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" do %>  
+                  Registration / Editing 
+                  <% end %>
+                </div>
+                <div class="py-1" role="none">
+                  <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                  <%= link_to "#",class:"text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" do %>
+                    Last Visit Date
+                  <% end %>
+                </div>
+                <div class="py-1" role="none">
+                  <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                  <%= link_to "#", class:"text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" do %>
+                    Next Reservation Date
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+
             <% else %>
                <%= link_to user_index_path, class:"text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" do %>
                 <svg class="mr-4 flex-shrink-0 h-6 w-6 text-cyan-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -197,8 +237,16 @@
               </svg>
               <%=t("admin.Master Files")%> 
             </a>
-          </div>
-						<%end%>
+        </div>
+			<%end%>
+
+<script>
+$(document).ready(function(){
+  $("#visit_route_button").click(function(){
+    $("#visit_route").toggle();
+  });
+});
+</script>
 
 
 
