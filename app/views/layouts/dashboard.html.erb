@@ -309,6 +309,8 @@ $(document).ready(function(){
 $(document).ready(function(){
   $("#account_button").click(function(){
     $("#account_management").toggle();
+    $("#account_management_c").hide();
+    $("#visit_route").hide();
   });
 });
 </script>
@@ -317,6 +319,16 @@ $(document).ready(function(){
 $(document).ready(function(){
   $("#account_button_c").click(function(){
     $("#account_management_c").toggle();
+    $("#account_management").hide();
+    $("#visit_route").hide();
+  });
+});
+
+$(document).ready(function(){
+  $("#visit_route_button").click(function(){
+    $("#visit_route").toggle();
+    $("#account_management").hide();
+    $("#account_management_c").hide();
   });
 });
 </script>
