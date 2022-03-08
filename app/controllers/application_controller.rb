@@ -25,11 +25,7 @@ class ApplicationController < ActionController::Base
     end
 
   def set_locale
-    unless session[:translate].nil?
-      I18n.locale = session[:translate]
-    else        
-      I18n.locale = "ja"
-    end
+    I18n.locale = "ja"
   end
 
   def after_sign_out_path_for(resource)
