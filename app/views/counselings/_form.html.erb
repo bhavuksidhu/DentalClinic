@@ -1,7 +1,8 @@
 <%= form_with(model: @counseling, class: "contents") do |form| %>
+
     <% if @counseling.errors.any? %>
       <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-        <h2><%= pluralize(@counseling.errors.count, "error") %> prohibited this clinic from being saved:</h2>
+        <h2><%= pluralize(@counseling.errors.count, "error") %> prohibited this counseling from being saved:</h2>
 
         <ul>
           <% @counseling.errors.each do |error| %>
@@ -12,7 +13,7 @@
     <% end %>
 
             <div>
-              <button type="button" id="button-basic" onclick=show_basic() class="inline-flex items-center px-2 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
+              <button type="button" id="button-basic" class="inline-flex items-center px-2 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
                Basic Information
               </button>
             
@@ -24,7 +25,10 @@
               <button type="button" id="button-contract" class="inline-flex items-center px-2 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
                Contract Information
               </button>
-                                </div>
+            </div>
+
+
+            
                  <div style="display:block" id="basic-div">
 
                     <h1 class="text-2xl italic">Responsible Person</h1>
@@ -38,35 +42,112 @@
                         <%= form.text_field :resp_couns_staff, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
                         </div>
 
-                        <div class="my-5">
-                        <%= form.label :imp_type %>
-                        <%= form.text_field :imp_type, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-                        </div>
+                        <div class="w-full grid grid-cols-2">
+                          <% if params[:edit].nil? %>
+                            <%= form.fields_for :oral_types do |builder| %>
+                               <div class="col-span">
+                                  <div class="">
+                                    <h1 class="text-2xl italic">Bad Breath</h1>
+                                    <%= builder.hidden_field :name,value: "bad_breath"%>
+                                  </div>
+                                  <div class="mb-3 xl:w-96">
+                                      <%= builder.label :exp_date %>
+                                      <%= builder.date_field :exp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                  </div>                       
+                              </div>
+                              <div class="col-span">
+                                  <div class="mb-3 xl:w-96">
+                                      <%= builder.label :imp_date %>
+                                      <%= builder.date_field :imp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                  </div>                       
+                              </div>
+                              <% end %>
+                              <%= form.fields_for :oral_types do |builder| %>
+                                <div class="col-span">
+                                    <div class="">
+                                      <h1 class="text-2xl italic">Microscope</h1>
+                                      <%= builder.hidden_field :name,value: "microscope"%>
+                                    </div>
+                                    <div class="mb-3 xl:w-96">
+                                        <%= builder.label :exp_date %>
+                                        <%= builder.date_field :exp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                    </div>                       
+                                </div>
+                                <div class="col-span">
+                                    <div class="mb-3 xl:w-96">
+                                        <%= builder.label :imp_date %>
+                                        <%= builder.date_field :imp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                    </div>                       
+                                </div>
+                                <% end %>
+                                <%= form.fields_for :oral_types do |builder| %>
+                                <div class="col-span">
+                                    <div class="grid grid-col-1">
+                                      <h1 class="text-2xl italic">Saliva</h1>
+                                      <%= builder.hidden_field :name,value: "saliva"%>
+                                    </div>
+                                    <div class="mb-3 xl:w-96">
+                                        <%= builder.label :exp_date %>
+                                        <%= builder.date_field :exp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                    </div>                       
+                                </div>
+                                <div class="col-span">
+                                    <div class="mb-3 xl:w-96">
+                                        <%= builder.label :imp_date %>
+                                        <%= builder.date_field :imp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                    </div>                       
+                                </div>
+                           <% end %>
+                          <% else %>
+                            <%= form.fields_for :oral_types do |builder| %>
+                               <div class="col-span">
+                                  <div class="">
+                                    <h1 class="text-2xl italic"><%=builder.object.name.humanize %></h1>
+                                    <%= builder.hidden_field :name %>
+                                  </div>
+                                  <div class="mb-3 xl:w-96">
+                                      <%= builder.label :exp_date %>
+                                      <%= builder.date_field :exp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                  </div>                       
+                              </div>
+                              <div class="col-span">
+                                  <div class="mb-3 xl:w-96">
+                                      <%= builder.label :imp_date %>
+                                      <%= builder.date_field :imp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                  </div>                       
+                              </div>
+                            <% end %>
+                          <% end %>
+                          </div> 
+
+                         <div class="w-full grid grid-cols-2">                            
                         
-                        <div class="my-5">
-                        <%= form.label :exp_date %>
-                        <%= form.number_field :exp_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                                <div class="col-span">
+                                <h1 class="text-2xl italic">Course</h1>
+                                                       
+                                </div>
+
+                                <div class="col-span">                               
+                                  <div class="mb-3 xl:w-96">
+                                      <%= form.label :course_imp_date %>
+                                      <%= form.date_field :course_imp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                  </div>                       
+                              </div>
+
+                            <div class="col-span">
+                             <h1 class="text-2xl italic">P Course</h1>
+                                                     
+                                </div>
+
+                                <div class="col-span">
+                                  <div class="mb-3 xl:w-96">
+                                      <%= form.label :pcourse_imp_date %>
+                                      <%= form.date_field :pcourse_imp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                  </div>                       
+                              </div>
                         </div>
 
-                        <div class="my-5">
-                        <%= form.label :imp_date %>
-                        <%= form.text_field :imp_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-                        </div>
 
-                        <div class="my-5">
-                        <%= form.label :course_name %>
-                        <%= form.text_field :course_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-                        </div>
-
-                        <div class="my-5">
-                        <%= form.label :course_imp_date %>
-                        <%= form.text_field :course_imp_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-                        </div>
-
-                        <div class="my-5">
-                        <%= form.label :course_type %>
-                        <%= form.text_field :course_type, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-                        </div>
                 </div>
 
 
@@ -153,7 +234,7 @@
                     </div>
              </div>   
 
-            <div style="display:none" id="contract-div">
+             <div style="display:none" id="contract-div">
                            <h1 class="text-2xl italic">Agreement</h1>
                     <div class="my-5">
                     <%= form.label :type_agree %>
@@ -199,7 +280,7 @@
                     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
                     </div>
 
-                 </div>   
+             </div>   
 
 
 <% end %>

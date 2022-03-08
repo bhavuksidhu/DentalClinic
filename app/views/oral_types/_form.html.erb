@@ -1,0 +1,20 @@
+<%= form_with(model: @oral_type) do |form| %>
+  <h1 class="text-4xl"> Bad Breath</h1>
+
+                       <div class="my-5">
+                        <%= form.label :name %>
+                        <%= form.text_field :resp_dr, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                        </div>
+
+                        <div class="my-5">
+                        <%= form.label :exp_date %>
+                        <%= form.text_field :exp_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                        </div>
+
+                         <div class="my-5">
+                        <%= form.label :imp_date %>
+                        <%= form.text_field :imp_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                        </div>
+                     
+
+<% end %>
