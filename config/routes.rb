@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :managers
   resources :clinics
   resources :counselings
+  resources :oral_types
   
   devise_for :users, path: 'users', controllers: {
     sessions: 'users/sessions',
