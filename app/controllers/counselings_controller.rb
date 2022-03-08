@@ -23,7 +23,11 @@ class CounselingsController < ApplicationController
     else  
         render :new, status: :unprocessable_entity
     end 
-end 
+  end 
+
+  def aggregation_basic_information
+    
+  end
 
 
   private 
