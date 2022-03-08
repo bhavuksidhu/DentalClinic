@@ -34,7 +34,7 @@
                 </F>
               </div>
 
-              <div id="account_management" class="hidden z-10 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-cyan-500 ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+              <div id="account_management" style="margin-right:-87px" class="w-60 hidden z-10 origin-top-right absolute mt-2 w-56 rounded-md shadow-lg bg-cyan-500 ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                 <div class="py-1" role="none">
                   <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
                   <%= link_to patients_path, class:"text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" do %>  
@@ -72,7 +72,7 @@
                 </F>
               </div>
 
-              <div id="visit_route" class="hidden z-10 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-cyan-500 ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+              <div id="visit_route" style="margin-right:-87px" class="w-60 hidden z-10 origin-top-right absolute mt-2 w-56 rounded-md shadow-lg bg-cyan-500 ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                 <div class="py-1" role="none">
                   <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
                   <%= link_to visit_routes_path, class:"text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" do %>  
@@ -120,11 +120,17 @@
                 </F>
               </div>
 
-              <div id="account_management_c" class="hidden z-10 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-cyan-500 ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+              <div id="account_management_c" style="margin-right:-87px" class="w-60 hidden z-10 origin-top-right absolute mt-2 w-56 rounded-md shadow-lg bg-cyan-500 ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                 <div class="py-1" role="none">
                   <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
                   <%= link_to counselings_path, class:"text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" do %>  
                   Registration / Editing 
+                  <% end %>
+                </div>
+                <div class="py-1" role="none">
+                  <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                  <%= link_to aggregation_basic_information_path, class:"text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" do %>  
+                    Aggregation basic information
                   <% end %>
                 </div>
                 <div class="py-1" role="none">
@@ -239,15 +245,6 @@
             </a>
         </div>
 			<%end%>
-
-<script>
-$(document).ready(function(){
-  $("#visit_route_button").click(function(){
-    $("#visit_route").toggle();
-  });
-});
-</script>
-
 
 
 

@@ -28,6 +28,10 @@ class CounselingsController < ApplicationController
   
   def edit 
     @counseling = Counseling.includes(:oral_types).find(params[:id])
+  end 
+
+  def aggregation_basic_information
+    
   end
 
 
