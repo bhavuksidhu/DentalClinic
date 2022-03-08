@@ -1,0 +1,87 @@
+<main class="flex-1 pb-8">
+      <div class="max-w-6xl mx-auto mt-8 px-4 text-lg leading-6 font-medium text-gray-900 sm:px-6 lg:px-8">
+        <div class="flex flex-col px-5">
+          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">          
+            <div class="shadow border-b border-gray-200 sm:rounded-lg">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Patient Number</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">First Name</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Name</th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Visit Route</th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Dentist</th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Dentist Hygienist</th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Treatment Coordinator</th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">First Visit</th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Second</th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Treatment Plan</th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Implant Correct</th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">High self-pay contract</th>
+                    
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Maintenance</th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Treatment </th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Suspension </th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">End </th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Maintenance Visit </th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Referral Patient</th>
+
+
+
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <% @patients.each do |patient| %>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= patient.patient_number %></td>
+                    <% if patient.visit_route %>
+                        <!-- Editing Visit Routes -->
+                        <td class="px-6 underline text-blue-300 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= link_to patient.first_name,edit_visit_route_path(id: patient.visit_route.id,patient: patient.id) %></td>
+                    <% else %>
+                        <!-- Create Visit Routes -->
+                        <td class="px-6 underline text-blue-300 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= link_to patient.first_name,new_visit_route_path(id: patient.id) %></td>
+                    <% end %>
+
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.last_name %></td>
+
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.patient_visit_route %></td>
+
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.dentist.first_name %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.dentist_hygienist.first_name %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.treatment_coordinator.first_name %></td>
+                    
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.visit_route.first_visit if patient.visit_route%></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.visit_route.second if patient.visit_route%></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.visit_route.treatment_plan_date if patient.visit_route%></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.visit_route.implant_correction if patient.visit_route%></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.visit_route.self_pay_contract if patient.visit_route%></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.visit_route.maintenance if patient.visit_route%></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.visit_route.treatment_plan if patient.visit_route%></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.visit_route.suspension if patient.visit_route%></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.visit_route.confirmation_end if patient.visit_route%></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.visit_route.maintenance_visit if patient.visit_route%></td>
+                    
+                  </tr>
+                  <% end %>
+                    <!-- More people... -->
+                </tbody>
+              </table>
+            </div>
+          </div>     
+        </div>
+    </div>
+</main>

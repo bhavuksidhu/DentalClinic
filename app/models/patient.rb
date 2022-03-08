@@ -2,6 +2,7 @@ class Patient < ApplicationRecord
     belongs_to :dentist 
     belongs_to :dentist_hygienist
     belongs_to :treatment_coordinator
+    has_one :visit_route
     
     validates :first_name, :last_name, :phone, :patient_number, presence: true
 
