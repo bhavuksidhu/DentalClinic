@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :managers
   resources :clinics
   resources :counselings
+  resources :oral_types
   get 'aggregation_basic_information',to: "counselings#aggregation_basic_information"
   
   devise_for :users, path: 'users', controllers: {
