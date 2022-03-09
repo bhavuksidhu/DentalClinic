@@ -3,8 +3,6 @@ class CreateCounselings < ActiveRecord::Migration[7.0]
     create_table :counselings do |t|
       t.string :resp_dr
       t.string :resp_couns_staff
-      t.string :course_imp_date
-      t.string :pcourse_imp_date
       t.string :first_visit
       t.string :re_first_visit
       t.string :second_visit
