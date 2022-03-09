@@ -1,0 +1,163 @@
+<main class="flex-1 pb-8">
+    <div class="max-w-6xl mx-auto mt-8 px-4 text-lg leading-6 font-medium text-gray-900 sm:px-6 lg:px-8">
+        <div class="flex flex-col px-5">
+          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">          
+            <div class="shadow-xl px-4 py-8 border-gray-200 sm:rounded-lg">
+                <div>
+                    <button type="button" id="button-course" class="outline-none ring-2 ring-offset-2 ring-cyan-500 rounded inline-flex items-center mr-2 px-2 py-2 border border-transparent shadow-xl text-sm font-medium text-white bg-cyan-600 hover:bg-cyan-700 ">
+                    Course
+                    </button>
+
+
+                    <button type="button" id="button-pcourse" class="rounded inline-flex items-center mr-2 px-2 py-2 border border-transparent shadow-xl text-sm font-medium text-white bg-cyan-600 hover:bg-cyan-700 ">
+                        P course
+                    </button>
+
+                    <button type="button" id="button-summary" class="rounded inline-flex items-center mr-2 px-2 py-2 border border-transparent shadow-xl text-sm font-medium text-white bg-cyan-600 hover:bg-cyan-700 ">
+                        Summary list
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="montly-tabulation" id="course">
+            <div class="flex flex-col">
+                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">          
+                    <div class="shadow border-b border-gray-200 sm:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Full name</th>   
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Course unknown</th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">A</th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">B</th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">C</th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">D</th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">E</th>    
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <% @dentists.each_with_index do |dentist, index| %>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= index %></td> 
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= dentist.first_name %></td> 
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= dentist.first_name %></td> 
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= dentist.first_name %></td> 
+                                    </tr> 
+                                <% end %>                       
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden montly-tabulation" id="pcourse">
+            <div class="flex flex-col">
+                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">          
+                    <div class="shadow border-b border-gray-200 sm:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Full name</th>   
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Course unknown</th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">AH</th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">I</th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hare</th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th> 
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+
+                                <tr>
+                                </tr>                        
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden montly-tabulation" id="summary">
+            <div class="flex flex-col">
+                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">          
+                    <div class="shadow border-b border-gray-200 sm:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Full name</th>   
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">First visit unknown</th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Second</th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Treatment plan</th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Implant correct</th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Own expense contract</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Maintenance</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Under treatment</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Suspension</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">end</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Maintenance Visit</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Suspended TEL</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Suspended postcard</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Suspended visit</th>    
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">P heavy defense</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">P heavy defense calculation</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">4mm</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">P second</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Inspection ③</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">FOP</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">white</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Medical tube</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Prosthodontics</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">MT index</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Malocclusion</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Number of new cases</th>  
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Next reservation</th>  
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                </tr>                        
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+$(document).ready(function(){
+  $("#button-course").click(function(){
+    $("button").removeClass("outline-none ring-2 ring-offset-2 ring-cyan-500");
+    $("#button-course").addClass("outline-none ring-2 ring-offset-2 ring-cyan-500");
+    $("#course").show();
+    $("#pcourse").hide();
+    $("#summary").hide();
+  });
+});
+
+$(document).ready(function(){
+  $("#button-pcourse").click(function(){
+    $("button").removeClass("outline-none ring-2 ring-offset-2 ring-cyan-500");
+    $("#button-pcourse").addClass("outline-none ring-2 ring-offset-2 ring-cyan-500");
+    $("#course").hide();
+    $("#pcourse").show();
+    $("#summary").hide();
+  });
+});
+
+$(document).ready(function(){
+  $("#button-summary").click(function(){
+    $("button").removeClass("outline-none ring-2 ring-offset-2 ring-cyan-500");
+    $("#button-summary").addClass("outline-none ring-2 ring-offset-2 ring-cyan-500");
+    $("#course").hide();
+    $("#pcourse").hide();
+    $("#summary").show();
+  });
+});
+</script>
