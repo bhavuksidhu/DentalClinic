@@ -66,8 +66,8 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.course %></td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.p_course %></td>
 
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.created_at.to_date %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.next_treatment %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.visit_route.first_visit %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.visit_route.next_reservation_date %></td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.last_treatment %></td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.note %></td>
 
