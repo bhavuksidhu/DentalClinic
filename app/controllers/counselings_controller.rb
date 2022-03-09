@@ -5,9 +5,15 @@ class CounselingsController < ApplicationController
 
     # GET /counsel or /staff_infos.json
   def index
+      
+    if params[:patient_number1].present? && params[:patient_number2].present? # Filter by Patient Number
 
+      first_number, second_number = SwapValue.new(params[:patient_number1],params[:patient_number2]).swap_values   
+      @users = Patient.where(patient_number: (first_number)..(second_number)).includes(:patient_name,:aggregation_basic_information)
+    else
       @q = Counseling.ransack(params[:q])
       @pagy, @users = pagy(@q.result)
+    end
     
   end
 
@@ -30,6 +36,12 @@ class CounselingsController < ApplicationController
     @counseling = Counseling.includes(:oral_types).find(params[:id])
   end 
 
+  def destroy 
+    @counseling = Counseling.find(params[:id])
+    @counseling.destroy 
+
+    redirect_to counselings_path, notice: "Counseling #{@counseling.resp_dr} Successfully Deleted!"
+  end 
 
   def aggregation_basic_information
       @aggregation_period=params[:aggregation_period]

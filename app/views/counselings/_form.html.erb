@@ -26,8 +26,6 @@
                Contract Information
               </button>
             </div>
-
-
             
                  <div style="display:block" id="basic-div">
 
@@ -45,78 +43,78 @@
                         <div class="w-full grid grid-cols-2">
                           <% if params[:edit].nil? %>
                             <%= form.fields_for :oral_types do |builder| %>
-                               <div class="col-span">
-                                  <div class="">
-                                    <h1 class="text-2xl italic">Bad Breath</h1>
-                                    <%= builder.hidden_field :name,value: "bad_breath"%>
+                                  <div class="col-span">
+                                      <div class="">
+                                        <h1 class="text-2xl italic">Bad Breath</h1>
+                                        <%= builder.hidden_field :name,value: "bad_breath"%>
+                                      </div>
+                                      <div class="mb-3 xl:w-96">
+                                          <%= builder.label :exp_date %>
+                                          <%= builder.date_field :exp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                      </div>                       
                                   </div>
-                                  <div class="mb-3 xl:w-96">
-                                      <%= builder.label :exp_date %>
-                                      <%= builder.date_field :exp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
-                                  </div>                       
-                              </div>
-                              <div class="col-span">
-                                  <div class="mb-3 xl:w-96">
-                                      <%= builder.label :imp_date %>
-                                      <%= builder.date_field :imp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
-                                  </div>                       
-                              </div>
+                                  <div class="col-span">
+                                      <div class="mb-3 xl:w-96">
+                                          <%= builder.label :imp_date %>
+                                          <%= builder.date_field :imp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                      </div>                       
+                                  </div>
                               <% end %>
                               <%= form.fields_for :oral_types do |builder| %>
-                                <div class="col-span">
-                                    <div class="">
-                                      <h1 class="text-2xl italic">Microscope</h1>
-                                      <%= builder.hidden_field :name,value: "microscope"%>
+                                    <div class="col-span">
+                                        <div class="">
+                                          <h1 class="text-2xl italic">Microscope</h1>
+                                          <%= builder.hidden_field :name,value: "microscope"%>
+                                        </div>
+                                        <div class="mb-3 xl:w-96">
+                                            <%= builder.label :exp_date %>
+                                            <%= builder.date_field :exp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                        </div>                       
                                     </div>
-                                    <div class="mb-3 xl:w-96">
-                                        <%= builder.label :exp_date %>
-                                        <%= builder.date_field :exp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
-                                    </div>                       
-                                </div>
-                                <div class="col-span">
-                                    <div class="mb-3 xl:w-96">
-                                        <%= builder.label :imp_date %>
-                                        <%= builder.date_field :imp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
-                                    </div>                       
-                                </div>
+                                    <div class="col-span">
+                                        <div class="mb-3 xl:w-96">
+                                            <%= builder.label :imp_date %>
+                                            <%= builder.date_field :imp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                        </div>                       
+                                    </div>
                                 <% end %>
                                 <%= form.fields_for :oral_types do |builder| %>
-                                <div class="col-span">
-                                    <div class="grid grid-col-1">
-                                      <h1 class="text-2xl italic">Saliva</h1>
-                                      <%= builder.hidden_field :name,value: "saliva"%>
+                                    <div class="col-span">
+                                        <div class="grid grid-col-1">
+                                          <h1 class="text-2xl italic">Saliva</h1>
+                                          <%= builder.hidden_field :name,value: "saliva"%>
+                                        </div>
+                                        <div class="mb-3 xl:w-96">
+                                            <%= builder.label :exp_date %>
+                                            <%= builder.date_field :exp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                        </div>                       
                                     </div>
-                                    <div class="mb-3 xl:w-96">
-                                        <%= builder.label :exp_date %>
-                                        <%= builder.date_field :exp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
-                                    </div>                       
-                                </div>
-                                <div class="col-span">
-                                    <div class="mb-3 xl:w-96">
-                                        <%= builder.label :imp_date %>
-                                        <%= builder.date_field :imp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
-                                    </div>                       
-                                </div>
-                           <% end %>
+                                    <div class="col-span">
+                                        <div class="mb-3 xl:w-96">
+                                            <%= builder.label :imp_date %>
+                                            <%= builder.date_field :imp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                        </div>                       
+                                    </div>
+                                 <% end %>
                           <% else %>
-                            <%= form.fields_for :oral_types do |builder| %>
-                               <div class="col-span">
-                                  <div class="">
-                                    <h1 class="text-2xl italic"><%=builder.object.name.humanize %></h1>
-                                    <%= builder.hidden_field :name %>
-                                  </div>
-                                  <div class="mb-3 xl:w-96">
-                                      <%= builder.label :exp_date %>
-                                      <%= builder.date_field :exp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
-                                  </div>                       
-                              </div>
-                              <div class="col-span">
-                                  <div class="mb-3 xl:w-96">
-                                      <%= builder.label :imp_date %>
-                                      <%= builder.date_field :imp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
-                                  </div>                       
-                              </div>
-                            <% end %>
+                                  <%= form.fields_for :oral_types do |builder| %>
+                                        <div class="col-span">
+                                            <div class="">
+                                              <h1 class="text-2xl italic"><%=builder.object.name.humanize %></h1>
+                                              <%= builder.hidden_field :name %>
+                                            </div>
+                                            <div class="mb-3 xl:w-96">
+                                                <%= builder.label :exp_date %>
+                                                <%= builder.date_field :exp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                            </div>                       
+                                        </div>
+                                        <div class="col-span">
+                                            <div class="mb-3 xl:w-96">
+                                                <%= builder.label :imp_date %>
+                                                <%= builder.date_field :imp_date, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"%>
+                                            </div>                       
+                                        </div>
+                                    <% end %>
                           <% end %>
                           </div> 
 
