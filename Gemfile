@@ -69,3 +69,5 @@ gem 'devise_masquerade'
 gem 'jquery-ui-rails'
 
 gem 'rails_admin'
+
+gem "audited"

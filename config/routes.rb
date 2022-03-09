@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   resources :patients do 
     get 'appointment', on: :member 
     patch 'add_appointment', on: :collection
+    post 'create_appointment', on: :collection
+    get 'all_appointment', on: :collection
   end 
   
   get 'user/index'
@@ -34,11 +36,7 @@ Rails.application.routes.draw do
   get 'translate',to: 'homepage#translate'
 
   resources :registrations 
-  # post "registrations", to: "registrations#index"
-  # get "sign_up", to: "registrations#new"
-  # post "sign_up", to: "registrations#create"
-  # get 'user/:id/edit', to: "registrations#edit"
-  # patch 'user_update', to: "registrations#update"
+
 
   resources :visit_routes, except: [:destroy,:show]
 
