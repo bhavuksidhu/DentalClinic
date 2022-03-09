@@ -41,5 +41,6 @@ Rails.application.routes.draw do
   # patch 'user_update', to: "registrations#update"
 
   resources :visit_routes, except: [:destroy,:show]
+  get "monthly_tabulation",to: "visit_routes#monthly_tabulation"
 
 end

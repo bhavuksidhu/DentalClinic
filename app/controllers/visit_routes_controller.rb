@@ -23,6 +23,12 @@ class VisitRoutesController < ApplicationController
         @patient = Patient.find(params[:patient])
     end 
 
+    def monthly_tabulation
+        @dentists=Dentist.all
+        @dentist_hygienists=DentistHygienist.all
+        @treatment_coordinators = TreatmentCoordinator.all
+    end
+
     def update 
         @visit_route = VisitRoute.find(params[:id])
         if @visit_route.update(visit_params)

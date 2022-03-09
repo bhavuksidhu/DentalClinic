@@ -37,6 +37,7 @@ class PatientsController < ApplicationController
 
   def create 
     @patient = Patient.new(patient_params)
+    @patient.clinic_id = current_user.clinics.first.id
 
     if @patient.save 
       redirect_to patients_path, notice: "Patient #{@patient.first_name} Successfully Created!"
