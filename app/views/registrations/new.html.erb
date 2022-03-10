@@ -37,10 +37,10 @@
 
         <div class="my-5">
             <%= t("newuser.Role") %>
-            <%= form.select :role, User.roles.keys, {:include_blank => "Select"} %>
+            <%= form.select :role, User.roles.keys, {:include_blank => "Select"}, id: "role",class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
         </div>
-
-        <%= form.fields_for :clinics do |f| %>
+        <div id = "clinic-form"> 
+            <%= form.fields_for :clinics do |f| %>
                 <div class="my-5">
                     <%= f.label :name %>
                     <%= f.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
@@ -87,6 +87,7 @@
                 </div>
 
             <% end %>
+        </div>
 
         <div class="inline">
             <%= form.submit t("newuser.Create User"), class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer"%>
@@ -95,3 +96,16 @@
 
     <%= link_to t("newuser.Back to Patients"), user_index_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>
+
+<script>
+    $("#role").on("change",function(){
+        if($("#role").val() == "Administrator")
+        {
+            $("#clinic-form").hide();
+        }
+        else
+        {
+            $("#clinic-form").show();
+        }
+    })
+</script>

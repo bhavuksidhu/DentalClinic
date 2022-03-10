@@ -13,16 +13,7 @@ class RegistrationsController < ApplicationController
     end 
 
     def new 
-        @user = User.new 
-        @user.clinics.build
-    end 
-
-    def create 
-        @user = User.new(params_user)
-
-        if @user.save
-            redirect_to user_index_path, notice: "New User Created Successfully!"
-        else  
+        @user = User.new l
             render :new
         end 
     end 
@@ -59,7 +50,11 @@ class RegistrationsController < ApplicationController
             params.require(:user).permit(:role, :email, :logo)
         end 
 
-        def params_user 
+        def params_administrator 
+            params.require(:user).permit(:email, :password, :password_confirmation, :role, :logo)
+        end 
+
+        def params_clinic_user 
             params.require(:user).permit(:email, :password, :password_confirmation, :role, :logo, clinics_attributes: [:id, :name, :postal_code, :region, :address, :municipalities, :building_name, :floors, :fax_number, :phone_number])
         end 
 end
