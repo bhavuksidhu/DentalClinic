@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     end
 
   def set_locale
-    I18n.locale = "ja"
+    I18n.locale = "en"
   end
 
   def after_sign_out_path_for(resource)

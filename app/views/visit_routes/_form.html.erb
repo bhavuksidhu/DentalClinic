@@ -252,7 +252,7 @@
     <div id="next_reservation" class="form-div" style="display:none">
       <div class="my-5">
       <%= form.label :Next_reservation, class:"mr-5"%>
-      <%= form.date_field :next_reservation, class: "rounded-md border outline-none" %>
+      <%= form.date_field :next_reservation_date, class: "rounded-md border outline-none" %>
       </div>
 
       <div class="my-5">
@@ -261,12 +261,13 @@
       </div>
 
       <div class="my-5">
-      <%= form.label :Patient_number, class:"mr-5"%>
+      <%= form.label :Thank_you_note_Patient_number, class:"mr-5"%>
       <%= form.text_field :thank_you_note_patient_no, class: "rounded-md border outline-none" %>
       </div>
     
-
       <%= form.hidden_field :patient_id %>
+
+      <%= form.hidden_field :patient_number, value: @patient.patient_number %>
 
       <div class="inline">
       <%= form.submit class: "submit-button rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>

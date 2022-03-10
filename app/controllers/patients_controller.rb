@@ -6,20 +6,25 @@ class PatientsController < ApplicationController
     if params[:patient_number1].present? && params[:patient_number2].present? # Filter by Patient Number
 
       first_number, second_number = SwapValue.new(params[:patient_number1],params[:patient_number2]).swap_values   
-      @users = Patient.where(patient_number: (first_number)..(second_number)).includes(:dentist,:dentist_hygienist,:treatment_coordinator)
+      @users = Patient.where(patient_number: (first_number)..(second_number)).includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route)
     
     elsif params[:first_visit1].present? && params[:first_visit2].present? # Filter by visits date
 
-      first_date, second_date = SwapValue.new(params[:first_visit1],params[:first_visit2]).swap_values   
-      @users = Patient.where("(DATE(created_at) BETWEEN ? and ?) OR (DATE(created_at) = ?)", first_date, second_date, second_date).includes(:dentist,:dentist_hygienist,:treatment_coordinator)
+      first_date, second_date = SwapValue.new(params[:first_visit1],params[:first_visit2]).swap_values 
+      @users = Patient.joins(:visit_route).where(visit_route:{first_visit: (first_date)..(second_date)}).includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route)
+    
+    elsif params[:next_reservation1].present? && params[:next_reservation2].present? # Filter next reservation date 
+
+      first_date, second_date = SwapValue.new(params[:next_reservation1],params[:next_reservation2]).swap_values 
+      @users = Patient.joins(:visit_route).where(visit_route:{next_reservation_date: (first_date)..(second_date)}).includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route)
 
     elsif params[:patient_name].present? # Search by Name 
 
-      @users = Patient.where("first_name like?", "%#{params[:patient_name]}%").includes(:dentist,:dentist_hygienist,:treatment_coordinator)
+      @users = Patient.where("first_name like?", "%#{params[:patient_name]}%").includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route)
       
     else  
 
-      @users = Patient.all.includes(:dentist,:dentist_hygienist,:treatment_coordinator) 
+      @users = Patient.all.includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route) 
 
     end 
     
@@ -46,6 +51,23 @@ class PatientsController < ApplicationController
     end 
   end 
 
+  # All Appointments List 
+  def all_appointment 
+    @pagy, @patients = pagy(Patient.all.includes(:visit_route))
+  end 
+
+  def create_appointment   
+    patient = Patient.find_by(patient_number: params[:patient_number].to_i)
+    if patient.present? 
+        visit_route = patient.visit_route
+        visit_route.update(next_reservation_date: params[:next_reservation])
+        redirect_to all_appointment_patients_path, notice: "New Appointment!"
+    else  
+        redirect_to all_appointment_patients_path, notice: "Patient Number Is Not Available!"
+    end 
+  end 
+
+  # Appointment Jquery
   def appointment 
     @patient = Patient.find(params[:id])
   end 
@@ -84,11 +106,15 @@ class PatientsController < ApplicationController
 
   private 
 
+  def appointment_params 
+    params.require(:appointment).permit(:patient_number,:appointment_date)
+  end 
+
   def patient_params 
     params.require(:patient).permit(:first_name, :last_name, :phone, :patient_number, :patient_visit_route, :keyword, :panorama, :caries_check, :course, :p_course, :note, :dentist_id, :dentist_hygienist_id, :treatment_coordinator_id)
   end 
 
-  def appointment_params 
-    params.require(:patient).permit(:appointment_date)
-  end 
+  # def appointment_params 
+  #   params.require(:patient).permit(:appointment_date)
+  # end 
 end
