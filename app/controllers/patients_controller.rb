@@ -3,33 +3,9 @@ class PatientsController < ApplicationController
 
   def index
     # OPTIMIZE includes  
-    if params[:patient_number1].present? && params[:patient_number2].present? # Filter by Patient Number
-
-      first_number, second_number = SwapValue.new(params[:patient_number1],params[:patient_number2]).swap_values   
-      @users = Patient.where(patient_number: (first_number)..(second_number)).includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route)
-    
-    elsif params[:first_visit1].present? && params[:first_visit2].present? # Filter by visits date
-
-      first_date, second_date = SwapValue.new(params[:first_visit1],params[:first_visit2]).swap_values 
-      @users = Patient.joins(:visit_route).where(visit_route:{first_visit: (first_date)..(second_date)}).includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route)
-    
-    elsif params[:next_reservation1].present? && params[:next_reservation2].present? # Filter next reservation date 
-
-      first_date, second_date = SwapValue.new(params[:next_reservation1],params[:next_reservation2]).swap_values 
-      @users = Patient.joins(:visit_route).where(visit_route:{next_reservation_date: (first_date)..(second_date)}).includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route)
-
-    elsif params[:patient_name].present? # Search by Name 
-
-      @users = Patient.where("first_name like?", "%#{params[:patient_name]}%").includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route)
-      
-    else  
-
-      @users = Patient.all.includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route) 
-
-    end 
-    
+    @patients = search_filter(params).includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route)
     # Pagination
-    @pagy = pagy(@users)
+    @pagy = pagy(@patients)
   end
 
   def show 
@@ -51,25 +27,47 @@ class PatientsController < ApplicationController
         render :new, status: :unprocessable_entity
       end 
     else
-      redirect_to request.referer, notice: "First create your clinic."
+      redirect_to request.referer, alert: "First create your clinic."
     end
   end 
 
   # All Appointments List 
   def all_appointment 
-    @pagy, @patients = pagy(Patient.all.includes(:visit_route))
+    @patients = search_filter(params).includes(:visit_route)
+
+    # Pagination
+    @pagy = pagy(@patients)
   end 
 
-  def create_appointment   
+  def create_appointment 
     patient = Patient.find_by(patient_number: params[:patient_number].to_i)
-    if patient.present? 
-        visit_route = patient.visit_route
-        visit_route.update(next_reservation_date: params[:next_reservation])
-        redirect_to all_appointment_patients_path, notice: "New Appointment!"
-    else  
-        redirect_to all_appointment_patients_path, notice: "Patient Number Is Not Available!"
+    if patient.present?  
+        unless patient.visit_route.present?
+          redirect_to all_appointment_patients_path, alert: "Create Visit Route First!"
+        else  
+          redirect_to all_appointment_patients_path, notice: "New Appointment!" if patient.visit_route.update(next_reservation_date: params[:next_reservation])
+        end 
+    else 
+        redirect_to all_appointment_patients_path, alert: "Patient Number Is Not Available!"
     end 
   end 
+
+  # Last Visits List
+  def last_visit 
+    @patients = search_filter(params)  
+    @pagy = pagy(@patients) # Pagination
+  end 
+
+  def create_last_visit 
+    patient = Patient.find_by(patient_number: params[:patient_number].to_i)
+    if patient.present? && params[:last_visit].to_date <= Date.today 
+        patient.update(last_visit_date: params[:last_visit])  
+        redirect_to last_visit_patients_path, notice: "Last Visit Date Updated!"
+    else  
+        redirect_to last_visit_patients_path, alert: "Patient Number Is Not Available!"
+    end 
+  end 
+
 
   # Appointment Jquery
   def appointment 
@@ -109,6 +107,40 @@ class PatientsController < ApplicationController
   end 
 
   private 
+
+  # Searching And Filtering 
+
+  def search_filter(params)
+    if params[:patient_number1].present? && params[:patient_number2].present? # Filter by Patient Number
+
+      first_number, second_number = SwapValue.new(params[:patient_number1],params[:patient_number2]).swap_values   
+      @patients = Patient.where(patient_number: (first_number)..(second_number))
+    
+    elsif params[:first_visit1].present? && params[:first_visit2].present? # Filter by visits date
+
+      first_date, second_date = SwapValue.new(params[:first_visit1],params[:first_visit2]).swap_values 
+      @patients = Patient.joins(:visit_route).where(visit_route:{first_visit: (first_date)..(second_date)})
+    
+    elsif params[:next_reservation1].present? && params[:next_reservation2].present? # Filter next reservation date 
+
+      first_date, second_date = SwapValue.new(params[:next_reservation1],params[:next_reservation2]).swap_values 
+      @patients = Patient.joins(:visit_route).where(visit_route:{next_reservation_date: (first_date)..(second_date)})
+
+    elsif params[:last_visit1].present? && params[:last_visit2].present? #Filter Last Visit Date 
+
+      first_date, second_date = SwapValue.new(params[:last_visit1],params[:last_visit2]).swap_values 
+      @patients = Patient.where(last_visit_date: (first_date)..(second_date))
+
+    elsif params[:patient_name].present? # Search by Name 
+
+      @patients = Patient.where("first_name like?", "%#{params[:patient_name]}%")
+      
+    else  
+
+      @patients = Patient.all 
+
+    end 
+  end 
 
   def appointment_params 
     params.require(:appointment).permit(:patient_number,:appointment_date)

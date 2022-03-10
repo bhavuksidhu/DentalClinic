@@ -26,8 +26,12 @@ Rails.application.routes.draw do
   resources :patients do 
     get 'appointment', on: :member 
     patch 'add_appointment', on: :collection
-    post 'create_appointment', on: :collection
+
     get 'all_appointment', on: :collection
+    post 'create_appointment', on: :collection
+
+    get 'last_visit', on: :collection 
+    post 'create_last_visit', on: :collection 
   end 
   
   get 'user/index'
