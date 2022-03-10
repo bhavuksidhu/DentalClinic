@@ -13,7 +13,20 @@ class RegistrationsController < ApplicationController
     end 
 
     def new 
-        @user = User.new l
+        @user = User.new 
+        @user.clinics.build
+    end 
+
+    def create 
+        if params[:user]['role'] == "Administrator"
+            @user = User.new(params_administrator) 
+        else
+            @user = User.new(params_clinic_user)
+        end
+
+        if @user.save
+            redirect_to user_index_path, notice: "New User Created Successfully!"
+        else  
             render :new
         end 
     end 

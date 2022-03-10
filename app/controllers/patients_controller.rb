@@ -41,14 +41,18 @@ class PatientsController < ApplicationController
   end 
 
   def create 
-    @patient = Patient.new(patient_params)
-    @patient.clinic_id = current_user.clinics.first.id
+    if current_user.clinics.present?
+      @patient = Patient.new(patient_params)
+      @patient.clinic_id = current_user.clinics.first.id 
 
-    if @patient.save 
-      redirect_to patients_path, notice: "Patient #{@patient.first_name} Successfully Created!"
-    else  
-      render :new, status: :unprocessable_entity
-    end 
+      if @patient.save 
+        redirect_to patients_path, notice: "Patient #{@patient.first_name} Successfully Created!"
+      else  
+        render :new, status: :unprocessable_entity
+      end 
+    else
+      redirect_to request.referer, notice: "First create your clinic."
+    end
   end 
 
   # All Appointments List 
