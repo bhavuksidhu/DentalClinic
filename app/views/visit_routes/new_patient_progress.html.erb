@@ -14,8 +14,7 @@
             <div>
               <button type="button" id="button-new" class="inline-flex items-center px-2 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
                New Patient Progress
-              </button>
-            
+              </button>           
             
               <button type="button" id="button-course" class="inline-flex items-center px-2 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
                Course
@@ -102,48 +101,80 @@
                               </tr>           
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
-                            
-                              <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= Date.current.beginning_of_month %></td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">201231561461522</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= @first_visit %></td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= @first_visit %></td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= @first_visit %></td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= @first_visit %></td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
+                             
+                             <% @counselings.each do |c| %>
+                              <%  
+                                  
+                                  @first_visit = 0
+                                  @no_of_patients = Patient.all.count 
+                                  @second_visit = 0
+                                  @treat_plan = 0
+                                  @maintainance = 0
+                                  @visit_route_progress = VisitRoute.all.group_by{ |t| t.created_at.beginning_of_month }
+
+                              %>
+                                <tr>
+                                      
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= c.first.strftime("%Y-%m")  %></td>
+                                  <% c.second.each do |d|%>
+                                    <% unless d.first_visit.nil?%>
+                                      <% @first_visit = @first_visit+1 %>
+                                    <% end %>
+                                    <% unless d.second_visit.nil?%>
+                                      <% @second_visit = @second_visit+1 %>
+                                    <% end %>
+                                    <% unless d.treat_plan.nil?%>
+                                      <% @treat_plan = @treat_plan+1 %>
+                                    <% end %>
+                                    <% unless d.maintainance.nil?%>
+                                      <% @maintainance = @maintainance+1 %>
+                                    <% end %>
+                                    <%
+                                      @first_visit_rate = @first_visit.to_f/ @no_of_patients.to_f
+                                      @second_visit_rate = @second_visit.to_f/@no_of_patients.to_f
+                                      @treat_plan_rate = @treat_plan.to_f/@no_of_patients.to_f
+                                      @maintainance_rate = @maintainance.to_f/@no_of_patients.to_f
+                                    %>
+                                  <% end %>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @first_visit      %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients   %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @first_visit_rate  %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients    %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @second_visit_rate %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients    %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @treat_plan_rate   %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients    %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients    %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @maintainance_rate  %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients   %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022</td>
                                 
                               
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -151,7 +182,7 @@
                                 </td>
                               </tr>
                        
-
+                             <% end %>
                               <!-- More people... -->
                             </tbody>
                        </table>
@@ -272,7 +303,7 @@
           </div>            
         </div>
       </div>
-    </div>
+  </div>
 </main>
 
 

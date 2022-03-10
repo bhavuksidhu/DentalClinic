@@ -8,5 +8,6 @@ class Counseling < ApplicationRecord
                :no_of_implant, :site, :offer_amt, :agreement,
                :cons_sign_date, :contract_amt, presence: true
     has_many :oral_types, dependent: :destroy
-    accepts_nested_attributes_for :oral_types    
+    accepts_nested_attributes_for :oral_types
+    belongs_to :patient
 end

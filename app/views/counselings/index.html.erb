@@ -13,59 +13,66 @@
                 <table class="min-w-full divide-y divide-gray-200">
                   <thead class="underline bg-gray-50">
                     <tr>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :patient_name, "Patient Name", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :treatment_no, "Treatment No.", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :patient_name, "Patient Name", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :resp_dr, "Responsible Person Dr", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :counseling, "Counseling", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :first_visit, "First Visit", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :re_first_visit, "Re First Visit", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :second_visit, "Second Visit", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :p_consult, "P Consult", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :treat_plan, "Treatment Plan", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :prostho, "prosthodontics", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :denture, "Denture", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :whitening, "White", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :implant, "Implant", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :invisalign, "Invisa", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :other_correc, "Other Correction", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :micro, "Micro", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :maintainance, "Maintainance", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :main_resv_date, "Maintainance Reservation Date", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :main_trans, "Maintainance Number of Migrations", default_order: :desc) %></th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= sort_link(@q, :type_agree, "Agreement Result", default_order: :desc) %></th>                     
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Patient Name</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Treatment No.</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Patient Name</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Responsible Person Dr</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Counseling</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">First Visit</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Re First Visit</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Second Visit</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">P Consult</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Treatment Plan</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Prosthodontics</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Denture</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">White</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Implant</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Invisa</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Other Correction</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Micro</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Maintainance</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Maintainance Reservation Date</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Maintainance Number of Migrations</th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Agreement Result</th>                     
                       <th scope="col" class="relative px-6 py-3">
                         <span class="sr-only">Edit</span>
                       </th>
                     </tr>
                   </thead>
                   <tbody class="bg-white divide-y divide-gray-200">
-                    <% @users.each do |user| %>
+                    <% @patients.each do |patient| %>
                     <tr>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.resp_dr %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.resp_dr %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.resp_dr %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.resp_dr %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.resp_dr %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.first_visit %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.re_first_visit %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.second_visit %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.p_consult %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.treat_plan %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.prostho %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.denture %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.whitening %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.implant %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.invisalign %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.other_correc %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.micro %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.maintainance %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.main_resv_date %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.main_trans %></td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.type_agree %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.patient_number %></td>
+                      <% if patient.counseling %>
+                        <!-- Editing Visit Routes -->
+                        <td class="px-6 underline text-blue-300 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= link_to patient.first_name,edit_counseling_path(id: patient.counseling.id,patient: patient.id, edit: "true") %></td>
+                    <% else %>
+                        <!-- Create Visit Routes -->
+                        <td class="px-6 underline text-blue-300 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= link_to patient.first_name ,new_counseling_path(id: patient.id) %></td>
+                    <% end %>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.first_name if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.resp_dr if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.resp_dr if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.first_visit if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.re_first_visit if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.second_visit if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.p_consult if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.treat_plan if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.prostho if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.denture if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.whitening if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.implant if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.invisalign if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.other_correc if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.micro if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.maintainance if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.main_resv_date if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.main_trans if patient.counseling %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.counseling.agreement if patient.counseling %></td>
+
                       <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <%= link_to "Edit", edit_counseling_path(user.id, edit: "true"),class:"text-cyan-900 hover:text-cyan-900" %>
-                        <%= link_to "Delete", counseling_path(user), method: :delete, data: { confirm: "Are you sure?" },class:"text-cyan-900 hover:text-cyan-900" %>
+                        <%= link_to "Edit", edit_counseling_path(patient.id, edit: "true"),class:"text-cyan-900 hover:text-cyan-900" %>
+                        <%= link_to "Delete", counseling_path(patient), method: :delete, data: { confirm: "Are you sure?" },class:"text-cyan-900 hover:text-cyan-900" %>
                       </td>
                     </tr>
                     <% end %>

@@ -6,7 +6,7 @@ class OralTypesController < ApplicationController
         @oral_types =  OralType.all
     end
 
-    def new 
+    def new
         @oral_type = OralType.new 
     end
 

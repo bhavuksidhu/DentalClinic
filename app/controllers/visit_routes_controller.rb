@@ -86,17 +86,7 @@ class VisitRoutesController < ApplicationController
     end     
 
     def new_patient_progress
-        #  # first visit consult
-        # initial_consultation = Counseling.all.pluck(:first_visit).count
-        # no_of_patients = Patient.count
-        # @first_visit = initial_consultation/no_of_patients
-
-        # # second
-        # second_patient = Counseling.all.pluck(:second_visit).count
-        # @second_visit = second_patient/no_of_patients
-        
-
-
+        @counselings = Counseling.all.group_by{ |t| t.created_at.beginning_of_month }
     end
 
     private 
