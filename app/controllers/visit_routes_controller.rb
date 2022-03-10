@@ -58,10 +58,8 @@ class VisitRoutesController < ApplicationController
     def create 
         @visit_route = VisitRoute.new(visit_params)
 
-        binding.pry
         if @visit_route.save
-            Appointment.create(appointment_date: params[:visit_route][:next_reservation_date],patient_number: params[:visit_route][:patient_number]) 
-            redirect_to visit_routes_path,notice: "Success"
+            redirect_to visit_routes_path,notice: "Visit Route Created Successfully!"
         else  
             render :new 
         end 
