@@ -54,11 +54,7 @@ class PatientsController < ApplicationController
 
   # Last Visits List
   def last_visit 
-<<<<<<< HEAD
-    @patients = SearchFilter.new(params).search_filter
-=======
     @patients = SearchFilter.new(params).search_filter  
->>>>>>> varun
     @pagy = pagy(@patients) # Pagination
   end 
 
