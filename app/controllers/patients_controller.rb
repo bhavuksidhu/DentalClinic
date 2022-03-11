@@ -16,6 +16,13 @@ class PatientsController < ApplicationController
     @patient = Patient.new 
   end 
 
+  def get_patient
+    @patient = Patient.find_by_patient_number(params["patient_number"])
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def create 
     if current_user.clinics.present?
       @patient = Patient.new(patient_params)

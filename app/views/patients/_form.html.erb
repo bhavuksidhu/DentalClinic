@@ -1,84 +1,114 @@
 <%= form_with(model: patient,class: "contents") do |form| %>
-    <% if patient.errors.any? %>
-      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-        <h2><%= pluralize(patient.errors.count, "error") %> prohibited this clinic from being saved:</h2>
-
-        <ul>
-          <% patient.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-        </div>
-    <% end %>
-
     <div class="my-5">
     <%= form.label :first_name %>
     <%= form.text_field :first_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <% patient.errors.full_messages_for(:first_name).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+    <% end %>
     </div>
 
     <div class="my-5">
     <%= form.label :last_name %>
     <%= form.text_field :last_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <% patient.errors.full_messages_for(:last_name).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+    <% end %>
     </div>
 
     <div class="my-5">
     <%= form.label :phone %>
     <%= form.text_field :phone, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <% patient.errors.full_messages_for(:phone).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+    <% end %>
     </div>
     
     <div class="my-5">
     <%= form.label :patient_number %>
     <%= form.number_field :patient_number, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <% patient.errors.full_messages_for(:patient_number).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+    <% end %>
     </div>
 
     <div class="my-5">
     <%= form.label :patient_visit_route %>
     <%= form.text_field :patient_visit_route, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <% patient.errors.full_messages_for(:patient_visit_route).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+    <% end %>
     </div>
 
     <div class="my-5">
     <%= form.label :keyword %>
     <%= form.text_field :keyword, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <% patient.errors.full_messages_for(:keyword).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+    <% end %>
     </div>
 
     <div class="my-5">
     <%= form.label :panorama %>
     <%= form.check_box :panorama %>
+    <% patient.errors.full_messages_for(:panorama).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+    <% end %>
     </div>
 
     <div class="my-5">
     <%= form.label :caries_check %>
     <%= form.check_box :caries_check %>
+    <% patient.errors.full_messages_for(:caries_check).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+    <% end %>
     </div>
 
     <div class="my-5">
     <%= form.label :course %>
     <%= form.text_field :course, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <% patient.errors.full_messages_for(:course).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+    <% end %>
     </div>
 
     <div class="my-5">
     <%= form.label :p_course %>
     <%= form.text_field :p_course, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <% patient.errors.full_messages_for(:p_course).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+    <% end %>
     </div>
 
     <div class="my-5">
     <%= form.label :note %>
     <%= form.text_area :note, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <% patient.errors.full_messages_for(:note).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+    <% end %>
     </div>
 
     <div class="my-5">
     <%= form.label :Dentist %>
     <%= form.select :dentist_id, Dentist.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <% patient.errors.full_messages_for(:dentist).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+    <% end %>
     </div>
 
     <div class="my-5">
     <%= form.label :Dentist_Hygienist %>
     <%= form.select :dentist_hygienist_id, DentistHygienist.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"},class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <% patient.errors.full_messages_for(:dentist_hygienist).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+    <% end %>
     </div>
 
     <div class="my-5">
     <%= form.label :treatement_coordinator %>
     <%= form.select :treatment_coordinator_id, TreatmentCoordinator.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <% patient.errors.full_messages_for(:treatment_coordinator).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+    <% end %>
     </div>
 
     <div class="inline">
