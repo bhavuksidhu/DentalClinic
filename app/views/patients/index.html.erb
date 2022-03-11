@@ -47,31 +47,31 @@
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    <% @users.each do |user| %>
+                    <% @patients.each do |patient| %>
                   <tr>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= user.patient_number %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= user.first_name %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.last_name %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= patient.patient_number %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= patient.first_name %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.last_name %></td>
 
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.patient_visit_route %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.patient_visit_route %></td>
 
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.dentist.first_name %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.dentist_hygienist.first_name %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.treatment_coordinator.first_name %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.dentist.first_name %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.dentist_hygienist.first_name %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.treatment_coordinator.first_name %></td>
 
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.panorama ? "Yes" : "NO" %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.caries_check ? "Yes" : "NO" %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.panorama ? "Yes" : "NO" %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.caries_check ? "Yes" : "NO" %></td>
 
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.course %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.p_course %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.course %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.p_course %></td>
 
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.visit_route.first_visit if user.visit_route %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.visit_route.next_reservation_date if user.visit_route%></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.last_treatment %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= user.note %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.visit_route.first_visit if patient.visit_route %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.visit_route.next_reservation_date if patient.visit_route%></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.last_visit_date %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.note %></td>
 
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <%= link_to 'View', patient_path(user.id), class:"inline-flex items-center px-4 py-2 border border-cyan-300 shadow-sm text-sm font-medium rounded-md text-white bg-cyan-500 hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" %>
+                        <%= link_to 'View', patient_path(patient.id), class:"inline-flex items-center px-4 py-2 border border-cyan-300 shadow-sm text-sm font-medium rounded-md text-white bg-cyan-500 hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" %>
                       </td>
                   </tr>
                   <% end %>
@@ -87,56 +87,37 @@
           <% end %>
         </div>
       </div>
-      <div class="alert-modal fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div class="alert-modal flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-          <!--
-            Background overlay, show/hide based on modal state.
-
-            Entering: "ease-out duration-300"
-              From: "opacity-0"
-              To: "opacity-100"
-            Leaving: "ease-in duration-200"
-              From: "opacity-100"
-              To: "opacity-0"
-          -->
+      <div class="alert-modal hidden fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="alert-modal hidden flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-
           <!-- This element is to trick the browser into centering the modal contents. -->
           <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
-          <!--
-            Modal panel, show/hide based on modal state.
-
-            Entering: "ease-out duration-300"
-              From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              To: "opacity-100 translate-y-0 sm:scale-100"
-            Leaving: "ease-in duration-200"
-              From: "opacity-100 translate-y-0 sm:scale-100"
-              To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-          -->
-          <div class="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+          <div class="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle">
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div class="sm:flex sm:items-start">
               <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Advance Search</h3>
               </div>
+              <div>
+                <%= render partial:"patients/advance_search" %>
+              </div>
             </div>
             <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
               <button type="button" class="close-modal mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
+              <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">Search</button>
               <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">Clear</button>
-              <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">Search</button>
             </div>
           </div>
         </div>
       </div>
+
     </main>
 <script>
-$('.alert-modal').toggle();
 $('#SmLabel').on("click",function(){
- $('.alert-modal').toggle();
+ $('.alert-modal').removeClass('hidden');
 });
 
 $('.close-modal').on("click",function(){
- $('.alert-modal').toggle();
+ $('.alert-modal').addClass('hidden');
 });
 
 </script>

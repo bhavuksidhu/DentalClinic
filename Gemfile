@@ -67,7 +67,6 @@ gem "tailwindcss-rails", "~> 2.0"
 gem 'devise_masquerade'
 
 gem 'jquery-ui-rails'
-
+gem "audited"
 gem 'rails_admin'
 
-gem "audited"

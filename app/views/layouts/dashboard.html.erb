@@ -202,11 +202,11 @@
       
     <div class="lg:pl-64 flex flex-col flex-1">
         <!-- Alert Messages -->
-        <% if notice %>
+        <% if notice || alert %>
           <div id="alert" class="bg-cyan-100 border-2 border-cyan-700 text-cyan-700 px-4 py-3 rounded relative" role="alert">
             <strong class="font-bold">Holy smokes!</strong>
             <span class="block sm:inline"><%= notice %></span>
-            <span class="block sm:inline"><%= alert %></span>
+            <span class="block sm:inline text-red-700"><%= alert %></span>
             <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
               <svg id="remove_alert" class="fill-current h-6 w-6 text-cyan-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
             </span>
@@ -238,7 +238,7 @@
               <%= link_to t("users.sign_in"), new_user_session_path, class:"inline-flex max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 lg:p-2 lg:rounded-md lg:hover:bg-gray-50" unless user_signed_in? %>
 
               
-              <%= link_to t("users.log_out"), destroy_user_session_path, class:"mr-5 shadow-xl bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent hover:shadow-xl" if user_signed_in? %>
+              <%= link_to t("users.log_out"), destroy_user_session_path,method: :delete, class:"mr-5 shadow-xl bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent hover:shadow-xl" if user_signed_in? %>
             </div>
           </div>
         </div>

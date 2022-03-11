@@ -40,6 +40,8 @@
                         <%= form.text_field :resp_couns_staff, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
                         </div>
 
+                        <%= form.hidden_field :patient_id %>
+
                         <div class="w-full grid grid-cols-2">
                           <% if params[:edit].nil? %>
                             <%= form.fields_for :oral_types do |builder| %>
