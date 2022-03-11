@@ -33,7 +33,7 @@ class PatientsController < ApplicationController
 
   # All Appointments List 
   def all_appointment 
-    @patients = search_filter(params).includes(:visit_route)
+    @patients = SearchFilter.new(params).search_filter.includes(:visit_route)
 
     # Pagination
     @pagy = pagy(@patients)
@@ -54,7 +54,7 @@ class PatientsController < ApplicationController
 
   # Last Visits List
   def last_visit 
-    @patients = search_filter(params)  
+    @patients = SearchFilter.new(params).search_filter
     @pagy = pagy(@patients) # Pagination
   end 
 
