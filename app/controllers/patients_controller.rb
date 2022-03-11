@@ -54,13 +54,13 @@ class PatientsController < ApplicationController
 
   # Last Visits List
   def last_visit 
-    @patients = SearchFilter.new(params).search_filter
+    @patients = SearchFilter.new(params).search_filter  
     @pagy = pagy(@patients) # Pagination
   end 
 
   def create_last_visit 
     patient = Patient.find_by(patient_number: params[:patient_number].to_i)
-    if patient.present? && params[:last_visit].to_date <= Date.today 
+    if patient.present? && params[:last_visit].present? && params[:last_visit].to_date <= Date.today  
         patient.update(last_visit_date: params[:last_visit])  
         redirect_to last_visit_patients_path, notice: "Last Visit Date Updated!"
     else  
