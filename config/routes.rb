@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :oral_types
   get 'aggregation_basic_information',to: "counselings#aggregation_basic_information"
   get 'new_patient_progress',to: "visit_routes#new_patient_progress"
+  get 'get_patient', to: "patients#get_patient"
   
   devise_for :users, path: 'users', controllers: {
     sessions: 'users/sessions',

@@ -21,6 +21,7 @@ class VisitRoutesController < ApplicationController
         if @visit_route.save
             redirect_to visit_routes_path,notice: "Visit Route Created Successfully!"
         else  
+            @patient=Patient.find(params[:visit_route][:patient_id])
             render :new 
         end 
     end 
@@ -41,6 +42,7 @@ class VisitRoutesController < ApplicationController
         if @visit_route.update(visit_params)
             redirect_to visit_routes_path, notice: "Visit Route Successfully Updated!"
         else  
+            @patient=Patient.find(params[:visit_route][:patient_id])
             render :edit, status: :unprocessable_entity
         end 
     end     
