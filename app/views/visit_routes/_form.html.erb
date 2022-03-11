@@ -17,6 +17,11 @@
     </button>
 </div>
 
+<% if @visit_route.errors.any? %>
+  <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+    <h2><%= pluralize(@visit_route.errors.count, "error") %> prohibited this clinic from being saved:</h2>
+  </div>
+<% end %>
 <div id="basic-div" class="form-div" style="display:block">
     <%= form_with(model: @patient,class: "contents") do |form| %>
     <% if @patient.errors.any? %>
@@ -107,28 +112,19 @@
 
 
 <%= form_with(model: @visit_route, class: "contents") do |form| %>
-    <% if @visit_route.errors.any? %>
-      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-        <h2><%= pluralize(@visit_route.errors.count, "error") %> prohibited this clinic from being saved:</h2>
-
-        <ul>
-          <% @visit_route.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-        </div>
-    <% end %>
-
-
+    
     <div id="counseling-div" class="form-div" style="display:none">
       <div class="my-5">
       <%= form.label :first_visit , class:"mr-5"%>
-      <%= form.date_field :first_visit, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= form.date_field :first_visit,max: Date.today, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <% @visit_route.errors.full_messages_for(:first_visit).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+      <% end %>
       </div>
 
       <div class="my-5">
       <%= form.label :second , class:"mr-5"%>
-      <%= form.date_field :second, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= form.date_field :second,max: Date.today, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
       
       <div class="my-5">
@@ -144,6 +140,9 @@
       <div class="my-5">
       <%= form.label :maintenance , class:"mr-5"%>
       <%= form.date_field :maintenance, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+      <% @visit_route.errors.full_messages_for(:maintenance).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+      <% end %>
       </div>
 
       <div class="my-5">
@@ -151,6 +150,7 @@
       <%= form.check_box :treatment_plan %>
       <%= form.date_field :treatment_plan_date, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
       </div>
+
       <div class="my-5">
       <%= form.label :suspension, class:"mr-5"%>
       <%= form.check_box :suspension%>
@@ -161,18 +161,27 @@
       <%= form.label :End, class:"mr-5"%>
       <%= form.check_box :confirmation_end , class:"mr-5" %>
       <%= form.date_field :end_date, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+      <% @visit_route.errors.full_messages_for(:end_date).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+      <% end %>
       </div>
 
       <div class="my-5">
       <%= form.label :maintenance, class:"mr-5"%>
       <%= form.check_box :maintenance_visit, class: "rounded-md border outline-none" %>
       <%= form.date_field :maintenance_visit_date, class: "rounded-md border border-gray-200 outline-none px-3 py-2 ml-5" %>
+      <% @visit_route.errors.full_messages_for(:maintenance_visit_date).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+      <% end %>
       </div>
 
       <div class="my-5">
       <%= form.label :Contact_after_interruption_Tel, class:"mr-5"%>
       <%= form.check_box :contact_TEL, class: "rounded-md border outline-none" %>
       <%= form.text_field :suspension_contact_TEL, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 ml-5" %>
+      <% @visit_route.errors.full_messages_for(:first_visit).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+      <% end %>
       </div>
 
       <div class="my-5">
@@ -253,6 +262,9 @@
       <div class="my-5">
       <%= form.label :Next_reservation, class:"mr-5"%>
       <%= form.date_field :next_reservation_date,min: Date.today,class: "rounded-md border outline-none" %>
+      <% @visit_route.errors.full_messages_for(:next_reservation).each do |message| %>
+        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+      <% end %>
       </div>
 
       <div class="my-5">
