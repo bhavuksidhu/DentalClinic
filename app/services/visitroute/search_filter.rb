@@ -39,7 +39,11 @@ module Visitroute
                 
             elsif @params[:tc].present? # Search by Dentist Hyginest
                 
-                patients = Patient.joins(:treatment_coordinator).where("lower(treatment_coordinators.first_name) like?","%#{@params[:tc].downcase}%")   
+                patients = Patient.joins(:treatment_coordinator).where("lower(treatment_coordinators.first_name) like?","%#{@params[:tc].downcase}%")
+
+            elsif @params[:patient_name].present? # Search by Name 
+                
+                @patients = Patient.where("first_name like :s or last_name like :s or first_name || ' ' || last_name like :s", :s => "%#{@params[:patient_name].titleize}")
 
             else  
                 

@@ -3,10 +3,12 @@ class PatientsController < ApplicationController
 
   def index
     # OPTIMIZE includes  
+    # binding.pry
     @patients = SearchFilter.new(params).search_filter.includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route)
     # Pagination
     @pagy = pagy(@patients)
     @patients = @patients.order('created_at DESC')
+    @patient_no = 0
   end
 
   def show 
@@ -27,8 +29,9 @@ class PatientsController < ApplicationController
   def create 
     if current_user.clinics.present?
       @patient = Patient.new(patient_params)
+      @patient.first_name = params[:patient][:first_name].titleize
+      @patient.last_name = params[:patient][:last_name].titleize 
       @patient.clinic_id = current_user.clinics.first.id 
-
       if @patient.save 
         redirect_to patients_path, notice: "Patient #{@patient.first_name} Successfully Created!"
       else  
@@ -45,6 +48,7 @@ class PatientsController < ApplicationController
 
     # Pagination
     @pagy = pagy(@patients)
+    @patient_no = 0
   end 
 
   def create_appointment 
@@ -64,6 +68,7 @@ class PatientsController < ApplicationController
   def last_visit 
     @patients = SearchFilter.new(params).search_filter.order('updated_at DESC') 
     @pagy = pagy(@patients) # Pagination
+    @patient_no = 0
   end 
 
   def create_last_visit 
@@ -121,7 +126,7 @@ class PatientsController < ApplicationController
   end 
 
   def patient_params 
-    params.require(:patient).permit(:first_name, :last_name, :phone, :patient_number, :patient_visit_route, :keyword, :panorama, :caries_check, :course, :p_course, :note, :dentist_id, :dentist_hygienist_id, :treatment_coordinator_id)
+    params.require(:patient).permit(:first_name, :last_name, :patient_number, :patient_visit_route, :keyword, :panorama, :caries_check, :course, :p_course, :note, :dentist_id, :dentist_hygienist_id, :treatment_coordinator_id)
   end 
 
   # def appointment_params 
