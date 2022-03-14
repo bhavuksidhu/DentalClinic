@@ -6,6 +6,7 @@ class PatientsController < ApplicationController
     @patients = SearchFilter.new(params).search_filter.includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route)
     # Pagination
     @pagy = pagy(@patients)
+    @patients = @patients.order('created_at DESC')
   end
 
   def show 
@@ -40,7 +41,7 @@ class PatientsController < ApplicationController
 
   # All Appointments List 
   def all_appointment 
-    @patients = SearchFilter.new(params).search_filter.includes(:visit_route)
+    @patients = SearchFilter.new(params).search_filter.includes(:visit_route).order('created_at DESC')
 
     # Pagination
     @pagy = pagy(@patients)
@@ -61,7 +62,7 @@ class PatientsController < ApplicationController
 
   # Last Visits List
   def last_visit 
-    @patients = SearchFilter.new(params).search_filter  
+    @patients = SearchFilter.new(params).search_filter.order('updated_at DESC') 
     @pagy = pagy(@patients) # Pagination
   end 
 
