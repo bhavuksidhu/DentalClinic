@@ -4,29 +4,99 @@
 
       <p class="my-5">
       <h3 class="inline-flex px-6 py-4 text-sm text-gray-500">
-      <strong class="block font-medium mb-1 mr-4">First Name:</strong>
-          <%= @patient.first_name %>
+      <strong class="block font-medium mb-1 mr-4">Patient Name:</strong>
+          <%= @patient.full_name %>
       </h3>
       </p>
 
       <p class="my-5">
       <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
-      <strong class="block font-medium mb-1 mr-4">Last Name:</strong>
-          <%= @patient.last_name %>
+      <strong class="block font-medium mb-1 mr-4">Patient Number:</strong>
+          <%= @patient.patient_number %>
       </h4>
       </p>
 
       <p class="my-5">
       <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
-      <strong class="block font-medium mb-1 mr-4">Phone:</strong>
-          <%= @patient.phone %>
+      <strong class="block font-medium mb-1 mr-4">Visit Route:</strong>
+          <%= @patient.patient_visit_route %>
       </h4>
       </p>
 
       <p class="my-5">
       <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
-      <strong class="block font-medium mb-1 mr-4">Phone:</strong>
-          <%= @patient.phone %>
+      <strong class="block font-medium mb-1 mr-4">Panorama:</strong>
+          <%= @patient.panorama ? "Yes" : "NO" %>
+      </h4>
+      </p>
+
+      <p class="my-5">
+      <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
+      <strong class="block font-medium mb-1 mr-4">Caries Check:</strong>
+          <%= @patient.caries_check ? "Yes" : "NO" %>
+      </h4>
+      </p>
+
+      <p class="my-5">
+      <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
+      <strong class="block font-medium mb-1 mr-4">Course:</strong>
+          <%= @patient.course %>
+      </h4>
+      </p>
+
+      <p class="my-5">
+      <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
+      <strong class="block font-medium mb-1 mr-4">P Course:</strong>
+          <%= @patient.p_course %>
+      </h4>
+      </p>
+
+      <p class="my-5">
+      <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
+      <strong class="block font-medium mb-1 mr-4">DR:</strong>
+          <%= @patient.dentist.first_name %>
+      </h4>
+      </p>
+
+      <p class="my-5">
+      <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
+      <strong class="block font-medium mb-1 mr-4">DH:</strong>
+          <%= @patient.dentist_hygienist.first_name %>
+      </h4>
+      </p>
+
+      <p class="my-5">
+      <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
+      <strong class="block font-medium mb-1 mr-4">TC:</strong>
+          <%= @patient.treatment_coordinator.first_name %>
+      </h4>
+      </p>
+
+      <p class="my-5">
+      <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
+      <strong class="block font-medium mb-1 mr-4">First Visit:</strong>
+          <%= @patient.visit_route.first_visit if @patient.visit_route %>
+      </h4>
+      </p>
+
+      <p class="my-5">
+      <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
+      <strong class="block font-medium mb-1 mr-4">Next Reservation:</strong>
+          <%= @patient.visit_route.next_reservation_date if @patient.visit_route %>
+      </h4>
+      </p>
+
+      <p class="my-5">
+      <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
+      <strong class="block font-medium mb-1 mr-4">Last Visit:</strong>
+          <%= @patient.last_visit_date %>
+      </h4>
+      </p>
+
+      <p class="my-5">
+      <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
+      <strong class="block font-medium mb-1 mr-4">Note:</strong>
+          <%= @patient.note %>
       </h4>
       </p>
 
