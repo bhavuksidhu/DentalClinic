@@ -4,37 +4,30 @@
 
       <p class="my-5">
       <h3 class="inline-flex px-6 py-4 text-sm text-gray-500">
-      <strong class="block font-medium mb-1 mr-4">First Name:</strong>
+      <strong class="block font-medium mb-1 mr-4"><%= t("patient.First Name") %>:</strong>
           <%= @patient.first_name %>
       </h3>
       </p>
 
       <p class="my-5">
       <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
-      <strong class="block font-medium mb-1 mr-4">Last Name:</strong>
+      <strong class="block font-medium mb-1 mr-4"><%= t("patient.Last Name") %>:</strong>
           <%= @patient.last_name %>
       </h4>
       </p>
 
       <p class="my-5">
       <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
-      <strong class="block font-medium mb-1 mr-4">Phone:</strong>
+      <strong class="block font-medium mb-1 mr-4"><%= t("patient.Phone Number")%>:</strong>
           <%= @patient.phone %>
       </h4>
       </p>
 
-      <p class="my-5">
-      <h4 class="inline-flex px-6 py-4 text-sm text-gray-500">
-      <strong class="block font-medium mb-1 mr-4">Phone:</strong>
-          <%= @patient.phone %>
-      </h4>
-      </p>
-
-      <%= link_to 'Edit this patient', edit_patient_path(@patient), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to t("patient.Edit This Patient"), edit_patient_path(@patient), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       <div class="inline-block ml-2">
-        <%= button_to 'Destroy this patient', patient_path(@patient), method: :delete, data: { confirm: "Are you sure?" }, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+        <%= button_to t("patient.Delete"), patient_path(@patient), method: :delete, data: { confirm: "Are you sure?" }, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
       </div>
-      <%= link_to 'Back to patients', patients_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to t("patient.Back"), patients_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     </div>
 
   <!-- 

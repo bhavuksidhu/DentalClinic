@@ -1,36 +1,36 @@
 <%= form_tag({:controller => "patients", :action => "index"}, {:method => :get, id: "advance-search"}) do %>
     <div class="md:grid md:grid-cols-4 gap-2 mb-5">
           
-        <%= label_tag :patient_number,nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
-        <%= search_field_tag :patient_number1, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Starting Number' %>
-        <%= search_field_tag :patient_number2, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Ending Number' %>
+        <%=t("patient.Patient Number") %>
+        <%= search_field_tag :patient_number1, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: t("patient.Starting Number")  %>
+        <%= search_field_tag :patient_number2, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: t("patient.Ending Number") %>
         <div class="col-span-1"></div>
 
-        <%= label_tag :patient_name, nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
-        <%= search_field_tag :patient_name, "", class:"md:col-span-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Search By Patient Name..' %>
+        <%= t("patient.Patient Name") %>
+        <%= search_field_tag :patient_name, "", class:"md:col-span-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: t("patient.Search by Patient Name") %>
         <div class="col-span-1"></div>
 
-        <%= label_tag :visit_route, nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
+        <%= t("patient.Visit Route") %>
         <%= select_tag :visit_route, options_for_select(""), class:"md:col-span-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Search By Patient Name..' %>
         <div class="col-span-1"></div>
         
-        <%= label_tag :panorama, nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700"  %>
+        <%= t("patient.Panorama") %>
         <div class: "mt-3 md:col-span-2 block text-sm font-medium text-gray-700">
             <%= check_box_tag :panorama  %>
         </div>
         <div class="col-span-2"></div>
 
-        <%= label_tag :caries_check, nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700"  %>
+        <%= t("patient.Caries Check")  %>
         <div class: "mt-3 md:col-span-2 block text-sm font-medium text-gray-700">
             <%= check_box_tag :caries_check,class: "mt-3 md:col-span-2 block text-sm font-medium text-gray-700" %>
         </div>
         <div class="col-span-2"></div>
 
-        <%= label_tag :dr, nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
+        <%= t("patient.Dr") %>
         <%= select_tag :dr, options_for_select(Dentist.pluck(:first_name,:id)), class:"md:col-span-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Search By Patient Name..' %>
         <div class="col-span-1"></div>
 
-        <%= label_tag :dh, nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
+        <%= t("patient.Dh") %>
         <%= select_tag :dh, options_for_select(DentistHygienist.pluck(:first_name,:id)), class:"md:col-span-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Search By Patient Name..' %>
         <div class="col-span-1"></div>
 
@@ -38,17 +38,17 @@
         <%= select_tag :tc, options_for_select(TreatmentCoordinator.pluck(:first_name,:id)), class:"md:col-span-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Search By Patient Name..' %>
         <div class="col-span-1"></div>
 
-          <%= label_tag "First Visit", nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
+          <%= t("patient.First Visit") %>
           <%= date_field_tag :first_visit1, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Starting Date' %>
           <%= date_field_tag :first_visit2, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Ending Date' %>
           <div class="col-span-1"></div>
             
-          <%= label_tag "Next Reservation", nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
+          <%= t("patient.Next Reservation") %>
           <%= date_field_tag :next_reservation1, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Starting Date' %>
           <%= date_field_tag :next_reservation2, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Ending Date' %>
 
           <div class="col-span-1"></div>
-          <%= label_tag "Last Visit Date", nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
+          <%= t("patient.Last Visit Date") %>
           <%= date_field_tag :last_visit1, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Starting Date' %>
           <%= date_field_tag :last_visit2, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Ending Date' %>
 

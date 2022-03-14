@@ -55,4 +55,18 @@ en:
   users:
     sign_in: "Sign In"
     logout: "Log Out"
+  patient: 
+    Search: "Search" 
+    Starting Number: "Starting Number"
+    Ending Number: "Ending Number" 
+    Search by Patient Name: "....Search by Patient Name"
+    Delete: "Delete"
+    Create Patient: "Create Patient"
+    Create New Appointment: "Create New Appointment"
+    Add Last Visit: "Add Last Visit"
+    Patient Name: "Patient Name"
+    First Name: "First Name"
+    Last Name: "Last Name"
+    Search Conditions: "Search Conditions"
+    Patient Number: "Patient Number"
   
