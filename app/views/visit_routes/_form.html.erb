@@ -117,14 +117,11 @@
       <div class="my-5">
       <%= form.label :first_visit , class:"mr-5"%>
       <%= form.date_field :first_visit,max: Date.today, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-      <% @visit_route.errors.full_messages_for(:first_visit).each do |message| %>
-        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
-      <% end %>
       </div>
 
       <div class="my-5">
       <%= form.label :second , class:"mr-5"%>
-      <%= form.date_field :second,max: Date.today, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= form.date_field :second, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
       
       <div class="my-5">
@@ -262,7 +259,7 @@
       <div class="my-5">
       <%= form.label :Next_reservation, class:"mr-5"%>
       <%= form.date_field :next_reservation_date,min: Date.today,class: "rounded-md border outline-none" %>
-      <% @visit_route.errors.full_messages_for(:next_reservation).each do |message| %>
+      <% @visit_route.errors.full_messages_for(:next_reservation_date).each do |message| %>
         <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
       <% end %>
       </div>
@@ -282,7 +279,7 @@
       <%= form.hidden_field :patient_number, value: @patient.patient_number %>
 
       <div class="inline">
-      <%= form.submit class: "submit-button rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+      <%= form.submit class:"submit-button rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
       </div>
     </div>
 <% end %>

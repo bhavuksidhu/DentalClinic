@@ -18,72 +18,112 @@
         <div class="my-5">
             <%= t("newuser.Email") %>
             <%= form.email_field :email, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+            <% @user.errors.full_messages_for(:email).each do |message| %>
+                <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+            <% end %>
         </div>
 
         <div class="my-5">
             <%= t("newuser.Password") %>
-            <%= form.password_field :password, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %> 
+            <%= form.password_field :password, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+            <% @user.errors.full_messages_for(:password).each do |message| %>
+                <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+            <% end %> 
         </div>
 
         <div class="my-5">
             <%= t("newuser.Password Confirmation") %>
             <%= form.password_field :password_confirmation, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+            <% @user.errors.full_messages_for(:password_confirmation).each do |message| %>
+                <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+            <% end %>
         </div>
 
         <div class="my-5">
             <%= t("newuser.Logo") %>
             <%= form.file_field :logo %>
+            <% @user.errors.full_messages_for(:logo).each do |message| %>
+                <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+            <% end %>
         </div>
 
         <div class="my-5">
             <%= t("newuser.Role") %>
             <%= form.select :role, User.roles.keys, {:include_blank => "Select"}, id: "role",class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
         </div>
+        
         <div id = "clinic-form"> 
             <%= form.fields_for :clinics do |f| %>
                 <div class="my-5">
                     <%= f.label :name %>
                     <%= f.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    <% @user.errors.full_messages_for(:name).each do |message| %>
+                        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+                    <% end %>
                 </div>
 
                 <div class="my-5">
                     <%= f.label :postal_code %>
                     <%= f.text_field :postal_code, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    <% @user.errors.full_messages_for(:postal_code).each do |message| %>
+                        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+                    <% end %>
                 </div>
 
                 <div class="my-5">
                     <%= f.label :region %>
                     <%= f.text_field :region, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    <% @user.errors.full_messages_for(:region).each do |message| %>
+                        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+                    <% end %>
                 </div>
 
                 <div class="my-5">
                     <%= f.label :address %>
                     <%= f.text_area :address, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    <% @user.errors.full_messages_for(:address).each do |message| %>
+                        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+                    <% end %>
                 </div>
 
                 <div class="my-5">
                     <%= f.label :municipalities %>
                     <%= f.text_field :municipalities, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    <% @user.errors.full_messages_for(:municipalities).each do |message| %>
+                        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+                    <% end %>
                 </div>
 
                 <div class="my-5">
                     <%= f.label :building_name %>
                     <%= f.text_field :building_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    <% @user.errors.full_messages_for(:building_name).each do |message| %>
+                        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+                    <% end %>
                 </div>
 
                 <div class="my-5">
                     <%= f.label :floors %>
                     <%= f.text_field :floors, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    <% @user.errors.full_messages_for(:floors).each do |message| %>
+                        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+                    <% end %>
                 </div>
 
                 <div class="my-5">
                     <%= f.label :fax_number %>
                     <%= f.text_field :fax_number, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    <% @user.errors.full_messages_for(:fax_number).each do |message| %>
+                        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+                    <% end %>
                 </div>
 
                 <div class="my-5">
                     <%= f.label :phone_number %>
                     <%= f.number_field :phone_number, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+                    <% @user.errors.full_messages_for(:phone_number).each do |message| %>
+                        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+                    <% end %>
                 </div>
 
             <% end %>

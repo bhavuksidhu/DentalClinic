@@ -19,13 +19,8 @@ class VisitRoutesController < ApplicationController
 
         if @visit_route.save
             redirect_to visit_routes_path,notice: "Visit Route Created Successfully!"
-<<<<<<< HEAD
-        else  
-            @patient=Patient.find(params[:visit_route][:patient_id])
-=======
         else 
             @patient = Patient.find(params[:visit_route][:patient_id])
->>>>>>> varun
             render :new 
         end 
     end 
