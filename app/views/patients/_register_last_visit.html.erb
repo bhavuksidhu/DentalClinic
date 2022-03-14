@@ -1,16 +1,16 @@
 <%= form_tag({:controller => "patients", :action => "create_last_visit"}, {:method => :post}) do %>
     <div class="md:grid md:grid-cols-7 gap-2 mb-5">              
-    <%= label_tag "Patient Number", nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
-    <%= search_field_tag :patient_number, "", class:"patient-number md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Starting Number' %>
+    <%= t("patient.Patient Number") %>
+    <%= search_field_tag :patient_number, "", class:"patient-number md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: t("patient.Starting Number") %>
 
-    <%= label_tag "Patient Name", nil,class: "ml-3 mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
-    <%= text_field_tag :patient_name, "",id: "patient-name", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Starting Date' %>
+    <%= t("patient.Patient Name") %>
+    <%= text_field_tag :patient_name, "",id: "patient-name", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: t("patient.Patient Name") %>
 
-    <%= label_tag "Last Visit", nil,class: "ml-3 mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
+    <%= t("patient.Last Visit") %>
     <%= date_field_tag :last_visit, "", max: Date.today, class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Starting Date' %>
     
     <div class="col-span-6"></div>
-    <%= submit_tag("Add Last Visit", :class=>"col-span-1 active items-center px-4 py-1 border border-transparent  font-small rounded-md shadow-xl text-white bg-cyan-600 hover:bg-cyan-700", :name=>"submit") %>
+    <%= submit_tag( t("patient.Add Last Visit"), :class=>"col-span-1 active items-center px-4 py-1 border border-transparent  font-small rounded-md shadow-xl text-white bg-cyan-600 hover:bg-cyan-700", :name=>"submit") %>
     </div>
 <% end %>
 <script>

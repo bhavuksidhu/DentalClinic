@@ -2,7 +2,7 @@ module VisitRoutesHelper
 
     def new_patient_progress(couns)
             @first_visit = 0
-            @no_of_patients = Patient.all.count 
+            @no_of_patients = Patient.all.group_by { |t| t.created_at.beginning_of_month }.count  
             @second_visit = 0
             @treat_plan = 0
             @maintainance = 0                
@@ -116,7 +116,34 @@ module VisitRoutesHelper
                             @fop_rate = @fop_rate.to_f/@no_of_patients.to_f 
                             @mt_tooth_number_rate = @mt_tooth_number.to_f/@no_of_patients.to_f
     
-                #    @total =  couns_data.counseling.first_visit.map{|item| item.first_visit}.reduce(0, :+).to_i
+                # total
+                    #  @first_visit_total = 0
+                    #  @second_visit_total = 0
+                    #  @treatment_plan_total = 0
+                  
+                        
+                    #   while couns_data.counseling.present?                    
+                    #     @first_visit_total += @first_visit_rate
+                    #     @second_visit_total += @second_visit
+                    #     @treatment_plan_total += @treat_plan 
+                    #   end   
+
+
+                # average
+                     
+                    #  @first_visit_aver = 0
+                    #  @second_visit_aver = 0                    
+                    #  i = 0
+                 
+                    #    unless couns_data.counseling.nil?
+                    #       i += 1
+                    #       @first_visit_aver += @first_visit
+                    #       @second_visit_aver += @second_visit
+
+                    #    end  
+                      
+                    # @first_visit_aver = @first_visit_aver/i
+                    # @second_visit_aver = @second_visit_aver/i
                  
       end
    end
