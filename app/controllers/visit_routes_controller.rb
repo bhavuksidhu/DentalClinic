@@ -19,8 +19,13 @@ class VisitRoutesController < ApplicationController
 
         if @visit_route.save
             redirect_to visit_routes_path,notice: "Visit Route Created Successfully!"
+<<<<<<< HEAD
+        else  
+            @patient=Patient.find(params[:visit_route][:patient_id])
+=======
         else 
             @patient = Patient.find(params[:visit_route][:patient_id])
+>>>>>>> varun
             render :new 
         end 
     end 
@@ -35,8 +40,8 @@ class VisitRoutesController < ApplicationController
         if @visit_route.update(visit_params)
             redirect_to visit_routes_path, notice: "Visit Route Successfully Updated!"
         else  
-            @patient = Patient.find(params[:visit_route][:patient_id])
-            render :edit
+            @patient=Patient.find(params[:visit_route][:patient_id])
+            render :edit, status: :unprocessable_entity
         end 
     end     
 
@@ -48,7 +53,11 @@ class VisitRoutesController < ApplicationController
 
 
     def new_patient_progress
-        @counselings = Counseling.all.group_by{ |t| t.created_at.beginning_of_month }
+        @counselings =  Patient.includes(:counseling, :visit_route).all.group_by{ |t| t.created_at.beginning_of_month }         
+    end
+
+    def new_patient_indi_progress
+        @counselings = Patient.includes(:counseling, :visit_route).all.group_by{ |t| t.created_at.beginning_of_month }
     end
 
     private 
