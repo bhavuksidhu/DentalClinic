@@ -16,8 +16,11 @@ class VisitRoutesController < ApplicationController
     
     def create 
         @visit_route = VisitRoute.new(visit_params)
-
+        @patient = Patient.find(params[:visit_route][:patient_id])
+        @patient.last_visit_date = params[:visit_route][:first_visit]
+        binding.pry
         if @visit_route.save
+            @patient.save 
             redirect_to visit_routes_path,notice: "Visit Route Created Successfully!"
         else 
             @patient = Patient.find(params[:visit_route][:patient_id])
