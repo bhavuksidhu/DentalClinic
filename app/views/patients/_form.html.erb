@@ -1,129 +1,142 @@
 <%= form_with(model: patient,class: "contents") do |form| %>
-    <% if patient.errors.any? %>
-      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-        <h2><%= pluralize(patient.errors.count, "error") %> <%= t("patient.prohibited this clinic from being saved") %></h2>
 
-        <ul>
-          <% patient.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
+
+    <fieldset class="border border-solid border-gray-300 p-3 mt-3">
+    <legend class="text-sm"><%= t("patient.Patient") %></legend>
+  
+        <div class="my-5">
+        <%= t("patient.Patient Number") %>
+        <%= form.number_field :patient_number, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+        <% patient.errors.full_messages_for(:patient_number).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% end %>
         </div>
-    <% end %> 
 
-    <div class="my-5">
-    <%= t("patient.First Name") %>
-    <%= form.text_field :first_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    <% patient.errors.full_messages_for(:first_name).each do |message| %>
-        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
-    <% end %>
-    </div>
+        <div class="my-5">
+        <%= t("patient.Patient Number") %>
+        <%= form.text_field :first_name, placeholder: t("patient.First Name"), class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+        <%= form.text_field :last_name, placeholder: t("patient.Last Name"), class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+        <% patient.errors.full_messages_for(:last_name).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% end %>
+        <% patient.errors.full_messages_for(:first_name).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% end %>
+        </div>
 
-    <div class="my-5">
-    <%= t("patient.Last Name") %>
-    <%= form.text_field :last_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    <% patient.errors.full_messages_for(:last_name).each do |message| %>
-        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
-    <% end %>
-    </div>
-
-    <div class="my-5">
-    <%= t("patient.Phone Number") %>
-    <%= form.text_field :phone, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    <% patient.errors.full_messages_for(:phone).each do |message| %>
-        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
-    <% end %>
-    </div>
+    </fieldset>
     
-    <div class="my-5">
-    <%= t("patient.Patient Number") %>
-    <%= form.number_field :patient_number, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    <% patient.errors.full_messages_for(:patient_number).each do |message| %>
-        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
-    <% end %>
-    </div>
+    
+    <fieldset class="border border-solid border-gray-300 p-3 mt-3">
+    <legend class="text-sm"><%= t("patient.Visit Route") %></legend>
+    
+        <div class="my-5">
+        <%= t("patient.Visit Route") %>
+        <%= form.text_field :patient_visit_route, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+        <% patient.errors.full_messages_for(:patient_visit_route).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% end %>
+        </div>
 
-    <div class="my-5">
-    <%= t("patient.Patient Visit Route") %>
-    <%= form.text_field :patient_visit_route, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    <% patient.errors.full_messages_for(:patient_visit_route).each do |message| %>
-        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
-    <% end %>
-    </div>
+        <div class="my-5">
+        <%= t("patient.Keyword") %>
+        <%= form.text_field :keyword, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+        <% patient.errors.full_messages_for(:keyword).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% end %>
+        </div>
+    
+    </fieldset>
 
-    <div class="my-5">
-    <%= t("patient.Keyword") %>
-    <%= form.text_field :keyword, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    <% patient.errors.full_messages_for(:keyword).each do |message| %>
-        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
-    <% end %>
-    </div>
 
-    <div class="my-5">
-    <%= t("patient.Panorama") %>
-    <%= form.check_box :panorama %>
-    <% patient.errors.full_messages_for(:panorama).each do |message| %>
-        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
-    <% end %>
-    </div>
+    <fieldset class="border border-solid border-gray-300 p-3 mt-3">
+    <legend class="text-sm"><%= t("patient.Check") %></legend>
+    
+        <div class="my-5">
+        <%= t("patient.Panorama") %>
+        <%= form.check_box :panorama %>
+        <% patient.errors.full_messages_for(:panorama).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% end %>
+        </div>
 
-    <div class="my-5">
-    <%= t("patient.Caries Check") %>
-    <%= form.check_box :caries_check %>
-    <% patient.errors.full_messages_for(:caries_check).each do |message| %>
-        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
-    <% end %>
-    </div>
+        <div class="my-5">
+        <%= t("patient.Caries Check") %>
+        <%= form.check_box :caries_check %>
+        <% patient.errors.full_messages_for(:caries_check).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% end %>
+        </div>
+    
+    </fieldset>
 
-    <div class="my-5">
-    <%= t("patient.Course") %>
-    <%= form.text_field :course, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    <% patient.errors.full_messages_for(:course).each do |message| %>
-        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
-    <% end %>
-    </div>
 
-    <div class="my-5">
-    <%= t("patient.P Course") %>
-    <%= form.text_field :p_course, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    <% patient.errors.full_messages_for(:p_course).each do |message| %>
-        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
-    <% end %>
-    </div>
+    <fieldset class="border border-solid border-gray-300 p-3 mt-3">
+    <legend class="text-sm"><%= t("patient.Course") %></legend>
+   
+        <div class="my-5">
+        <%= t("patient.Course") %>
+        <%= form.text_field :course, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+        <% patient.errors.full_messages_for(:course).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% end %>
+        </div>
 
-    <div class="my-5">
-    <%= t("patient.Note") %>
-    <%= form.text_area :note, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    <% patient.errors.full_messages_for(:note).each do |message| %>
-        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
-    <% end %>
-    </div>
+        <div class="my-5">
+        <%= t("patient.P Course") %>
+        <%= form.text_field :p_course, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+        <% patient.errors.full_messages_for(:p_course).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% end %>
+        </div>
+    
+    </fieldset>
 
-    <div class="my-5">
-    <%= t("patient.Dentist") %>
-    <%= form.select :dentist_id, Dentist.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    <% patient.errors.full_messages_for(:dentist).each do |message| %>
-        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
-    <% end %>
-    </div>
 
-    <div class="my-5">
-    <%= t("patient.Dentist Hygienist") %>
-    <%= form.select :dentist_hygienist_id, DentistHygienist.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"},class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    <% patient.errors.full_messages_for(:dentist_hygienist).each do |message| %>
-        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
-    <% end %>
-    </div>
+    <fieldset class="border border-solid border-gray-300 p-3 mt-3">
+    <legend class="text-sm"><%= t("patient.Responsible Person") %></legend>
+    
+        <div class="my-5">
+        <%= t("patient.Dr") %>
+        <%= form.select :dentist_id, Dentist.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"}, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <% patient.errors.full_messages_for(:dentist).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% end %>
+        </div>
 
-    <div class="my-5">
-    <%= t("patient.Treatment Coordinator") %>
-    <%= form.select :treatment_coordinator_id, TreatmentCoordinator.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    <% patient.errors.full_messages_for(:treatment_coordinator).each do |message| %>
-        <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
-    <% end %>
-    </div>
+        <div class="my-5">
+        <%= t("patient.Dh") %>
+        <%= form.select :dentist_hygienist_id, DentistHygienist.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"},class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <% patient.errors.full_messages_for(:dentist_hygienist).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="my-5">
+        <%= form.label :TC, class: "mr-5" %>
+        <%= form.select :treatment_coordinator_id, TreatmentCoordinator.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <% patient.errors.full_messages_for(:treatment_coordinator).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% end %>
+        </div>
+    
+    </fieldset>
+
+    <fieldset class="border border-solid border-gray-300 p-3 mt-3">
+    <legend class="text-sm"><%= t("patient.Note") %></legend>
+
+        <div class="my-5">
+        <%= t("patient.Note") %>
+        <%= form.text_area :note, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <% patient.errors.full_messages_for(:note).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% end %>
+        </div>
+
+    </fieldset>
+
 
     <div class="inline">
-    <%= form.submit t("patient.Create Patient"), class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit t("patient.Create Patient"), class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer my-5" %>
     </div>
 <% end %>

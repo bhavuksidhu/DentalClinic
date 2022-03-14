@@ -13,54 +13,68 @@
               <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                   <tr>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">N0</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Patient Number") %></th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.First Name") %></th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Last Name") %></th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Patient Name") %></th>
+                    
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Visit Route") %></th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Dentist") %></th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Dentist Hygienist") %></th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Treatment Coordinator") %></th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Dr") %></th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Dh") %></th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">TC</th>
+
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Panorama") %></th>
+
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Caries Check") %></th>
+
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Course") %></th>
+
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.P Course") %></th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.First Visit") %></th>                    
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Next Treatment") %></th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Last Treatment") %></th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.First Visit") %></th>                     
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Next Reservation Date") %></th>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Last Visit Date") %></th>
+
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= t("patient.Note") %></th>
+
                     <th scope="col" class="relative px-6 py-3">
                         <span class="sr-only">Edit</span>
                       </th>
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    <% @patients.each do |patient| %>
-                  <tr>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= patient.patient_number %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= patient.first_name %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.last_name %></td>
+                  <% @patients.each do |patient| %>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= @patient_no + 1 %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= patient.patient_number %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= patient.full_name %></td>
 
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.patient_visit_route %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.patient_visit_route %></td>
 
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.dentist.first_name %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.dentist_hygienist.first_name %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.treatment_coordinator.first_name %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.dentist.first_name %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.dentist_hygienist.first_name %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.treatment_coordinator.first_name %></td>
 
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.panorama ? "Yes" : "NO" %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.caries_check ? "Yes" : "NO" %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.panorama ? "Yes" : "NO" %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.caries_check ? "Yes" : "NO" %></td>
 
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.course %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.p_course %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.course %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.p_course %></td>
 
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.visit_route.first_visit if patient.visit_route %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.visit_route.next_reservation_date if patient.visit_route%></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.last_visit_date %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.note %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.visit_route.first_visit if patient.visit_route %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.visit_route.next_reservation_date if patient.visit_route%></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.last_visit_date %></td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= patient.note %></td>
 
-                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <%= link_to t("patient.View"), patient_path(patient.id), class:"inline-flex items-center px-4 py-2 border border-cyan-300 shadow-sm text-sm font-medium rounded-md text-white bg-cyan-500 hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" %>
-                      </td>
-                  </tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                          <%= link_to t("patient.View"), patient_path(patient.id), class:"inline-flex items-center px-4 py-2 border border-cyan-300 shadow-sm text-sm font-medium rounded-md text-white bg-cyan-500 hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" %>
+                        </td>
+                    </tr>
+                    <% @patient_no += 1 %>
                   <% end %>
                     <!-- More people... -->
                 </tbody>
@@ -112,3 +126,6 @@ $("#advance-search-button").on("click",function(){
 })
 
 </script>
+
+
+
