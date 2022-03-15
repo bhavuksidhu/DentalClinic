@@ -7,7 +7,7 @@ class VisitRoutesController < ApplicationController
         
         # Pagination
         @pagy = pagy(@patients)   
-
+        @patient_no = 0
     end 
     
     def new 
