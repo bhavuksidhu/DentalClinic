@@ -76,7 +76,7 @@
    
         <div class="my-5">
         <%= form.label :course, class: "mr-5" %>
-        <%= form.text_field :course, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+        <%= form.select :course, (1..10).map{|r|["Course"+r.to_s]}, {:include_blank => "Select"}, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-40" %>
         <% patient.errors.full_messages_for(:course).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>
@@ -84,7 +84,7 @@
 
         <div class="my-5">
         <%= form.label :p_course, class: "mr-5" %>
-        <%= form.text_field :p_course, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+        <%= form.select :p_course, (1..10).map{|r|["P Course"+r.to_s]}, {:include_blank => "Select"}, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-40" %>
         <% patient.errors.full_messages_for(:p_course).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>
@@ -98,7 +98,7 @@
     
         <div class="my-5">
         <%= form.label :DR, class: "mr-5" %>
-        <%= form.select :dentist_id, Dentist.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"}, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <%= form.select :dentist_id, Dentist.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"}, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-40" %>
         <% patient.errors.full_messages_for(:dentist).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>
@@ -106,7 +106,7 @@
 
         <div class="my-5">
         <%= form.label :DH, class: "mr-5" %>
-        <%= form.select :dentist_hygienist_id, DentistHygienist.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"},class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <%= form.select :dentist_hygienist_id, DentistHygienist.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"},class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-40" %>
         <% patient.errors.full_messages_for(:dentist_hygienist).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>
@@ -114,7 +114,7 @@
 
         <div class="my-5">
         <%= form.label :TC, class: "mr-5" %>
-        <%= form.select :treatment_coordinator_id, TreatmentCoordinator.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <%= form.select :treatment_coordinator_id, TreatmentCoordinator.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"}, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-40" %>
         <% patient.errors.full_messages_for(:treatment_coordinator).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>
