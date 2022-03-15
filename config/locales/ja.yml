@@ -272,6 +272,7 @@ ja:
     New Appointment!: "新しい任命！"
     Create Visit Route First!: "最初に訪問ルートを作成してください！"
     Successfully Created!: "正常に作成されました！"
+    Reset: "リセット"
   activerecord:
     errors:
       messages:
