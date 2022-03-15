@@ -54,7 +54,7 @@ en:
     Delete: "Delete"
   users:
     sign_in: "Sign In"
-    logout: "Log Out"
+    Log Out: "Log Out"
   patient: 
     Search: "Search" 
     Starting Number: "Starting Number"
@@ -69,6 +69,11 @@ en:
     Last Name: "Last Name"
     Search Conditions: "Search Conditions"
     Patient Number: "Patient Number"
+    Patient Number Is Not Available!: "Patient Number Is Not Available!"
+    Last Visit Date Updated!: "Last Visit Date Updated!"
+    New Appointment: "New Appointment"
+    Create Visit Route First!: "Create Visit Route First!"
+    Successfully Created!: "Successfully Created!"
   errors:
     # The default format to use in full error messages.
     format: "%{attribute} %{message}"

@@ -1,7 +1,7 @@
 ja:
   users:
     sign_in: "ログイン"
-    log_out: "ログアウト"
+    Log Out: "ログアウト"
   admin:
     Dashboard: "ダッシュボード"
     Users Management: "ユーザー管理"
@@ -267,6 +267,11 @@ ja:
     Check: "小切手"
     Responsible Person: "担当者"
     Search Conditions: "検索条件"
+    Patient Number Is Not Available!: "患者番号は利用できません！"
+    Last Visit Date Updated!: "最終訪問日が更新されました！"
+    New Appointment!: "新しい任命！"
+    Create Visit Route First!: "最初に訪問ルートを作成してください！"
+    Successfully Created!: "正常に作成されました！"
   activerecord:
     errors:
       messages:
