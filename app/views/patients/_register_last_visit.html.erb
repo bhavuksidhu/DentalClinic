@@ -1,7 +1,7 @@
 <%= form_tag({:controller => "patients", :action => "create_last_visit"}, {:method => :post}) do %>
     <div class="md:grid md:grid-cols-7 gap-2 mb-5">              
     <%= t("patient.Patient Number") %>
-    <%= search_field_tag :patient_number, "", class:"patient-number md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: t("patient.Starting Number") %>
+    <%= search_field_tag :patient_number, "", class:"patient-number md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: t("patient.Patient Number") %>
 
     <%= t("patient.Patient Name") %>
     <%= text_field_tag :patient_name, "",id: "patient-name", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: t("patient.Patient Name") %>

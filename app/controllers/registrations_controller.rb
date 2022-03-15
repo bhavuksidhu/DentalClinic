@@ -14,7 +14,7 @@ class RegistrationsController < ApplicationController
 
     def new 
         @user = User.new 
-        @user.clinics.build
+        @user.build_clinic
     end 
 
     def create 
@@ -68,6 +68,6 @@ class RegistrationsController < ApplicationController
         end 
 
         def params_clinic_user 
-            params.require(:user).permit(:email, :password, :password_confirmation, :role, :logo, clinics_attributes: [:id, :name, :postal_code, :region, :address, :municipalities, :building_name, :floors, :fax_number, :phone_number])
+            params.require(:user).permit(:email, :password, :password_confirmation, :role, :logo, clinic_attributes: [:id, :name, :postal_code, :region, :address, :municipalities, :building_name, :floors, :fax_number, :phone_number])
         end 
 end

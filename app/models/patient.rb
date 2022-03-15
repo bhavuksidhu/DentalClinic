@@ -3,6 +3,7 @@ class Patient < ApplicationRecord
     belongs_to :dentist 
     belongs_to :dentist_hygienist
     belongs_to :treatment_coordinator
+    belongs_to :clinic
     has_one :visit_route
     has_one :counseling
     

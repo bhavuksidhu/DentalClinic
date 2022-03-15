@@ -5,8 +5,8 @@ class User < ApplicationRecord
   attribute :current_password
   has_one_attached :logo, dependent: :destroy
 
-  has_many :clinics
-  accepts_nested_attributes_for :clinics 
+  has_one :clinic
+  accepts_nested_attributes_for :clinic
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, :masqueradable

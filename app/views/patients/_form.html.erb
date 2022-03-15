@@ -76,7 +76,7 @@
    
         <div class="my-5">
         <%= t("patient.Course") %>
-        <%= form.text_field :course, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+        <%= form.select :course, (1..10).map{|r|["Course"+r.to_s]}, {:include_blank => "Select"}, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-40" %>
         <% patient.errors.full_messages_for(:course).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>
@@ -84,7 +84,7 @@
 
         <div class="my-5">
         <%= t("patient.P Course") %>
-        <%= form.text_field :p_course, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+        <%= form.select :p_course, (1..10).map{|r|["P Course"+r.to_s]}, {:include_blank => "Select"}, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-40" %>
         <% patient.errors.full_messages_for(:p_course).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>

@@ -1,13 +1,12 @@
 class PatientsController < ApplicationController
   layout "dashboard"
-
+  
   def index
-    # OPTIMIZE includes  
-    # binding.pry
-    @patients = SearchFilter.new(params).search_filter.includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route)
+    clinic_id = current_user.clinic.id 
+    @patients = SearchFilter.new(params,clinic_id).search_filter.includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route)
     # Pagination
     @pagy = pagy(@patients)
-    @patients = @patients.order('created_at DESC')
+    @patients = @patients.reverse
     @patient_no = 0
   end
 
@@ -27,11 +26,11 @@ class PatientsController < ApplicationController
   end
 
   def create 
-    if current_user.clinics.present?
+    if current_user.clinic.present?
       @patient = Patient.new(patient_params)
       @patient.first_name = params[:patient][:first_name].titleize
       @patient.last_name = params[:patient][:last_name].titleize 
-      @patient.clinic_id = current_user.clinics.first.id 
+      @patient.clinic_id = current_user.clinic.id 
       if @patient.save 
         redirect_to patients_path, notice: "Patient #{@patient.first_name} Successfully Created!"
       else  
@@ -44,7 +43,8 @@ class PatientsController < ApplicationController
 
   # All Appointments List 
   def all_appointment 
-    @patients = SearchFilter.new(params).search_filter.includes(:visit_route).order('created_at DESC')
+    clinic_id = current_user.clinic.id 
+    @patients = SearchFilter.new(params,clinic_id).search_filter.includes(:visit_route).order('created_at DESC')
 
     # Pagination
     @pagy = pagy(@patients)
@@ -66,7 +66,8 @@ class PatientsController < ApplicationController
 
   # Last Visits List
   def last_visit 
-    @patients = SearchFilter.new(params).search_filter.order('updated_at DESC') 
+    clinic_id = current_user.clinic.id 
+    @patients = SearchFilter.new(params,clinic_id).search_filter.order('updated_at DESC') 
     @pagy = pagy(@patients) # Pagination
     @patient_no = 0
   end 
