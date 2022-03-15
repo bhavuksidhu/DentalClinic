@@ -13,9 +13,9 @@
         </div>
 
         <div class="my-5">
-        <%= t("patient.Patient Number") %>
-        <%= form.text_field :first_name, placeholder: t("patient.First Name"), class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
-        <%= form.text_field :last_name, placeholder: t("patient.Last Name"), class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+        <%= t("patient.Patient Name") %>
+        <%= form.text_field :first_name, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+        <%= form.text_field :last_name, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
         <% patient.errors.full_messages_for(:last_name).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>
@@ -97,7 +97,7 @@
     <legend class="text-sm"><%= t("patient.Responsible Person") %></legend>
     
         <div class="my-5">
-        <%= t("patient.Dr") %>
+        DR
         <%= form.select :dentist_id, Dentist.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"}, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
         <% patient.errors.full_messages_for(:dentist).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
@@ -105,7 +105,7 @@
         </div>
 
         <div class="my-5">
-        <%= t("patient.Dh") %>
+        DH
         <%= form.select :dentist_hygienist_id, DentistHygienist.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"},class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
         <% patient.errors.full_messages_for(:dentist_hygienist).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
@@ -113,7 +113,7 @@
         </div>
 
         <div class="my-5">
-        <%= form.label :TC, class: "mr-5" %>
+        TC
         <%= form.select :treatment_coordinator_id, TreatmentCoordinator.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
         <% patient.errors.full_messages_for(:treatment_coordinator).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
