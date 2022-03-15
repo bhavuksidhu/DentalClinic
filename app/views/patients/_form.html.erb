@@ -32,7 +32,7 @@
     
         <div class="my-5">
         <%= t("patient.Visit Route") %>
-        <%= form.text_field :patient_visit_route, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+        <%= form.select :patient_visit_route, (1..10).map{|r|["Visit Route"+r.to_s]}, {:include_blank => "Select"}, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-40" %>
         <% patient.errors.full_messages_for(:patient_visit_route).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>
