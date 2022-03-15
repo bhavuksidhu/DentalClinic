@@ -55,12 +55,12 @@ class PatientsController < ApplicationController
     patient = Patient.find_by(patient_number: params[:patient_number].to_i)
     if patient.present?  
         unless patient.visit_route.present?
-          redirect_to all_appointment_patients_path, alert: "Create Visit Route First!"
+          redirect_to all_appointment_patients_path, alert: t("patient.Create Visit Route First!")
         else  
-          redirect_to all_appointment_patients_path, notice: "New Appointment!" if patient.visit_route.update(next_reservation_date: params[:next_reservation])
+          redirect_to all_appointment_patients_path, notice: t("patient.New Appointment!") if patient.visit_route.update(next_reservation_date: params[:next_reservation])
         end 
     else 
-        redirect_to all_appointment_patients_path, alert: "Patient Number Is Not Available!"
+        redirect_to all_appointment_patients_path, alert: t("patient.Patient Number Is Not Available!")
     end 
   end 
 
@@ -76,9 +76,9 @@ class PatientsController < ApplicationController
     patient = Patient.find_by(patient_number: params[:patient_number].to_i)
     if patient.present? && params[:last_visit].present? && params[:last_visit].to_date <= Date.today  
         patient.update(last_visit_date: params[:last_visit])  
-        redirect_to last_visit_patients_path, notice: "Last Visit Date Updated!"
+        redirect_to last_visit_patients_path, notice: t("patient.Last Visit Date Updated!")
     else  
-        redirect_to last_visit_patients_path, alert: "Patient Number Is Not Available!"
+        redirect_to last_visit_patients_path, alert: t("patient.Patient Number Is Not Available!")
     end 
   end 
 

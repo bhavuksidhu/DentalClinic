@@ -54,7 +54,7 @@ en:
     Delete: "Delete"
   users:
     sign_in: "Sign In"
-    logout: "Log Out"
+    Log Out: "Log Out"
   patient: 
     Search: "Search" 
     Starting Number: "Starting Number"
@@ -62,11 +62,25 @@ en:
     Search by Patient Name: "....Search by Patient Name"
     Delete: "Delete"
     Create Patient: "Create Patient"
-    Create New Appointment: "Create New Appointment"
+    New Appointment: "New Appointment"
     Add Last Visit: "Add Last Visit"
     Patient Name: "Patient Name"
     First Name: "First Name"
     Last Name: "Last Name"
     Search Conditions: "Search Conditions"
     Patient Number: "Patient Number"
+    Patient Number Is Not Available!: "Patient Number Is Not Available!"
+    Last Visit Date Updated!: "Last Visit Date Updated!"
+    New Appointment: "New Appointment"
+    Create Visit Route First!: "Create Visit Route First!"
+    Successfully Created!: "Successfully Created!"
+  errors:
+    # The default format to use in full error messages.
+    format: "%{attribute} %{message}"
+
+    # The values :model, :attribute and :value are always available for interpolation
+    # The value :count is available when applicable. Can be used for pluralization.
+    messages:
+      blank: "can't be blank"
+      must exist: "must exist"
   

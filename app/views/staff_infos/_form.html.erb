@@ -1,4 +1,5 @@
 <%= form_with(model: staff_info, class: "contents") do |form| %>
+
   <% if staff_info.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(staff_info.errors.count, "error") %> prohibited this staff_info from being saved:</h2>
