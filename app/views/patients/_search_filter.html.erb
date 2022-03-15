@@ -25,8 +25,12 @@
             <%= date_field_tag :last_visit1, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Starting Date' %>
             <%= date_field_tag :last_visit2, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Ending Date' %>
 
-            <div class="col-span-6"></div>
-            <%= submit_tag("Search", :id=>"button", :class=>"col-span-1 active items-center px-4 py-1 border border-transparent  font-small rounded-md shadow-xl text-white bg-cyan-600 hover:bg-cyan-700", :name=>"submit") %>
+            <div class="col-span-5"></div>
+            <%= submit_tag("Search", :id=>"button", :class=>"col-span-1 active items-center text-center py-1 border-2 border-transparent  font-small rounded-md shadow-xl text-white bg-cyan-600 hover:bg-cyan-700", :name=>"submit") %>
+            <%= link_to "Reset", "/#{params[:controller]}/#{params[:action]}", class: "col-span-1 active items-center text-center py-1 border-2 border-transparent  font-small rounded-md shadow-xl text-white bg-red-500 hover:bg-red-700" unless params[:action] == "index" %>
+
+            <%= link_to "Reset", patients_path, class: "col-span-1 active items-center text-center py-1 border-2 border-transparent  font-small rounded-md shadow-xl text-white bg-red-500 hover:bg-red-700" if params[:action] == "index" %>
+            
           </div>
       </fieldset>
 <% end %>
