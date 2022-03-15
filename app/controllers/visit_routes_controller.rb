@@ -2,7 +2,8 @@ class VisitRoutesController < ApplicationController
     layout "dashboard"
     def index 
         # OPTIMIZE includes 
-        @patients = Visitroute::SearchFilter.new(params).search_filter.includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route)
+        clinic_id = current_user.clinic.id 
+        @patients = Visitroute::SearchFilter.new(params,clinic_id).search_filter.includes(:dentist,:dentist_hygienist,:treatment_coordinator,:visit_route)
         
         # Pagination
         @pagy = pagy(@patients)   

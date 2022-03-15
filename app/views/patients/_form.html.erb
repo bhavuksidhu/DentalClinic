@@ -14,8 +14,8 @@
 
         <div class="my-5">
         <%= form.label :Paitent_name, class: "mr-5" %>
-        <%= form.text_field :first_name, placeholder: "First Name", class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
-        <%= form.text_field :last_name, placeholder: "Last Name", class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+        <%= form.text_field :first_name, placeholder: "ファーストネーム", class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
+        <%= form.text_field :last_name, placeholder: "苗字", class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
         <% patient.errors.full_messages_for(:last_name).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>
