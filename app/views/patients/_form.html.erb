@@ -1,14 +1,11 @@
 <%= form_with(model: patient,class: "contents") do |form| %>
-
-
     <fieldset class="border border-solid border-gray-300 p-3 mt-3">
-    <legend class="text-sm"><%= t("patient.Patient") %></legend>
-  
+     <legend class="text-sm"><%= t("patient.Patient") %></legend>  
         <div class="my-5">
         <%= t("patient.Patient Number") %>
         <%= form.number_field :patient_number, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
-        <% patient.errors.full_messages_for(:patient_number).each do |message| %>
-            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% patient.errors.messages_for(:patient_number).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= t("patient.Patient Number") %> <%= t('errors.messages.blank') %></div>
         <% end %>
         </div>
 
@@ -16,11 +13,11 @@
         <%= t("patient.Patient Name") %>
         <%= form.text_field :first_name, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
         <%= form.text_field :last_name, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
-        <% patient.errors.full_messages_for(:last_name).each do |message| %>
-            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% patient.errors.messages_for(:first_name).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= t("patient.First Name") %>  <%= t('errors.messages.blank') %></div>
         <% end %>
-        <% patient.errors.full_messages_for(:first_name).each do |message| %>
-            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% patient.errors.messages_for(:last_name).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= t("patient.Last Name") %>  <%= t('errors.messages.blank') %></div>
         <% end %>
         </div>
 
@@ -33,7 +30,7 @@
         <div class="my-5">
         <%= t("patient.Visit Route") %>
         <%= form.text_field :patient_visit_route, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
-        <% patient.errors.full_messages_for(:patient_visit_route).each do |message| %>
+        <% patient.errors.messages_for(:patient_visit_route).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>
         </div>
@@ -41,7 +38,7 @@
         <div class="my-5">
         <%= t("patient.Keyword") %>
         <%= form.text_field :keyword, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
-        <% patient.errors.full_messages_for(:keyword).each do |message| %>
+        <% patient.errors.messages_for(:keyword).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>
         </div>
@@ -55,7 +52,7 @@
         <div class="my-5">
         <%= t("patient.Panorama") %>
         <%= form.check_box :panorama %>
-        <% patient.errors.full_messages_for(:panorama).each do |message| %>
+        <% patient.errors.messages_for(:panorama).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>
         </div>
@@ -63,7 +60,7 @@
         <div class="my-5">
         <%= t("patient.Caries Check") %>
         <%= form.check_box :caries_check %>
-        <% patient.errors.full_messages_for(:caries_check).each do |message| %>
+        <% patient.errors.messages_for(:caries_check).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>
         </div>
@@ -77,7 +74,7 @@
         <div class="my-5">
         <%= t("patient.Course") %>
         <%= form.text_field :course, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
-        <% patient.errors.full_messages_for(:course).each do |message| %>
+        <% patient.errors.messages_for(:course).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>
         </div>
@@ -85,7 +82,7 @@
         <div class="my-5">
         <%= t("patient.P Course") %>
         <%= form.text_field :p_course, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2" %>
-        <% patient.errors.full_messages_for(:p_course).each do |message| %>
+        <% patient.errors.messages_for(:p_course).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>
         </div>
@@ -99,24 +96,24 @@
         <div class="my-5">
         DR
         <%= form.select :dentist_id, Dentist.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"}, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-        <% patient.errors.full_messages_for(:dentist).each do |message| %>
-            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% patient.errors.messages_for(:dentist).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= t("patient.DR") %>  <%= t('errors.messages.must exist') %></div>
         <% end %>
         </div>
 
         <div class="my-5">
         DH
         <%= form.select :dentist_hygienist_id, DentistHygienist.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"},class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-        <% patient.errors.full_messages_for(:dentist_hygienist).each do |message| %>
-            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% patient.errors.messages_for(:dentist_hygienist).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= t("patient.DH") %>  <%= t('errors.messages.must exist') %></div>
         <% end %>
         </div>
 
         <div class="my-5">
         TC
         <%= form.select :treatment_coordinator_id, TreatmentCoordinator.all.map{|r|[r.first_name, r.id]}, {:include_blank => "Select"}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-        <% patient.errors.full_messages_for(:treatment_coordinator).each do |message| %>
-            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
+        <% patient.errors.messages_for(:treatment_coordinator).each do |message| %>
+            <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">TC <%= t('errors.messages.must exist') %></div>
         <% end %>
         </div>
     
@@ -128,7 +125,7 @@
         <div class="my-5">
         <%= t("patient.Note") %>
         <%= form.text_area :note, class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-        <% patient.errors.full_messages_for(:note).each do |message| %>
+        <% patient.errors.messages_for(:note).each do |message| %>
             <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"><%= message %></div>
         <% end %>
         </div>

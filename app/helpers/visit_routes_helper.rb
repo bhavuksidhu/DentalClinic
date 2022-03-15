@@ -114,6 +114,7 @@ module VisitRoutesHelper
                             @p_heavy_defense_calculation_date_rate = @p_heavy_defense_calculation_date.to_f/@p_heavy_defense_target.to_f
                             @inspection_4mm_rate = @inspection_4mm.to_f/@no_of_patients.to_f
                             @fop_rate = @fop_rate.to_f/@no_of_patients.to_f 
+                            @suspension_rate = @suspension.to_f/@no_of_patients.to_f
                             @mt_tooth_number_rate = @mt_tooth_number.to_f/@no_of_patients.to_f
     
                 # total

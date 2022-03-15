@@ -252,8 +252,8 @@ ja:
     Patient Visit Route: "患者訪問ルート"
     Keyword: "キーワード"
     Advance Search: "高度な検索"
-    Dr: "博士"
-    Dh: "つまり"
+    DR: "博士"
+    DH: "つまり"
     Cancel: "キャンセル"
     Clear: "クリア"
     Edit Patient: "患者を編集する"
@@ -267,4 +267,13 @@ ja:
     Check: "小切手"
     Responsible Person: "担当者"
     Search Conditions: "検索条件"
-      
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'バリデーションに失敗しました: %{errors}'
+  errors:
+    format: '%{attribute}%{message}'
+    messages:
+      # You should also include translations for other ActiveRecord errors such as "empty", "taken", etc.
+      blank: '空白にすることはできません' 
+      must exist: "存在する必要があります"
