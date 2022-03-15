@@ -44,7 +44,7 @@ module Visitroute
 
             elsif @params[:patient_name].present? # Search by Name 
                 
-                @patients = Patient.where(clinic_id: @clinic_id,).where("first_name like :s or last_name like :s or first_name || ' ' || last_name like :s", :s => "%#{@params[:patient_name].titleize}")
+                @patients = Patient.where(clinic_id: @clinic_id,).where("first_name like :s or last_name like :s or first_name || ' ' || last_name like :s", :s => "%#{@params[:patient_name].titleize}%")
 
             else  
                 
