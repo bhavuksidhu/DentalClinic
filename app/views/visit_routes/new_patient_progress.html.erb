@@ -99,12 +99,12 @@
                               </tr>           
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
-                             <% @counselings.each do |couns| %>
+                            <% @counselings.each do |couns| %>
                                 <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= couns.first.strftime("%Y-%m")  %></td>
                                   <% new_patient_progress(couns) %>
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @first_visit       %></td>
-                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients    %></td>
+                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= couns[1].count    %></td>
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @first_visit_rate  %></td>
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @no_of_patients    %></td>
                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=  @second_visit_rate %></td>
