@@ -1,40 +1,48 @@
 <%= form_tag({:controller => "visit_routes", :action => "index"}, {:method => :get}) do %>
+
+      <fieldset class="border border-solid border-gray-300 rounded p-2 mt-3 mb-2">
+      <legend class="text-sm text-white text-bold text-md rounded-md border-2 border-green px-8 py-1 h-8 bg-cyan-600">Search Conditions</legend>
       <div class="md:grid md:grid-cols-7 gap-2 mb-5">          
          <%= label_tag "Patient Number", nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
-         <%= search_field_tag :patient_number1, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Starting Number' %>
-         <%= search_field_tag :patient_number2, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Ending Number' %>
+         <%= search_field_tag :patient_number1, "",value: params[:patient_number1], class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Starting Number' %>
+         <%= search_field_tag :patient_number2, "",value: params[:patient_number2], class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Ending Number' %>
                 
          <div class="col-span-1"></div>
          <%= label_tag "First Visit", nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
-         <%= date_field_tag :first_visit1, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Starting Date' %>
-         <%= date_field_tag :first_visit2, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Ending Date' %>
+         <%= date_field_tag :first_visit1, "",value: params[:first_visit1], class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Starting Date' %>
+         <%= date_field_tag :first_visit2, "",value: params[:first_visit2], class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Ending Date' %>
 
          <%= label_tag "Patient Name", nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
-         <%= search_field_tag :patient_name, "", class:"md:col-span-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Search By Patient Name..' %>
-
+         <%= search_field_tag :patient_name, "",value: params[:patient_name], class:"md:col-span-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Search By Patient Name..' %>
+         
+         <div class="col-span-1"></div>
          <%= label_tag "Visit Route", nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
-         <%= search_field_tag :visit_route, "", class:"md:col-span-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Search By Visit Route..' %>
+         <%= search_field_tag :visit_route, "",value: params[:visit_route], class:"md:col-span-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Search By Visit Route..' %>
 
          <%= label_tag "Dentist", nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
-         <%= search_field_tag :dr, "", class:"md:col-span-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Search By Dentist..' %>
-
+         <%= search_field_tag :dr, "",value: params[:dr], class:"md:col-span-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Search By Dentist..' %>
+         
+         <div class="col-span-1"></div>
          <%= label_tag "Dentist Hygienist", nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
-         <%= search_field_tag :dh, "", class:"md:col-span-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Search By Dentist Hygienist..' %>
+         <%= search_field_tag :dh, "",value: params[:dh], class:"md:col-span-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Search By Dentist Hygienist..' %>
 
          <%= label_tag "Treatment Coordinator", nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
-         <%= search_field_tag :tc, "", class:"md:col-span-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Search By Treatment Coordinator..' %>
+         <%= search_field_tag :tc, "",value: params[:tc], class:"md:col-span-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Search By Treatment Coordinator..' %>
 
          <div class="col-span-1"></div>
          <%= label_tag "Second", nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
-         <%= date_field_tag :second_reservation1, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Starting Date' %>
-         <%= date_field_tag :second_reservation2, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Ending Date' %>
+         <%= date_field_tag :second_reservation1, "",value: params[:second_reservation1], class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Starting Date' %>
+         <%= date_field_tag :second_reservation2, "",value: params[:second_reservation2], class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Ending Date' %>
 
          <div class="col-span-4"></div>
          <%= label_tag "Treatment_Plan", nil,class: "mt-3 md:col-span-1 block text-sm font-medium text-gray-700" %>
-         <%= date_field_tag :treatment1, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Starting Date' %>
-         <%= date_field_tag :treatment2, "", class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Ending Date' %>
+         <%= date_field_tag :treatment1, "",value: params[:treatment1], class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Starting Date' %>
+         <%= date_field_tag :treatment2, "",value: params[:treatment2], class:"md:col-span-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",placeholder: 'Enter Ending Date' %>
 
-         <div class="col-span-6"></div>
+         <div class="col-span-5"></div>
          <%= submit_tag("Search", :id=>"button", :class=>"col-span-1 active items-center px-4 py-1 border border-transparent  font-small rounded-md shadow-xl text-white bg-cyan-600 hover:bg-cyan-700", :name=>"submit") %>
+
+         <%= link_to "Reset", visit_routes_path, class: "col-span-1 active items-center text-center py-1 border-2 border-transparent  font-small rounded-md shadow-xl text-white bg-red-500 hover:bg-red-700"%>
       </div>
+      </fieldset>
 <% end %>
