@@ -31,7 +31,7 @@
                     </th>
                   </tr>
                 </thead>
-                <% unless @aggregation_basic_information.length == 0 %>
+                <% unless @aggregation_basic_information.nil? %>
                     <tbody class="bg-white divide-y divide-gray-200">
                     <% @aggregation_basic_information.each do |aggregation_basic_information| %>
                         <tr>
